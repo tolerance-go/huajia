@@ -31,7 +31,16 @@ Admin {
         Heading "Recent Activities"
         Table {
           Header ["Timestamp", "User", "Action"]
-          Row ["2024-06-03 12:00", "admin", "Logged in"]
+          Row ["2024-06-03 12:00", "admin", "Logged in"] false {
+            name: 'sdfsdf'
+          } @interface {
+            click: 'sldfj'
+          } @network {
+            url: 'asldjflasjdf'
+          } @css {
+            color: 'red'
+            background: 'blue'
+          }
           Row ["2024-06-03 12:05", "user123", "Updated profile"]
           Row ["2024-06-03 12:10", "user456", "Logged out"]
         }
