@@ -1,0 +1,26 @@
+{
+  "scopeName": "huajia.dsl",
+  "patterns": [
+    {
+      "name": "keyword.control.dsl",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?=\\s*\\{)"
+    },
+    {
+      "name": "string.quoted.double.dsl",
+      "match": "\"([^\"\\\\]|\\\\.)*\""
+    },
+    {
+      "name": "constant.numeric.dsl",
+      "match": "\\b\\d+\\b"
+    },
+    {
+      "name": "punctuation.separator.key-value.dsl",
+      "match": ":"
+    },
+    {
+      "name": "entity.other.attribute-name.dsl",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?=\\s*:)"
+    }
+  ],
+  "repository": {}
+}

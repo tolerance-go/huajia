@@ -8,6 +8,7 @@ dist-images/
 build/
 out/
 *.tsbuildinfo
+.vscode-test/
 
 # 日志文件
 npm-debug.log*
@@ -16,7 +17,6 @@ yarn-error.log*
 
 # 编辑器目录和文件
 .idea/
-.vscode/
 *.swp
 *.swo
 

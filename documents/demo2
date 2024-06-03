@@ -1,0 +1,129 @@
+好的，这里是一个更复杂的示例，展示如何使用这个自定义DSL来描述一个包含多个页面的Admin界面。这个示例将涵盖多个页面，如仪表盘、用户管理、设置等。
+
+### Admin DSL 示例
+
+```plaintext
+Admin {
+  Title "Admin Interface"
+  
+  Page "Dashboard" {
+    Title "Dashboard"
+    Header {
+      Logo "admin_logo.png"
+      Nav {
+        Link "Dashboard" "dashboard.html"
+        Link "Users" "users.html"
+        Link "Settings" "settings.html"
+        Link "Logout" "logout.html"
+      }
+    }
+    Main {
+      Section {
+        Heading "Overview"
+        Paragraph "Welcome to the admin dashboard. Here you can find an overview of the system status."
+        Stats {
+          Stat "Users" "1500"
+          Stat "Active Sessions" "300"
+          Stat "Errors" "5"
+        }
+      }
+      Section {
+        Heading "Recent Activities"
+        Table {
+          Header ["Timestamp", "User", "Action"]
+          Row ["2024-06-03 12:00", "admin", "Logged in"]
+          Row ["2024-06-03 12:05", "user123", "Updated profile"]
+          Row ["2024-06-03 12:10", "user456", "Logged out"]
+        }
+      }
+    }
+    Footer {
+      Text "© 2024 Admin Interface"
+    }
+  }
+  
+  Page "Users" {
+    Title "User Management"
+    Header {
+      Logo "admin_logo.png"
+      Nav {
+        Link "Dashboard" "dashboard.html"
+        Link "Users" "users.html"
+        Link "Settings" "settings.html"
+        Link "Logout" "logout.html"
+      }
+    }
+    Main {
+      Section {
+        Heading "User List"
+        Table {
+          Header ["User ID", "Name", "Email", "Role"]
+          Row ["1", "John Doe", "john@example.com", "Admin"]
+          Row ["2", "Jane Smith", "jane@example.com", "User"]
+          Row ["3", "Mike Brown", "mike@example.com", "Moderator"]
+        }
+      }
+      Section {
+        Heading "Add New User"
+        Form {
+          Input "text" "Name"
+          Input "email" "Email"
+          Select "Role" ["Admin", "User", "Moderator"]
+          Button "Submit"
+        }
+      }
+    }
+    Footer {
+      Text "© 2024 Admin Interface"
+    }
+  }
+  
+  Page "Settings" {
+    Title "Settings"
+    Header {
+      Logo "admin_logo.png"
+      Nav {
+        Link "Dashboard" "dashboard.html"
+        Link "Users" "users.html"
+        Link "Settings" "settings.html"
+        Link "Logout" "logout.html"
+      }
+    }
+    Main {
+      Section {
+        Heading "General Settings"
+        Form {
+          Input "text" "Site Name" { value: "Admin Interface" }
+          Input "email" "Admin Email" { value: "admin@example.com" }
+          Button "Save Changes"
+        }
+      }
+      Section {
+        Heading "Security Settings"
+        Form {
+          Checkbox "Enable Two-Factor Authentication"
+          Checkbox "Require SSL for all connections"
+          Button "Save Changes"
+        }
+      }
+    }
+    Footer {
+      Text "© 2024 Admin Interface"
+    }
+  }
+}
+```
+
+### 解释
+
+1. **Admin**：顶级块表示整个Admin界面。
+2. **Page**：每个页面的定义，包括仪表盘、用户管理和设置页面。
+3. **Header**：所有页面共享的头部导航，包含logo和导航链接。
+4. **Main**：每个页面的主要内容区域，包含不同的Section。
+5. **Section**：页面中的各个部分，包括标题、段落、表格、表单等。
+6. **Stats**、**Table**、**Form**、**Input**、**Select**、**Button**、**Checkbox**：用于具体描述界面元素的DSL组件。
+7. **Footer**：所有页面共享的底部信息。
+
+### 总结
+
+这个复杂的示例展示了如何使用DSL来描述一个完整的Admin界面，包括多个页面和各种常见的UI元素。通过这种结构化的方式，可以清晰地定义每个页面的内容和布局，使得界面描述直观且易于维护。
