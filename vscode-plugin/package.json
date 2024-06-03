@@ -40,7 +40,7 @@
     ]
   },
   "scripts": {
-    "compile:ne": "nearleyc --typescript src/dsl.ne -o lib/dsl.js",
+    "compile:ne": "nearleyc src/dsl.ne -o lib/dsl.js",
     "vscode:prepublish": "pnpm run package",
     "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
     "watch": "npm-run-all -p watch:*",

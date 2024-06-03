@@ -28,9 +28,10 @@ var grammar = {
         (elements) => ({ type: 'Root', elements }) // 返回页面对象，包含所有元素
         },
     {"name": "ElementList$ebnf$1", "symbols": []},
-    {"name": "ElementList$ebnf$1", "symbols": ["ElementList$ebnf$1", "Element"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ElementList$ebnf$1$subexpression$1", "symbols": ["Element", "_"]},
+    {"name": "ElementList$ebnf$1", "symbols": ["ElementList$ebnf$1", "ElementList$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "ElementList", "symbols": ["ElementList$ebnf$1"], "postprocess": 
-        (elements) => elements // 返回元素数组
+        (elements) => elements.filter(e => e[0]) // 返回元素数组
         },
     {"name": "Element$ebnf$1", "symbols": ["ElementValues"], "postprocess": id},
     {"name": "Element$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},

@@ -27,8 +27,8 @@ Root -> _ ElementList _ {%
 %}
 
 # 元素列表，包含零个或多个元素
-ElementList -> Element:* {%
-    (elements) => elements // 返回元素数组
+ElementList -> (Element _):* {%
+    (elements) => elements.filter(e => e[0]) // 返回元素数组
 %}
 
 # 元素规则，匹配元素名称及其属性
