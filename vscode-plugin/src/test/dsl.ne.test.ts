@@ -18,11 +18,22 @@ suite("DSL Formatter Test Suite", () => {
 
     // 输出解析结果
     if (parser.results.length > 1) {
-      console.error("Error: Ambiguous grammar detected!");
+      assert.fail("Error: Ambiguous grammar detected!");
     } else if (parser.results.length === 0) {
-      console.error("Error: No parse results!");
+      assert.fail("Error: No parse results!");
     } else {
-      console.log(JSON.stringify(parser.results[0], null, 2));
+      const result = parser.results[0];
+
+      // 示例断言：检查解析结果的结构
+      assert.strictEqual(result.type, "Root");
+      assert.strictEqual(Array.isArray(result.elements), true);
+
+      // 进一步的断言可以根据具体的解析结果进行
+      // 例如，检查第一个元素的类型
+      assert.strictEqual(result.elements[0].type, "Title");
+      assert.strictEqual(result.elements[0].values[0], "Styled Page Example");
+
+      console.log(JSON.stringify(result, null, 2));
     }
   });
 });

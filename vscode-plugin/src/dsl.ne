@@ -22,13 +22,13 @@ let lexer = moo.compile({
 @lexer lexer
 
 # 入口规则，表示整个页面
-Root -> _ ElementList _ {%
-    (elements) => ({ type: 'Root', elements }) // 返回页面对象，包含所有元素
+Root -> _ ElementList _ newline:* {%
+    (elements, newlines) => ({ type: 'Root', elements, newlines }) // 返回页面对象，包含所有元素和换行符
 %}
 
 # 元素列表，包含零个或多个元素
-ElementList -> (Element _):* {%
-    (elements) => elements.filter(e => e[0]) // 返回元素数组
+ElementList -> (Element _ newline:? _):* {%
+    (elements) => elements.filter(e => e[0]).map(e => e[0]) // 过滤掉未定义的元素并返回元素数组
 %}
 
 # 元素规则，匹配元素名称及其属性
