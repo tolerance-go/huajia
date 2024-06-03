@@ -1,0 +1,42 @@
+{
+  "name": "@huajia/server",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run add-ext",
+    "add-ext": "babel ./dist --out-dir ./dist --extensions \".js\"",
+    "start": "nodemon start.ts",
+    "server": "pm2 start dist/server.js --node-args='--experimental-specifier-resolution=node' --name huajia-app",
+    "//": "http://localhost:3000/render?component=Button&props[label]=Click%20me&props[color]=blue",
+    "//table": "http://localhost:3000/render?component=Table&props[data][0][key]=1&props[data][0][name]=John&props[data][0][age]=32&props[data][0][address]=New%20York"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/static": "^7.0.4",
+    "antd": "^5.17.4",
+    "fastify": "^4.27.0",
+    "qs": "^6.12.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.6",
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-react": "^7.24.6",
+    "@babel/register": "^7.24.6",
+    "@types/babel__register": "^7.17.3",
+    "@types/node": "^20.14.0",
+    "@types/qs": "^6.9.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "babel-plugin-import": "^1.13.8",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "nodemon": "^3.1.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5"
+  }
+}
