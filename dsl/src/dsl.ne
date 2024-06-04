@@ -13,8 +13,7 @@ const lexer = moo.compile({
   rbrack: ']', // 匹配右方括号
   colon: ':', // 匹配冒号
   comma: ',', // 匹配逗号
-  atcss: '@css', // 匹配 @css 修饰符
-  atconfig: '@config', // 匹配 @config 修饰符
+  atconfig: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
   newline: { match: /\n/, lineBreaks: true }, // 匹配换行符，并处理行中断
   comment: /\/\/.*?$/, // 匹配单行注释
   word: /[a-zA-Z]+/, // 匹配任意英文单词

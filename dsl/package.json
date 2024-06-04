@@ -1,0 +1,28 @@
+{
+  "name": "dsl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/dsl.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "nearleyc src/dsl.ne -o lib/dsl.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moo": "^0.5.2",
+    "nearley": "^2.20.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/nearley": "^2.11.5",
+    "@types/node": "^20.12.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.4",
+    "typescript": "^5.4.5"
+  }
+}
