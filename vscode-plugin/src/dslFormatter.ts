@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import nearley from "nearley";
-import grammar, { Element, Root } from "@huajia/dsl";
+import grammar, { Element, Root, Value } from "@huajia/dsl";
 
 export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
   provideDocumentFormattingEdits(
@@ -59,7 +59,9 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
         formattedText +=
           " " +
           node.values
-            .map((val) => (typeof val === "string" ? `"${val}"` : val))
+            .map((val) => {
+              return this.formatValueItem(val);
+            })
             .join(" ");
       }
       node.settings.forEach((setting) => {
@@ -85,5 +87,17 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
     }
 
     return formattedText;
+  }
+
+  private formatValueItem(value: Value): string | number | boolean {
+    if (Array.isArray(value)) {
+      return `[${value.map((item) => this.formatValueItem(item)).join(", ")}]`;
+    }
+
+    if (typeof value === "string") {
+      return `"${value}"`;
+    }
+
+    return value;
   }
 }

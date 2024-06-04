@@ -12,7 +12,9 @@ export type Element = {
   children: Element[];
 };
 
-export type Value = string | number | boolean;
+export type Value = ArrayValue | string | number | boolean;
+
+export type ArrayValue = Value[]
 
 export type Attrs = {
   [key: string]: string;

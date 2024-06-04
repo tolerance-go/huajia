@@ -137,4 +137,44 @@ describe("基础测试", () => {
 }
 `);
   });
+
+  it("嵌套类型", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root {
+   Element [100, true, 'string', [100, true, 'string']] 'value2' 100 true
+ }
+`;
+
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [
+    {
+      "children": [],
+      "name": "Element",
+      "settings": [],
+      "type": "Element",
+      "values": [
+        [
+          100,
+          true,
+          "string",
+          [
+            100,
+            true,
+            "string",
+          ],
+        ],
+        "value2",
+        100,
+        true,
+      ],
+    },
+  ],
+  "name": "Root",
+  "type": "Root",
+}
+`);
+  });
 });
