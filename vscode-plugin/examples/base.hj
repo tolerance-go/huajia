@@ -1,0 +1,11 @@
+Root {
+  Element "value1" 'value2' 100 true @config {
+    attr: "attr"
+    other: 'other'
+  } {}
+  Element @config {
+    attr: 'attr2'
+  } {
+    Element "value2" {}
+  }
+}

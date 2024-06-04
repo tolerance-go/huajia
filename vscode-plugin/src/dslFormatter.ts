@@ -1,4 +1,6 @@
 import * as vscode from "vscode";
+import nearley from "nearley";
+import grammar, { Element, Root } from "@huajia/dsl";
 
 export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
   provideDocumentFormattingEdits(
@@ -13,42 +15,66 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
     return [vscode.TextEdit.replace(entireRange, formattedText)];
   }
 
-  public compactText(text: string): string {
-    return text.replace(/\s+/g, "");
-  }
-
   public formatText(text: string): string {
-    let formattedText = this.formatWithIndentation(this.compactText(text));
-    return formattedText;
+    // 创建一个解析器实例
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    try {
+      // 解析输入
+      parser.feed(text);
+
+      // 获取解析结果
+      const parsedResult = parser.results[0];
+
+      // 格式化解析结果
+      return this.formatParsedResult(parsedResult, 0);
+    } catch (error) {
+      console.error("Error parsing the text:", error);
+      return text; // 返回原始文本，以防解析失败
+    }
   }
 
-  // Method to handle indentation
-  public formatWithIndentation(text: string): string {
-    let indentLevel = 0;
-    const indentSize = 2;
+  private formatParsedResult(
+    node: Root | Element,
+    indentLevel: number
+  ): string {
+    const tabIndent = "  ";
+    const indent = tabIndent.repeat(indentLevel);
     let formattedText = "";
-    const addIndentation = () => " ".repeat(indentLevel * indentSize);
 
-    for (let i = 0; i < text.length; i++) {
-      const char = text[i];
-
-      if (char === "{") {
-        indentLevel++;
-        formattedText += " {\n" + addIndentation();
-      } else if (char === "}") {
-        indentLevel--;
-        formattedText += "\n" + addIndentation() + "}";
-      } else {
-        formattedText += char;
+    if (node.type === "Root") {
+      formattedText += `${indent}${node.name} {\n`;
+      node.children.forEach((child) => {
+        formattedText += this.formatParsedResult(child, indentLevel + 1);
+      });
+      formattedText += `${indent}}\n`;
+    } else if (node.type === "Element") {
+      formattedText += `${indent}${node.name}`;
+      if (node.values.length > 0) {
+        formattedText += " " + node.values.join(" ");
       }
-
-      if (i < text.length - 1 && text[i + 1] === "{") {
-        formattedText += "\n" + addIndentation();
-      } else if (i < text.length - 1 && text[i + 1] === "}") {
-        formattedText += "\n" + addIndentation();
+      node.settings.forEach((setting) => {
+        if (Object.keys(setting[1]).length > 0) {
+          formattedText += ` ${setting[0]} {\n`;
+          Object.entries(setting[1]).forEach(([key, value]) => {
+            formattedText += `${indent}${tabIndent}${key}: ${value}\n`;
+          });
+          formattedText += `${indent}}`;
+        } else {
+          formattedText += ` ${setting[0]} {}`;
+        }
+      });
+      if (node.children.length > 0) {
+        formattedText += " {\n";
+        node.children.forEach((child) => {
+          formattedText += this.formatParsedResult(child, indentLevel + 1);
+        });
+        formattedText += `${indent}}\n`;
+      } else {
+        formattedText += " {}\n";
       }
     }
 
-    return formattedText.trim();
+    return formattedText;
   }
 }

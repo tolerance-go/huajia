@@ -1,13 +1,13 @@
 import nearley from "nearley";
 import grammar from "../lib/dsl.js";
 
-describe("getMajorVersion", () => {
-  it("should return the major version from a full version string", () => {
+describe("dsl test", () => {
+  it("base", () => {
     // 创建一个解析器实例
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
     // 要测试的 DSL 输入
-    const input = `Root { 
+    const input = `Root {
    Element "value1" 'value2' 100 true @config {
      attr: "attr"
      other: 'other'
@@ -66,6 +66,24 @@ describe("getMajorVersion", () => {
       "values": [],
     },
   ],
+  "name": "Root",
+  "type": "Root",
+}
+`);
+  });
+
+  it("测试换行\\r\\n", () => {
+    // 创建一个解析器实例
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    // 要测试的 DSL 输入
+    const input = `Root {\r\n}\r\n`;
+
+    // 解析输入
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [],
   "name": "Root",
   "type": "Root",
 }

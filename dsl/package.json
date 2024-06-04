@@ -1,6 +1,6 @@
 {
-  "name": "dsl",
-  "version": "1.0.0",
+  "name": "@huajia/dsl",
+  "version": "0.0.0",
   "description": "",
   "main": "lib/dsl.js",
   "files": [
