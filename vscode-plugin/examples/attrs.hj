@@ -1,35 +1,48 @@
-Page {
-  Title "Styled Page Example"
-  Header {
-    Logo "styled_logo.png" @config { alt: "Company Logo", width: "100px" }
-    Nav {
-      Link "Home" "index.html" @config { target: "_self" }
-      Link "Blog" "blog.html" @config { target: "_blank" }
-      Link "About Us" "about.html" @config { target: "_self" }
-      Link "Contact" "contact.html" @config { target: "_self" }
-    }
-  }
-  Main {
-    Section {
-      Heading "Welcome to the Styled Page" @config { style: "color: blue; font-size: 24px;" }
-      Paragraph "This page includes styled elements using our custom DSL." @config { style: "font-style: italic;" }
-      Image "styled_welcome.jpg" @config { alt: "Welcome Image", width: "600px" }
-    }
-    Section {
-      Heading "Services Overview" @config { style: "color: green;" }
-      Paragraph "We provide a variety of services tailored to your needs." @config { style: "color: gray;" }
-      List {
-        Item "Consulting" @config { style: "font-weight: bold;" }
-        Item "Development" @config { style: "font-weight: bold;" }
-        Item "Support" @config { style: "font-weight: bold;" }
+Root {
+  Page {
+    Title "Styled Page Example"
+    Header {
+      Logo "styled_logo.png" @config {
+        alt: "Company Logo"
+        width: "100px"
+      }
+      Nav {
+        Link "Home" "index.html" @config {
+          target: "_self"
+        }
+        Link "Blog" "blog.html" @config {
+          target: "_blank"
+        }
+        Link "About Us" "about.html" @config {
+          target: "_self"
+        }
+        Link "Contact" "contact.html" @config {
+          target: "_self"
+        }
       }
     }
-  }
-  Footer {
-    Text "© 2024 Styled Website" @config { style: "text-align: center; padding: 10px;" }
-    Links {
-      Link "Privacy Policy" "privacy.html" @config { style: "margin-right: 10px;" }
-      Link "Terms of Service" "terms.html" @config { style: "margin-left: 10px;" }
+    Main {
+      Section {
+        Heading "Welcome to the Styled Page" @config {
+          color: 'blue'
+          size: '24px'
+        }
+        Paragraph "This page includes styled elements using our custom DSL." @config {
+          style: 'italic'
+        }
+        Image "styled_welcome.jpg" @config {
+          alt: "Welcome Image"
+          width: "600px"
+        }
+      }
+      Section {
+        Heading "Services Overview" @config {
+          color: 'green'
+        }
+        Paragraph "We provide a variety of services tailored to your needs." @config {
+          color: 'gray'
+        }
+      }
     }
   }
 }

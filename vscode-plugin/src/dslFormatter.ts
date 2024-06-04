@@ -51,12 +51,16 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
         });
         formattedText += `${indent}}\n`;
       } else {
-        formattedText += " {}\n";
+        formattedText += "\n";
       }
     } else if (node.type === "Element") {
       formattedText += `${indent}${node.name}`;
       if (node.values.length > 0) {
-        formattedText += " " + node.values.join(" ");
+        formattedText +=
+          " " +
+          node.values
+            .map((val) => (typeof val === "string" ? `"${val}"` : val))
+            .join(" ");
       }
       node.settings.forEach((setting) => {
         if (Object.keys(setting[1]).length > 0) {
@@ -76,7 +80,7 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
         });
         formattedText += `${indent}}\n`;
       } else {
-        formattedText += " {}\n";
+        formattedText += "\n";
       }
     }
 

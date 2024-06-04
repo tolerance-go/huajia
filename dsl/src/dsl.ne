@@ -55,7 +55,7 @@ Values -> (_ Value):* {%
   (data) => {
     const values = [];
     for (let i = 0; i < data[0].length; i++) {
-      values.push(data[0][i][1][0].value);
+      values.push(data[0][i][1][0]);
     }
     return values
   } 
@@ -83,18 +83,23 @@ Attr -> %word _ ":" _ %string _ {%
 %}
 
 # 这里有个 bug，如果直接在 Value 序列化，Values 中的 Value 只处理了最后一个项
-Value -> ArrayValue | %string | %number | %boolean
+# 修改后的 Value 支持递归数组
+Value -> ArrayValue | String | Number | Boolean
+
+String -> %string {% (data) => data[0].value.slice(1, -1) %}  # 去掉引号
+Number -> %number {% (data) => parseFloat(data[0].value) %}   # 转换为数字
+Boolean -> %boolean {% (data) => data[0].value === "true" %}  # 转换为布尔值
 
 ArrayValue -> "[" _ (Value (_ "," _ Value):*):? _ "]" {% 
   (data) => {
     const values = [];
     if (data[2]) {
-      values.push(data[2][0][0].value);
+      values.push(data[2][0][0]);
       for (let i = 0; i < data[2][1].length; i++) {
-        values.push(data[2][1][i][3][0].value);
+        values.push(data[2][1][i][3][0]);
       }
     }
-    return { value: values };
+    return values;
   }
 %}
 

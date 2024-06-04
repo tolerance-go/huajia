@@ -1,4 +1,5 @@
-Page {
+Root {
+  Page {
   Title "Advanced Page Example"
   Header {
     Logo "advanced_logo.png"
@@ -65,4 +66,5 @@ Page {
       Link "Terms of Service" "terms.html"
     }
   }
+}
 }

@@ -6,11 +6,22 @@ suite("DSL Formatter Test Suite", () => {
   vscode.window.showInformationMessage("Start all tests.");
 
   test("Format DSL code compactText", async () => {
-    const cases = [[`Root { }`, `Root {}\n`]];
+    const cases = [
+      ["空子集", `Root { }`, `Root\n`],
+      [
+        "values 的字符串",
+        `Root {
+  Element "value1" 'value2' 100 true
+}`,
+        `Root {
+  Element "value1" "value2" 100 true
+}\n`,
+      ],
+    ];
 
     const dslFormatter = new DSLFormatter();
 
-    cases.forEach(([initialText, expectedFormattedText]) => {
+    cases.forEach(([_, initialText, expectedFormattedText]) => {
       const formattedText = dslFormatter.formatText(initialText);
 
       assert.strictEqual(formattedText, expectedFormattedText);
