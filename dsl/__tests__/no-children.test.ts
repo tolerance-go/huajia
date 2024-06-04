@@ -2,10 +2,10 @@ import nearley from "nearley";
 import grammar from "../lib/dsl.js";
 
 describe("省略 children", () => {
-  it("只有 Root", () => {
+  it("Root 禁止省略 {}", () => {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
-    const input = `Root`;
+    const input = `Root {}`;
 
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`

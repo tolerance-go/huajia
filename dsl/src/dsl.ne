@@ -33,20 +33,21 @@ Root -> _ "Root" _ Children _ {%
   } 
 %}
 
-Children -> (%lbrace _ Element:* %rbrace):? {% 
+Children -> %lbrace _ Element:* %rbrace {% 
   (data) => {
-    return data[0] ? data[0][2] : []
+    return data[2]
   } 
 %}
 
-Element -> %component Values Settings _ Children _ {% 
+# 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
+Element -> %component Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
     return {
       type: "Element",
       name: data[0].value,
       values: data[1],
       settings: data[2],
-      children: data[4],
+      children: /[ \t\r\n]+/.test(data[4][0].value) ? [] : data[4][0] ,
     };
   } 
 %}

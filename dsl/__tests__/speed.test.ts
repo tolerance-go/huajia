@@ -6,43 +6,45 @@ describe("速度测试", () => {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
     const input = `Root {
-        Main {
-            Section {
-              Heading "Welcome to the Advanced Page"
-              Paragraph "This is an advanced example of a page created using our custom DSL."
-              Image "advanced_welcome.jpg"
-            }
-            Section {
-              Heading "Welcome to the Advanced Page"
-              Paragraph "This is an advanced example of a page created using our custom DSL."
-              Image "advanced_welcome.jpg" {
-                Section {
-                    Heading "Welcome to the Advanced Page"
-                    Paragraph "This is an advanced example of a page created using our custom DSL."
-                    Image "advanced_welcome.jpg"
-                  }
-                  Section {
-                    Heading "Welcome to the Advanced Page"
-                    Paragraph "This is an advanced example of a page created using our custom DSL."
-                    Image "advanced_welcome.jpg"
-                  }
-                  Section {
-                    Heading "Welcome to the Advanced Page"
-                    Paragraph "This is an advanced example of a page created using our custom DSL."
-                    Image "advanced_welcome.jpg"
-                  }
-              }
-            }
-            Section {
+      Section {
+        Heading "Welcome to the Advanced Page"
+        Paragraph "This is an advanced example of a page created using our custom DSL."
+        Image "advanced_welcome.jpg" {
+          Section {
+            Heading "Welcome to the Advanced Page"
+            Paragraph "This is an advanced example of a page created using our custom DSL."
+            Image "advanced_welcome.jpg" {
+              Section {
                 Heading "Welcome to the Advanced Page"
                 Paragraph "This is an advanced example of a page created using our custom DSL."
-                Image "advanced_welcome.jpg"
+                Image "advanced_welcome.jpg" {
+                  Section {
+                    Heading "Welcome to the Advanced Page"
+                    Paragraph "This is an advanced example of a page created using our custom DSL."
+                    Image "advanced_welcome.jpg" {
+                      Section {
+                        Heading "Welcome to the Advanced Page"
+                        Paragraph "This is an advanced example of a page created using our custom DSL."
+                        Image "advanced_welcome.jpg" {
+                          Section {
+                            Heading "Welcome to the Advanced Page"
+                            Paragraph "This is an advanced example of a page created using our custom DSL."
+                            Image "advanced_welcome.jpg" {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
+            }
           }
+        }
       }
+}
 `;
 
     parser.feed(input);
-    expect(parser.results.length).toMatchInlineSnapshot(`131072`);
+    expect(parser.results.length).toMatchInlineSnapshot(`1`);
   });
 });
