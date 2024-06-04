@@ -5,36 +5,39 @@ import { DSLFormatter } from "../dslFormatter";
 suite("DSL Formatter Test Suite", () => {
   vscode.window.showInformationMessage("Start all tests.");
 
-//   test("Format DSL code compactText", async () => {
-//     const initialText = `Admin {
-//   Title "Admin Interface"
-  
-//   Page "Dashboard" {
-//         Title "Dashboard"
-//      Header {
-//       Logo "admin_logo.png" {  alt: "Company Logo", width: "100px" }
-//     }
-//   }
-// }`;
+  test("Format DSL code compactText", async () => {
+    const initialText = `Root {
+  Element  "value1" 'value2' 100 true @config {
+    attr:  "attr"
+    other: 'other'
 
-//     const expectedFormattedText = `Admin{Title"AdminInterface"Page"Dashboard"{Title"Dashboard"Header{Logo"admin_logo.png"{alt:"CompanyLogo",width:"100px"}}}}`;
+  } {
+    
+  }
+  Element @config {
+    attr: 'attr2'
+  } {
+    Element "value2" {}
+  }
+}
+`;
 
-//     const dslFormatter = new DSLFormatter();
-//     const formattedText = dslFormatter.compactText(initialText);
+    const expectedFormattedText = `Root {
+  Element "value1" 'value2' 100 true @config {
+    attr: "attr"
+    other: 'other'
+  } {}
+  Element @config {
+    attr: 'attr2'
+  } {
+    Element "value2" {}
+  }
+}
+`;
 
-//     assert.strictEqual(formattedText, expectedFormattedText);
-//   });
+    const dslFormatter = new DSLFormatter();
+    const formattedText = dslFormatter.formatText(initialText);
 
-//   test("Format DSL code formatWithIndentation", async () => {
-//     const initialText = `Admin{Title"AdminInterface"}`;
-
-//     const expectedFormattedText = `Admin {
-//   Title "AdminInterface"
-// }`;
-
-//     const dslFormatter = new DSLFormatter();
-//     const formattedText = dslFormatter.formatWithIndentation(initialText);
-
-//     assert.strictEqual(formattedText, expectedFormattedText);
-//   });
+    assert.strictEqual(formattedText, expectedFormattedText);
+  });
 });

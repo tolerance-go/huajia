@@ -2,24 +2,36 @@
   "scopeName": "huajia.dsl",
   "patterns": [
     {
-      "name": "keyword.control.dsl",
-      "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?=\\s*\\{)"
-    },
-    {
       "name": "string.quoted.double.dsl",
       "match": "\"([^\"\\\\]|\\\\.)*\""
+    },
+    {
+      "name": "string.quoted.single.dsl",
+      "match": "'([^'\\\\]|\\\\.)*'"
     },
     {
       "name": "constant.numeric.dsl",
       "match": "\\b\\d+\\b"
     },
     {
-      "name": "punctuation.separator.key-value.dsl",
-      "match": ":"
+      "name": "constant.language.boolean.dsl",
+      "match": "\\b(true|false)\\b"
     },
     {
       "name": "entity.other.attribute-name.dsl",
       "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?=\\s*:)"
+    },
+    {
+      "name": "punctuation.separator.key-value.dsl",
+      "match": ":"
+    },
+    {
+      "name": "keyword.control.entity.dsl",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+    },
+    {
+      "name": "keyword.control.config.dsl",
+      "match": "@[A-Za-z0-9_]+"
     }
   ],
   "repository": {}
