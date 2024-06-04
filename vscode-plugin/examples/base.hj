@@ -1,4 +1,5 @@
 Root {
+  Title "Styled Page Example"
   Element "value1" 'value2' 100 true @config {
     attr: "attr"
     other: 'other'

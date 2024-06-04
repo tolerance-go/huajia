@@ -2,23 +2,17 @@ import nearley from "nearley";
 import grammar from "../lib/dsl.js";
 
 describe("dsl test", () => {
-  it("base", () => {
-    // 创建一个解析器实例
+  it("同时存在 values 和 settings", () => {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
-    // 要测试的 DSL 输入
     const input = `Root {
    Element "value1" 'value2' 100 true @config {
      attr: "attr"
      other: 'other'
-   } {} 
-   Element @config {} {
-     Element "value2"{}
-   }
+   } @css { color: 'red' } {} 
  }
 `;
 
-    // 解析输入
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
@@ -34,6 +28,12 @@ describe("dsl test", () => {
             "other": "'other'",
           },
         ],
+        [
+          "@css",
+          {
+            "color": "'red'",
+          },
+        ],
       ],
       "type": "Element",
       "values": [
@@ -43,25 +43,60 @@ describe("dsl test", () => {
         "true",
       ],
     },
+  ],
+  "name": "Root",
+  "type": "Root",
+}
+`);
+  });
+
+  it("嵌套元素", () => {
+    // 创建一个解析器实例
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    // 要测试的 DSL 输入
+    const input = `Root {
+      Element {
+        Element {
+          Element {} 
+        }
+        Element {} 
+      } 
+    }
+   `;
+
+    // 解析输入
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [
     {
       "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "Element",
+              "settings": [],
+              "type": "Element",
+              "values": [],
+            },
+          ],
+          "name": "Element",
+          "settings": [],
+          "type": "Element",
+          "values": [],
+        },
         {
           "children": [],
           "name": "Element",
           "settings": [],
           "type": "Element",
-          "values": [
-            ""value2"",
-          ],
+          "values": [],
         },
       ],
       "name": "Element",
-      "settings": [
-        [
-          "@config",
-          {},
-        ],
-      ],
+      "settings": [],
       "type": "Element",
       "values": [],
     },
