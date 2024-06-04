@@ -1,7 +1,7 @@
 import nearley from "nearley";
 import grammar from "../lib/dsl.js";
 
-describe("dsl test", () => {
+describe("基础测试", () => {
   it("同时存在 values 和 settings", () => {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
@@ -42,6 +42,80 @@ describe("dsl test", () => {
         "100",
         "true",
       ],
+    },
+  ],
+  "name": "Root",
+  "type": "Root",
+}
+`);
+  });
+
+  it("只有 values", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root {
+   Element "value1" 'value2' 100 true {} 
+ }
+`;
+
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [
+    {
+      "children": [],
+      "name": "Element",
+      "settings": [],
+      "type": "Element",
+      "values": [
+        ""value1"",
+        "'value2'",
+        "100",
+        "true",
+      ],
+    },
+  ],
+  "name": "Root",
+  "type": "Root",
+}
+`);
+  });
+
+  it("只有 settings", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root {
+   Element @config {
+    attr: "attr"
+    other: 'other'
+  } @css { color: 'red' } {} 
+ }
+`;
+
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [
+    {
+      "children": [],
+      "name": "Element",
+      "settings": [
+        [
+          "@config",
+          {
+            "attr": ""attr"",
+            "other": "'other'",
+          },
+        ],
+        [
+          "@css",
+          {
+            "color": "'red'",
+          },
+        ],
+      ],
+      "type": "Element",
+      "values": [],
     },
   ],
   "name": "Root",
