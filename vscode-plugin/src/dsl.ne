@@ -1,82 +1,85 @@
 @{%
 const moo = require("moo");
 
-let lexer = moo.compile({
-    WS:      /[ \t]+/, // 匹配空白字符
-    comment: /\/\/.*?$/, // 匹配注释
-    lbrace:  '{', // 匹配左花括号
-    rbrace:  '}', // 匹配右花括号
-    lbrack:  '[', // 匹配左方括号
-    rbrack:  ']', // 匹配右方括号
-    comma:   ',', // 匹配逗号
-    colon:   ':', // 匹配冒号
-    string:  /"(?:\\["\\]|[^\n"\\])*"/, // 匹配字符串
-    number:  /-?(?:[0-9]|[1-9][0-9]*)(?:\.[0-9]+)?/, // 匹配数字
-    boolean: /true|false/, // 匹配布尔值
-    word:    /[a-zA-Z0-9_]+/, // 匹配单词
-    newline: { match: /\n/, lineBreaks: true }, // 匹配换行符
+// 使用 moo 库创建词法分析器
+const lexer = moo.compile({
+  ws:     /[ \t]+/, // 匹配空白字符（空格和制表符）
+  string: /"(?:\\["\\]|[^\n"\\])*"/, // 匹配字符串字面量，支持转义字符
+  number: /[0-9]+(?:\.[0-9]+)?/, // 匹配数值，包括整数和小数
+  boolean: /true|false/, // 匹配布尔值
+  lbrace: '{', // 匹配左大括号
+  rbrace: '}', // 匹配右大括号
+  lbrack: '[', // 匹配左方括号
+  rbrack: ']', // 匹配右方括号
+  colon: ':', // 匹配冒号
+  comma: ',', // 匹配逗号
+  atcss: '@css', // 匹配 @css 修饰符
+  atconfig: '@config', // 匹配 @config 修饰符
+  newline: { match: /\n/, lineBreaks: true }, // 匹配换行符，并处理行中断
+  comment: /\/\/.*?$/, // 匹配单行注释
+  word: /[a-zA-Z]+/ // 匹配任意英文单词
 });
-
 %}
 
+# 指定使用上面定义的 lexer
 @lexer lexer
 
-# 入口规则，表示整个页面
-Root -> _ ElementList _ newline:* {%
-    (elements, newlines) => ({ type: 'Root', elements, newlines }) // 返回页面对象，包含所有元素和换行符
+Root -> _ "Root" _ "{" _ Element:* "}" _ {% 
+  (data) => {
+    return {
+      type: "Root",
+      name: data[1].value,
+      children: data[5]
+    };
+  } 
 %}
 
-# 元素列表，包含零个或多个元素
-ElementList -> (Element _ newline:? _):* {%
-    (elements) => elements.filter(e => e[0]).map(e => e[0]) // 过滤掉未定义的元素并返回元素数组
+Element -> %word Values Settings _ "{" _ Element:* _ "}" _ {% 
+  (data) => {
+    return {
+      type: "Element",
+      name: data[0].value,
+      children: data[6],
+      values: data[1],
+      settings: data[2]
+    };
+  } 
 %}
 
-# 元素规则，匹配元素名称及其属性
-Element -> word _ ElementValues:? _ ElementAttributes:? {%
-    ([name, , values, , attributes]) => ({ type: name, values: values || [], attributes: attributes || {} }) // 返回元素对象，包含名称、值和属性
+Values -> (_ Value):* {% 
+  (data) => {
+    const values = [];
+    for (let i = 0; i < data[0].length; i++) {
+      values.push(data[0][i][1][0].value);
+    }
+    return values
+  } 
 %}
 
-# 元素值列表，包含一个或多个值
-ElementValues -> Value:+ {%
-    (values) => values // 返回值数组
+Settings -> (_ SettingName _ Attrs):* {% 
+  (data) => {
+    const values = [];
+    for (let i = 0; i < data[0].length; i++) {
+      values.push([
+        data[0][i][1],
+        data[0][i][3]
+      ]);
+    }
+    return values
+  } 
 %}
 
-# 值规则，匹配字符串、数字、布尔值或数组
-Value -> string | number | boolean | ArrayValue
+SettingName -> %atconfig {% (data) => data[0].value %}
 
-# 数组值规则，匹配数组
-ArrayValue -> "[" _ ArrayValues _ "]" {%
-    ([, , values]) => values // 返回数组值
+Attrs -> "{" _ Attr:* "}" {% (data) => Object.fromEntries(data[2]) %}
+
+Attr -> %word _ ":" _ %string _ {% 
+  (data) => [data[0].value, data[4].value]
 %}
 
-# 数组值列表，包含零个或多个值
-ArrayValues -> Value (_ comma _ Value ):* {%
-    (values) => [values[0], ...values[1].map(v => v[3])] // 返回数组值
-%}
+# 这里有个 bug，如果直接在 Value 序列化，Values 中的 Value 只处理了最后一个项
+Value -> %string | %number | %boolean
 
-# 元素属性列表，包含零个或多个属性
-ElementAttributes -> "{" _ AttributeList _ "}" {%
-    ([, , attributes]) => attributes // 返回属性对象
-%}
-
-# 属性列表，包含零个或多个属性
-AttributeList -> Attribute (_ comma _ Attribute ):* {%
-    (attributes) => Object.assign({}, ...[attributes[0], ...attributes[1].map(v => v[3])]) // 返回属性对象
-%}
-
-# 属性规则，匹配属性名称及其值
-Attribute -> word _ ":" _ Value {%
-    ([name, , , , value]) => ({ [name]: value }) // 返回属性键值对
-%}
-
-# 匹配空白字符
-_ -> WS:* {%
-    () => null
-%}
-
-WS -> %WS
-word -> %word
-string -> %string
-number -> %number
-boolean -> %boolean
-comma -> %comma
+_ -> (%ws | %newline):* {% 
+  () => null 
+%} # 匹配空白字符或换行符

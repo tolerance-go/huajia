@@ -1,46 +1,50 @@
 Page {
   Title "Styled Page Example"
   Header {
-    Logo "styled_logo.png" { alt: "Company Logo", width: "100px" }
+    Logo "styled_logo.png" @setting { alt: "Company Logo", width: "100px" }
     Nav {
-      Link "Home" "index.html" { target: "_self" }
-      Link "Blog" "blog.html" { target: "_blank" }
-      Link "About Us" "about.html" { target: "_self" }
-      Link "Contact" "contact.html" { target: "_self" }
+      Link "Home" "index.html" @css {
+      color: 'red'
+      background: 'blue'
+      } @setting { target: "_self" }
+      Link "Blog" "blog.html" @setting { target: "_blank" }
+      Link "About Us" "about.html" @setting { target: "_self" }
+      Link "Contact" "contact.html" @setting { target: "_self" }
     }
   }
   Main {
-    Section {
-      Heading "Welcome to the Styled Page" { style: "color: blue; font-size: 24px;" }
-      Paragraph "This page includes styled elements using our custom DSL." { style: "font-style: italic;" }
-      Image "styled_welcome.jpg" { alt: "Welcome Image", width: "600px" }
+    Section @css {
+      color: 'red'
+      background: 'blue'
+    } {
+      Heading "Welcome to the Styled Page" @css { style: "color: blue; font-size: 24px;" }
+      Paragraph "This page includes styled elements using our custom DSL." @css { style: "font-style: italic;" }
+      Image "styled_welcome.jpg" @css { alt: "Welcome Image", width: "600px" }
     }
     Section {
-      Heading "Services Overview" { style: "color: green;" }
-      Paragraph "We provide a variety of services tailored to your needs." { style: "color: gray;" }
+      Heading "Services Overview" @css { style: "color: green;" }
+      Paragraph "We provide a variety of services tailored to your needs." @css { style: "color: gray;" }
       List {
-        Item "Consulting" { style: "font-weight: bold;" }
-        Item "Development" { style: "font-weight: bold;" }
-        Item "Support" { style: "font-weight: bold;" }
+        Item "Consulting" @css { style: "font-weight: bold;" }
+        Item "Development" @css { style: "font-weight: bold;" }
+        Item "Support" @css { style: "font-weight: bold;" }
       }
     }
     Section {
       Heading "Recent Activities"
       Table {
         Header ["Timestamp", "User", "Action"]
-        Row ["2024-06-03 12:00", "admin", "Logged in"] false {
-          interface: {
-            click: 'sldfj'
-          }
-          network: {
-            url: 'asldjflasjdf'
-          }
-          css: {
-            color: 'red'
-            background: 'blue'
-          }
+        Row ["2024-06-03 12:00", "admin", "Logged in"] false @interaction {
+          click: 'sldfj'
+        } @network {
+          url: 'asldjflasjdf'
+        } @css {
+          color: 'red'
+          background: 'blue'
         } {
-
+          Col 'hi'
+          Col 'hi'
+          Col 'hi'
         }
         Row ["2024-06-03 12:05", "user123", "Updated profile"]
         Row ["2024-06-03 12:10", "user456", "Logged out"]
@@ -48,10 +52,10 @@ Page {
     }
   }
   Footer {
-    Text "© 2024 Styled Website" { style: "text-align: center; padding: 10px;" }
+    Text "© 2024 Styled Website" @css { style: "text-align: center; padding: 10px;" }
     Links {
-      Link "Privacy Policy" "privacy.html" { style: "margin-right: 10px;" }
-      Link "Terms of Service" "terms.html" { style: "margin-left: 10px;" }
+      Link "Privacy Policy" "privacy.html" @css { style: "margin-right: 10px;" }
+      Link "Terms of Service" "terms.html" @css { style: "margin-left: 10px;" }
     }
   }
 }
