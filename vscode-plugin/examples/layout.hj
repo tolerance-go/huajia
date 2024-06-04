@@ -52,7 +52,7 @@ Root {
       Section {
         Heading "Recent Activities"
         Table {
-          Header ["Timestamp", "User", "Action"] true "asdlfj"
+          Header ["Timestamp", "User", "Action", ["Timestamp", "User", "Action"]] true "asdlfj"
           Row ["2024-06-03 12:00", "admin", "Logged in"]
           Row ["2024-06-03 12:00", "admin", "Logged in"]
           Row ["2024-06-03 12:00", "admin", "Logged in"]
