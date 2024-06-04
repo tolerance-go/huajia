@@ -15,7 +15,8 @@ const lexer = moo.compile({
   comma: ',', // 匹配逗号
   atconfig: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
   comment: /\/\/.*?$/, // 匹配单行注释
-  word: /[a-zA-Z]+/, // 匹配任意英文单词
+  word: /[a-z][a-zA-Z]*/, // 匹配以小写字母开头的单词
+  component: /[A-Z][a-zA-Z]*/, // 匹配以大写字母开头的单词
 });
 %}
 
@@ -38,14 +39,14 @@ Children -> (%lbrace _ Element:* %rbrace):? {%
   } 
 %}
 
-Element -> %word Values Settings _ Children _ {% 
+Element -> %component Values Settings _ Children _ {% 
   (data) => {
     return {
       type: "Element",
       name: data[0].value,
-      children: data[4],
       values: data[1],
-      settings: data[2]
+      settings: data[2],
+      children: data[4],
     };
   } 
 %}
