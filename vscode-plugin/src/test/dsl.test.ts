@@ -9,8 +9,9 @@ suite("DSL Formatter Test Suite", () => {
 
     // 要测试的 DSL 输入
     const input = `Root { 
-    Element "value1" 100 true @config {
+    Element "value1" 'value2' 100 true @config {
       attr: "attr"
+      other: 'other'
     } {} 
     Element @config {} {
       Element "value2"{}
@@ -20,7 +21,42 @@ suite("DSL Formatter Test Suite", () => {
 
     // 解析输入
     parser.feed(input);
-    console.log(JSON.stringify(parser.results[0], null, 2));
-    console.log(parser.results.length + '');
+    assert.equal(parser.results[0], {
+      type: "Root",
+      name: "Root",
+      children: [
+        {
+          type: "Element",
+          name: "Element",
+          children: [],
+          values: ['"value1"', "'value2'", "100", "true"],
+          settings: [
+            [
+              "@config",
+              {
+                attr: '"attr"',
+                other: "'other'",
+              },
+            ],
+          ],
+        },
+        {
+          type: "Element",
+          name: "Element",
+          children: [
+            {
+              type: "Element",
+              name: "Element",
+              children: [],
+              values: ['"value2"'],
+              settings: [],
+            },
+          ],
+          values: [],
+          settings: [["@config", {}]],
+        },
+      ],
+    });
+    assert.strictEqual(parser.results.length, 3);
   });
 });
