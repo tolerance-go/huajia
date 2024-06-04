@@ -23,22 +23,28 @@ const lexer = moo.compile({
 # 指定使用上面定义的 lexer
 @lexer lexer
 
-Root -> _ "Root" _ "{" _ Element:* "}" _ {% 
+Root -> _ "Root" _ Children _ {% 
   (data) => {
     return {
       type: "Root",
       name: data[1].value,
-      children: data[5]
+      children: data[3]
     };
   } 
 %}
 
-Element -> %word Values Settings _ "{" _ Element:* _ "}" _ {% 
+Children -> ("{" _ Element:* "}"):? {% 
+  (data) => {
+    return data[0] ? data[0][2] : []
+  } 
+%}
+
+Element -> %word Values Settings _ Children _ {% 
   (data) => {
     return {
       type: "Element",
       name: data[0].value,
-      children: data[6],
+      children: data[4],
       values: data[1],
       settings: data[2]
     };
