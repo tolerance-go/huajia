@@ -3,7 +3,7 @@ const moo = require("moo");
 
 // 使用 moo 库创建词法分析器
 const lexer = moo.compile({
-  ws:     /[ \t]+/, // 匹配空白字符（空格和制表符）
+  whitespace: { match: /[ \t\r\n]+/, lineBreaks: true }, // 合并空白字符和换行符规则
   string: /"(?:\\["\\]|[^\n"\\])*"|'(?:\\['\\]|[^\n'\\])*'/, // 匹配字符串字面量，支持转义字符，包括单引号
   number: /[0-9]+(?:\.[0-9]+)?/, // 匹配数值，包括整数和小数
   boolean: /true|false/, // 匹配布尔值
@@ -14,7 +14,6 @@ const lexer = moo.compile({
   colon: ':', // 匹配冒号
   comma: ',', // 匹配逗号
   atconfig: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
-  newline: { match: /\r\n|\n/, lineBreaks: true }, // 匹配换行符，并处理行中断
   comment: /\/\/.*?$/, // 匹配单行注释
   word: /[a-zA-Z]+/, // 匹配任意英文单词
 });
@@ -33,7 +32,7 @@ Root -> _ "Root" _ Children _ {%
   } 
 %}
 
-Children -> ("{" _ Element:* "}"):? {% 
+Children -> (%lbrace _ Element:* %rbrace):? {% 
   (data) => {
     return data[0] ? data[0][2] : []
   } 
@@ -76,9 +75,9 @@ Settings -> (_ SettingName _ Attrs):* {%
 
 SettingName -> %atconfig {% (data) => data[0].value %}
 
-Attrs -> "{" _ Attr:* "}" {% (data) => Object.fromEntries(data[2]) %}
+Attrs -> %lbrace _ Attr:* %rbrace {% (data) => Object.fromEntries(data[2]) %}
 
-Attr -> %word _ ":" _ %string _ {% 
+Attr -> %word _ %colon _ %string _ {% 
   (data) => [data[0].value, data[4].value]
 %}
 
@@ -90,7 +89,7 @@ String -> %string {% (data) => data[0].value.slice(1, -1) %}  # 去掉引号
 Number -> %number {% (data) => parseFloat(data[0].value) %}   # 转换为数字
 Boolean -> %boolean {% (data) => data[0].value === "true" %}  # 转换为布尔值
 
-ArrayValue -> "[" _ (Value (_ "," _ Value):*):? _ "]" {% 
+ArrayValue -> %lbrack _ (Value (_ %comma _ Value):*):? _ %rbrack {% 
   (data) => {
     const values = [];
     if (data[2]) {
@@ -103,6 +102,6 @@ ArrayValue -> "[" _ (Value (_ "," _ Value):*):? _ "]" {%
   }
 %}
 
-_ -> (%ws | %newline):* {% 
+_ -> %whitespace:* {% 
   () => null 
 %} # 匹配空白字符或换行符
