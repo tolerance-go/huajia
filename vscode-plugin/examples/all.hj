@@ -2,9 +2,17 @@ Root {
   Page {
     Title "Styled Page Example"
     Header {
-      Logo "styled_logo.png" @setting {
+      Logo "styled_logo.png" "styled_logo.png" ["styled_logo.png"] @setting {
         alt: "Company Logo"
         width: "100px"
+      } @css {
+        alt: 'asdflj'
+      } @interal {
+        alt: 'asdflj'
+      } @network {
+        alt: 'asdflj'
+      } {
+        Link "asdlfj"
       }
       Nav {
         Link "Home" "index.html" @css {

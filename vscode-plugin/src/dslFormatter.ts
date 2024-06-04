@@ -51,7 +51,7 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
         });
         formattedText += `${indent}}\n`;
       } else {
-        formattedText += "\n";
+        formattedText += " {}\n";
       }
     } else if (node.type === "Element") {
       formattedText += `${indent}${node.name}`;
