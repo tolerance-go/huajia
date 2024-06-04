@@ -83,7 +83,20 @@ Attr -> %word _ ":" _ %string _ {%
 %}
 
 # 这里有个 bug，如果直接在 Value 序列化，Values 中的 Value 只处理了最后一个项
-Value -> %string | %number | %boolean
+Value -> ArrayValue | %string | %number | %boolean
+
+ArrayValue -> "[" _ (Value (_ "," _ Value):*):? _ "]" {% 
+  (data) => {
+    const values = [];
+    if (data[2]) {
+      values.push(data[2][0][0].value);
+      for (let i = 0; i < data[2][1].length; i++) {
+        values.push(data[2][1][i][3][0].value);
+      }
+    }
+    return { value: values };
+  }
+%}
 
 _ -> (%ws | %newline):* {% 
   () => null 
