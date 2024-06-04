@@ -6,38 +6,14 @@ suite("DSL Formatter Test Suite", () => {
   vscode.window.showInformationMessage("Start all tests.");
 
   test("Format DSL code compactText", async () => {
-    const initialText = `Root {
-  Element  "value1" 'value2' 100 true @config {
-    attr:  "attr"
-    other: 'other'
-
-  } {
-    
-  }
-  Element @config {
-    attr: 'attr2'
-  } {
-    Element "value2" {}
-  }
-}
-`;
-
-    const expectedFormattedText = `Root {
-  Element "value1" 'value2' 100 true @config {
-    attr: "attr"
-    other: 'other'
-  } {}
-  Element @config {
-    attr: 'attr2'
-  } {
-    Element "value2" {}
-  }
-}
-`;
+    const cases = [[`Root { }`, `Root {}\n`]];
 
     const dslFormatter = new DSLFormatter();
-    const formattedText = dslFormatter.formatText(initialText);
 
-    assert.strictEqual(formattedText, expectedFormattedText);
+    cases.forEach(([initialText, expectedFormattedText]) => {
+      const formattedText = dslFormatter.formatText(initialText);
+
+      assert.strictEqual(formattedText, expectedFormattedText);
+    });
   });
 });

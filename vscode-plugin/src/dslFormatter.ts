@@ -43,11 +43,16 @@ export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
     let formattedText = "";
 
     if (node.type === "Root") {
-      formattedText += `${indent}${node.name} {\n`;
-      node.children.forEach((child) => {
-        formattedText += this.formatParsedResult(child, indentLevel + 1);
-      });
-      formattedText += `${indent}}\n`;
+      formattedText += `${indent}${node.name}`;
+      if (node.children.length > 0) {
+        formattedText += ` {\n`;
+        node.children.forEach((child) => {
+          formattedText += this.formatParsedResult(child, indentLevel + 1);
+        });
+        formattedText += `${indent}}\n`;
+      } else {
+        formattedText += " {}\n";
+      }
     } else if (node.type === "Element") {
       formattedText += `${indent}${node.name}`;
       if (node.values.length > 0) {
