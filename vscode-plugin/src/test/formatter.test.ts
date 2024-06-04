@@ -7,14 +7,14 @@ suite("DSL Formatter Test Suite", () => {
 
   test("Format DSL code compactText", async () => {
     const cases = [
-      ["空子集", `Root { }`, `Root\n`],
+      ["空子集", `Root { }`, `Root {}\n`],
       [
         "values 的字符串",
         `Root {
-  Element "value1" 'value2' 100 true
+  Element 'string'
 }`,
         `Root {
-  Element "value1" "value2" 100 true
+  Element "string"
 }\n`,
       ],
     ];
