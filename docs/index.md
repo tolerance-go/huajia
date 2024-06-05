@@ -16,7 +16,7 @@ hero:
 
 features:
   - title: 前端即服务
-    details: 通过简单的 HTTP GET 请求，并携带配置描述信息，即可快速获得渲染好的页面。
+    details: 通过简单的 HTTP 请求，依据携带的描述信息，即可快速获得渲染好的页面。
   - title: 配置驱动
     details: 我们专门设计了一种简单、易用的 DSL 语法来描述页面，它是纯静态的且易于扩展。
   - title: 丰富组件库
