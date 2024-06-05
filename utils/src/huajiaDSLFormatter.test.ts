@@ -1,10 +1,6 @@
-import * as assert from "assert";
-import * as vscode from "vscode";
-import { DSLFormatter } from "../dslFormatter";
+import { HuajiaDSLFormatter } from "./huajiaDSLFormatter";
 
-suite("DSL Formatter Test Suite", () => {
-  vscode.window.showInformationMessage("Start all tests.");
-
+describe("DSL Formatter Test Suite", () => {
   test("Format DSL code compactText", async () => {
     const cases = [
       ["空子集", `Root { }`, `Root {}\n`],
@@ -19,12 +15,12 @@ suite("DSL Formatter Test Suite", () => {
       ],
     ];
 
-    const dslFormatter = new DSLFormatter();
+    const dslFormatter = new HuajiaDSLFormatter();
 
     cases.forEach(([_, initialText, expectedFormattedText]) => {
       const formattedText = dslFormatter.formatText(initialText);
 
-      assert.strictEqual(formattedText, expectedFormattedText);
+      expect(formattedText).toBe(expectedFormattedText);
     });
   });
 });

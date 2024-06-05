@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "@huajia/dsl": "workspace:^",
+    "@huajia/utils": "workspace:^",
     "nearley": "^2.20.1"
   }
 }

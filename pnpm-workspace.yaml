@@ -4,3 +4,4 @@ packages:
   - 'vscode-plugin'
   - 'docs'
   - 'playground'
+  - 'utils'
