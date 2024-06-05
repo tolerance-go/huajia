@@ -12,6 +12,46 @@ importers:
         specifier: ^9.0.11
         version: 9.0.11
 
+  components/antd:
+    dependencies:
+      antd:
+        specifier: ^5.17.4
+        version: 5.17.4(react-dom@18.3.1)(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@rollup/plugin-commonjs':
+        specifier: ^25.0.8
+        version: 25.0.8(rollup@4.18.0)
+      '@rollup/plugin-node-resolve':
+        specifier: ^15.2.3
+        version: 15.2.3(rollup@4.18.0)
+      '@rollup/plugin-typescript':
+        specifier: ^11.1.6
+        version: 11.1.6(rollup@4.18.0)(typescript@5.4.5)
+      '@types/react':
+        specifier: ^18.3.3
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.0
+      rimraf:
+        specifier: ^5.0.7
+        version: 5.0.7
+      rollup:
+        specifier: ^4.18.0
+        version: 4.18.0
+      rollup-plugin-auto-external:
+        specifier: ^2.0.0
+        version: 2.0.0(rollup@4.18.0)
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
   docs:
     devDependencies:
       vitepress:
@@ -161,9 +201,6 @@ importers:
       '@babel/register':
         specifier: ^7.24.6
         version: 7.24.6(@babel/core@7.24.6)
-      '@types/babel__register':
-        specifier: ^7.17.3
-        version: 7.17.3
       '@types/node':
         specifier: ^20.14.0
         version: 20.14.0
@@ -2871,6 +2908,25 @@ packages:
       typescript: 4.9.5
     dev: true
 
+  /@rollup/plugin-typescript@11.1.6(rollup@4.18.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-R92yOmIACgYdJ7dJ97p4K69I8gg6IEHt8M7dUBxN3W6nrO8uUxX5ixl0yU/N3aZTi8WhPuICvOHXQvF6FaykAA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^2.14.0||^3.0.0||^4.0.0
+      tslib: '*'
+      typescript: '>=3.7.0'
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+      tslib:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
+      resolve: 1.22.8
+      rollup: 4.18.0
+      typescript: 5.4.5
+    dev: true
+
   /@rollup/pluginutils@5.1.0(rollup@4.18.0):
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
     engines: {node: '>=14.0.0'}
@@ -3195,12 +3251,6 @@ packages:
     resolution: {integrity: sha512-ASsj+tpEDsEiFr1arWrlN6V3mdfjRMZt6LtK/Vp/kreFLnr5QH5+DhvD5nINYZXzwJvXeGq+05iUXcAzVrqWtw==}
     dependencies:
       '@babel/types': 7.24.6
-    dev: true
-
-  /@types/babel__register@7.17.3:
-    resolution: {integrity: sha512-hy9H39BUIGO0C88bLxQD5rqBvqMgjPjDnA8Mx+fjAqtOi4OG7qYaZUMlDHfLOx5G9WtBzhfchzxKl37LTsVRbA==}
-    dependencies:
-      '@types/babel__core': 7.20.5
     dev: true
 
   /@types/babel__template@7.4.4:
