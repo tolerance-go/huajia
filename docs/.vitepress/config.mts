@@ -6,9 +6,9 @@ export default defineConfig({
   description: "一个后端开发者友好的前端框架",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
+    // nav: [
       // { text: 'DSL 文档', link: '/dsl' }
-    ],
+    // ],
 
     sidebar: [
       {
