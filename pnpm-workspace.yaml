@@ -3,3 +3,4 @@ packages:
   - 'dsl'
   - 'vscode-plugin'
   - 'docs'
+  - 'playground'
