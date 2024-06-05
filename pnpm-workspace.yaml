@@ -2,3 +2,4 @@ packages:
   - 'server'
   - 'dsl'
   - 'vscode-plugin'
+  - 'docs'
