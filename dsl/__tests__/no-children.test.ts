@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/dsl.js";
+import grammar from "../lib/grammar.js";
 
 describe("省略 children", () => {
   it("Root 禁止省略 {}", () => {

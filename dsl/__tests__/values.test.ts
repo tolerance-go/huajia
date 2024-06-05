@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/dsl.js";
+import grammar from "../lib/grammar.js";
 
 describe("基础测试", () => {
   it("values 支持数组", () => {

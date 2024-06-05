@@ -1,10 +1,6 @@
-import React, { useEffect, useRef } from "react";
-
-
-
-export const Renderer = ({ dslCode }: { dslCode?: string }) => {
+export const Renderer = () => {
   // 假设有一个解析函数 parseDSL
-//   const parsedData = parseDSL(dslCode);
+  //   const parsedData = parseDSL(dslCode);
 
   return (
     <div

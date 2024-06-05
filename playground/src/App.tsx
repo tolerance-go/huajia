@@ -4,6 +4,7 @@ import { Renderer } from "./components/Renderer";
 
 const App = () => {
   const [dslCode, setDslCode] = useState("");
+  console.log(dslCode)
 
   const handleEditorChange = (newCode: string) => {
     setDslCode(newCode);
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <div style={{ display: "flex" }}>
       <Editor onChange={handleEditorChange} />
-      <Renderer dslCode={dslCode} />
+      <Renderer  />
     </div>
   );
 };

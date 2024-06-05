@@ -1,1 +1,2 @@
-lib/dsl.js
+lib/grammar.js
+lib/grammar.mjs
