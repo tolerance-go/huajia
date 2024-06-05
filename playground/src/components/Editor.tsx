@@ -67,6 +67,16 @@ monaco.languages.setLanguageConfiguration("huajia", {
   ],
 });
 
+// 自定义主题
+monaco.editor.defineTheme("custom-vs-dark", {
+  base: "vs-dark",
+  inherit: true,
+  rules: [
+    { token: "keyword", foreground: "FFA500" }, // Orange color for @xxx
+  ],
+  colors: {},
+});
+
 const Editor = () => {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const editorInstance = useRef<monaco.editor.IStandaloneCodeEditor | null>(
@@ -83,17 +93,29 @@ const Editor = () => {
   } @config {
     width: '100'
     height: '100'
+  } @intertive {
+    onClick: 'GET:/sdflj/:id/sdlfj'
   } {
     Nav "sdfljsf"
     Header "aldfj" {
       H "asdlfjasdf"
-      H "asldjflajs"
+      H "asldjflajs" {
+        Header "aldfj" {
+          H "asdlfjasdf"
+          H "asldjflajs" {
+            Header "aldfj" {
+              H "asdlfjasdf"
+              H "asldjflajs"
+            }
+          }
+        }
+      }
     }
   }
 }
 `,
         language: "huajia", // 使用自定义DSL语言
-        theme: "vs-dark",
+        theme: "custom-vs-dark",
       });
 
       // 添加内容变化监听器
