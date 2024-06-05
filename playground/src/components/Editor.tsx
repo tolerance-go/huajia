@@ -87,29 +87,24 @@ const Editor = () => {
     if (editorRef.current) {
       editorInstance.current = monaco.editor.create(editorRef.current, {
         value: `Root {
-  Page "sdflj" @css {
-    width: '100'
-    height: '100'
-  } @config {
-    width: '100'
-    height: '100'
-  } @intertive {
-    onClick: 'GET:/sdflj/:id/sdlfj'
+  Flex @config {
+    gap: 'small'
+    wrap: 'true'
   } {
-    Nav "sdfljsf"
-    Header "aldfj" {
-      H "asdlfjasdf"
-      H "asldjflajs" {
-        Header "aldfj" {
-          H "asdlfjasdf"
-          H "asldjflajs" {
-            Header "aldfj" {
-              H "asdlfjasdf"
-              H "asldjflajs"
-            }
-          }
-        }
-      }
+    Button "Primary Button" @config {
+      type: 'primary'
+    }
+    Button "Text Button" @config {
+      type: 'dashed'
+    }
+    Button "Link Button" @config {
+      type: 'link'
+    } @interactive {
+      click: 'GET:/getWorld/:id'
+    } @css {
+      color: 'red'
+      pb: 10
+      mt: 10
     }
   }
 }
