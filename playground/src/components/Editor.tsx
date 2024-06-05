@@ -26,7 +26,7 @@ self.MonacoEnvironment = {
   },
 };
 
-const Editor = ({ onChange }: { onChange: (code: string) => void }) => {
+const Editor = () => {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const editorInstance = useRef<monaco.editor.IStandaloneCodeEditor | null>(
     null
@@ -42,19 +42,23 @@ const Editor = ({ onChange }: { onChange: (code: string) => void }) => {
 
       // 添加内容变化监听器
       editorInstance.current.onDidChangeModelContent(() => {
-        const value = editorInstance.current?.getValue() || "";
-        onChange(value);
+        // const value = editorInstance.current?.getValue() || "";
       });
 
       // 添加快捷键监听器
       editorInstance.current.addCommand(
-        monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyF,
+        monaco.KeyMod.Shift | monaco.KeyMod.Alt | monaco.KeyCode.KeyF,
         () => {
           if (editorInstance.current) {
+            console.log("开始格式化");
             const formatter = new HuajiaDSLFormatter();
             const currentValue = editorInstance.current.getValue();
+            const cursorPosition = editorInstance.current.getPosition();
             const formattedValue = formatter.formatText(currentValue);
             editorInstance.current.setValue(formattedValue);
+            if (cursorPosition) {
+              editorInstance.current.setPosition(cursorPosition);
+            }
           }
         }
       );
@@ -64,7 +68,7 @@ const Editor = ({ onChange }: { onChange: (code: string) => void }) => {
     return () => {
       editorInstance.current?.dispose();
     };
-  }, [onChange]);
+  }, []);
 
   return <div ref={editorRef} style={{ height: "100vh", width: "50%" }}></div>;
 };
