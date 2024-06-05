@@ -35,7 +35,22 @@ const Editor = () => {
   useEffect(() => {
     if (editorRef.current) {
       editorInstance.current = monaco.editor.create(editorRef.current, {
-        value: "console.log('Hello, Monaco!');",
+        value: `Root {
+  Page "sdflj" @css {
+    width: '100'
+    height: '100'
+  } @config {
+    width: '100'
+    height: '100'
+  } {
+    Nav "sdfljsf"
+    Header "aldfj" {
+      H "asdlfjasdf"
+      H "asldjflajs"
+    }
+  }
+}
+`,
         language: "javascript", // 你的 DSL 语言
         theme: "vs-dark",
       });
