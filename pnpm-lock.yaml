@@ -60,6 +60,9 @@ importers:
 
   playground:
     dependencies:
+      '@huajia/dsl':
+        specifier: workspace:^
+        version: link:../dsl
       '@huajia/utils':
         specifier: workspace:^
         version: link:../utils
@@ -118,9 +121,6 @@ importers:
       vite:
         specifier: ^5.2.0
         version: 5.2.12
-      vite-plugin-monaco-editor:
-        specifier: ^1.1.0
-        version: 1.1.0(monaco-editor@0.49.0)
 
   server:
     dependencies:
@@ -6726,6 +6726,7 @@ packages:
 
   /monaco-editor@0.49.0:
     resolution: {integrity: sha512-2I8/T3X/hLxB2oPHgqcNYUVdA/ZEFShT7IAujifIPMfKkNbLOqY8XCoyHCXrsdjb36dW9MwoTwBCFpXKMwNwaQ==}
+    dev: false
 
   /moo@0.5.2:
     resolution: {integrity: sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q==}
@@ -8910,14 +8911,6 @@ packages:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
-    dev: true
-
-  /vite-plugin-monaco-editor@1.1.0(monaco-editor@0.49.0):
-    resolution: {integrity: sha512-IvtUqZotrRoVqwT0PBBDIZPNraya3BxN/bfcNfnxZ5rkJiGcNtO5eAOWWSgT7zullIAEqQwxMU83yL9J5k7gww==}
-    peerDependencies:
-      monaco-editor: '>=0.33.0'
-    dependencies:
-      monaco-editor: 0.49.0
     dev: true
 
   /vite@5.2.12:

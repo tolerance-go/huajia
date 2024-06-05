@@ -1,6 +1,7 @@
 import * as monaco from "monaco-editor";
 import { useEffect, useRef } from "react";
 import { HuajiaDSLFormatter } from "@huajia/utils"; // 假设你将 HuajiaDSLFormatter 类定义在这个文件中
+// import grammar from '@huajia/dsl'; // 替换为你 DSL 语法文件的实际路径
 
 import editorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker?worker";
@@ -25,6 +26,46 @@ self.MonacoEnvironment = {
     return new editorWorker();
   },
 };
+
+// 注册自定义DSL语言
+monaco.languages.register({ id: "huajia" });
+
+// 为DSL语言配置tokenizer
+monaco.languages.setMonarchTokensProvider("huajia", {
+  tokenizer: {
+    root: [
+      [/@[a-zA-Z]+/, "keyword"],
+      [/"(?:\\["\\]|[^\n"\\])*"|'(?:\\['\\]|[^\n'\\])*'/, "string"],
+      [/[0-9]+(?:\.[0-9]+)?/, "number"],
+      [/true|false/, "boolean"],
+      [/\{/, "delimiter.brace"],
+      [/\}/, "delimiter.brace"],
+      [/\[/, "delimiter.bracket"],
+      [/\]/, "delimiter.bracket"],
+      [/[:,]/, "delimiter"],
+      [/\/\/.*$/, "comment"],
+      [/[a-z][a-zA-Z]*/, "variable"],
+      [/[A-Z][a-zA-Z]*/, "type.identifier"],
+    ],
+  },
+});
+
+// 配置编辑器的语言模式
+monaco.languages.setLanguageConfiguration("huajia", {
+  brackets: [
+    ["{", "}"],
+    ["[", "]"],
+  ],
+  comments: {
+    lineComment: "//",
+  },
+  autoClosingPairs: [
+    { open: "{", close: "}" },
+    { open: "[", close: "]" },
+    { open: '"', close: '"' },
+    { open: "'", close: "'" },
+  ],
+});
 
 const Editor = () => {
   const editorRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +92,7 @@ const Editor = () => {
   }
 }
 `,
-        language: "javascript", // 你的 DSL 语言
+        language: "huajia", // 使用自定义DSL语言
         theme: "vs-dark",
       });
 
@@ -70,7 +111,11 @@ const Editor = () => {
             const currentValue = editorInstance.current.getValue();
             const cursorPosition = editorInstance.current.getPosition();
             const formattedValue = formatter.formatText(currentValue);
-            editorInstance.current.setValue(formattedValue);
+
+            if (formattedValue !== currentValue) {
+              editorInstance.current.setValue(formattedValue);
+            }
+
             if (cursorPosition) {
               editorInstance.current.setPosition(cursorPosition);
             }
