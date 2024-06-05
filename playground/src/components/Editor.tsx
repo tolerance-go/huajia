@@ -144,6 +144,17 @@ const Editor = () => {
           }
         }
       );
+
+      // 添加撤销快捷键监听器
+      editorInstance.current.addCommand(
+        monaco.KeyMod.Shift | monaco.KeyMod.Alt | monaco.KeyCode.KeyZ,
+        () => {
+          if (editorInstance.current) {
+            console.log("撤销操作");
+            editorInstance.current.trigger("keyboard", "undo", null);
+          }
+        }
+      );
     }
 
     // 组件卸载时销毁编辑器实例
