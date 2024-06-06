@@ -14,10 +14,10 @@ const lexer = moo.compile({
   colon: ':', // 匹配冒号
   period: '.', // 匹配点号
   comma: ',', // 匹配逗号
-  atconfig: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
+  settingName: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
   comment: /\/\/.*?$/, // 匹配单行注释
   word: /[a-z][a-zA-Z]*/, // 匹配以小写字母开头的单词
-  component: /[A-Z][a-zA-Z]*/, // 匹配以大写字母开头的单词
+  nodeName: /[A-Z][a-zA-Z]*/, // 匹配以大写字母开头的单词
 });
 %}
 
@@ -25,7 +25,7 @@ const lexer = moo.compile({
 @lexer lexer
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> %component Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
+Node -> %nodeName Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
     return {
       name: data[0].value,
@@ -87,7 +87,7 @@ Settings -> (_ SettingName _ Attrs):* {%
   } 
 %}
 
-SettingName -> %atconfig {% (data) => data[0].value %}
+SettingName -> %settingName {% (data) => data[0].value %}
 
 Attrs -> %lbrace _ Attr:* %rbrace {% (data) => Object.fromEntries(data[2]) %}
 
