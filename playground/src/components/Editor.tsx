@@ -94,6 +94,7 @@ const Editor = () => {
   Button "btn1"
 }
 `;
+
       editorInstance.current = monaco.editor.create(editorRef.current, {
         value: initialValue,
         language: "huajia", // 使用自定义DSL语言
@@ -105,6 +106,9 @@ const Editor = () => {
         const value = editorInstance.current?.getValue() || "";
         eventBus.emit("editTextChange", value);
       });
+
+      // 手动触发一次
+      eventBus.emit("editTextChange", initialValue);
 
       // 添加快捷键监听器
       editorInstance.current.addCommand(

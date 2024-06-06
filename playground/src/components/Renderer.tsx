@@ -1,7 +1,7 @@
 import { components } from "@huajia/components-antd";
 import { dslToReactNodes } from "@huajia/utils";
+import { useLayoutEffect, useState } from "react";
 import { useEventBus } from "../hooks/useEventBus";
-import { useEffect, useState } from "react";
 
 export const Renderer = () => {
   const [state, setState] = useState<{
@@ -14,20 +14,24 @@ export const Renderer = () => {
 
   const eventBus = useEventBus();
 
-  useEffect(() => {
-    return eventBus.on("editTextChange", (newText) => {
-      try {
-        const nodes = dslToReactNodes(newText, components);
-        setState({ nodes, error: null });
-      } catch (err) {
-        if (err instanceof Error) {
-          setState({ nodes: null, error: err.message });
-        } else {
-          setState({ nodes: null, error: String(err) });
-        }
+  const render = (text: string) => {
+    try {
+      const nodes = dslToReactNodes(text, components);
+      setState({ nodes, error: null });
+    } catch (err) {
+      if (err instanceof Error) {
+        setState({ nodes: null, error: err.message });
+      } else {
+        setState({ nodes: null, error: String(err) });
       }
+    }
+  };
+
+  useLayoutEffect(() => {
+    return eventBus.on("editTextChange", (newText) => {
+      render(newText);
     });
-  }, [eventBus]);
+  }, []);
 
   return (
     <div
