@@ -46,7 +46,7 @@ export class HuajiaDSLFormatter {
       if (Object.keys(setting[1]).length > 0) {
         formattedText += ` ${setting[0]} {\n`;
         Object.entries(setting[1]).forEach(([key, value]) => {
-          formattedText += `${indent}${tabIndent}${key}: ${value}\n`;
+          formattedText += `${indent}${tabIndent}${key}: ${this.formatValueItem(value)}\n`;
         });
         formattedText += `${indent}}`;
       } else {
