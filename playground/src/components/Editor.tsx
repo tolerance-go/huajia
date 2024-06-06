@@ -87,8 +87,11 @@ const completionProvider: monaco.languages.CompletionItemProvider = {
     model: monaco.editor.ITextModel,
     position: monaco.Position
   ): monaco.languages.ProviderResult<monaco.languages.CompletionList> {
+    // 当前行的内容
     const lineContent = model.getLineContent(position.lineNumber);
+    // 当前光标位置之前的部分单词信息
     const wordInfo = model.getWordUntilPosition(position);
+    // 当前光标位置的范围
     const range = new monaco.Range(
       position.lineNumber,
       wordInfo.startColumn,
@@ -96,25 +99,31 @@ const completionProvider: monaco.languages.CompletionItemProvider = {
       wordInfo.endColumn
     );
 
-    const suggestions: monaco.languages.CompletionItem[] = [];
+    // const suggestions: monaco.languages.CompletionItem[] = [];
 
-    if (lineContent.startsWith("Page")) {
-      suggestions.push({
-        label: "PageTitle",
-        kind: monaco.languages.CompletionItemKind.Property,
-        insertText: 'PageTitle: "Example Title"',
-        range: range,
-      });
-    } else {
-      suggestions.push({
-        label: "Default",
-        kind: monaco.languages.CompletionItemKind.Text,
-        insertText: "Default",
-        range: range,
-      });
-    }
+    // if (lineContent.startsWith("Page")) {
+    //   suggestions.push({
+    //     label: "PageTitle",
+    //     kind: monaco.languages.CompletionItemKind.Property,
+    //     insertText: 'PageTitle: "Example Title"',
+    //     range: range,
+    //   });
+    // } else {
+    //   suggestions.push({
+    //     label: "Default",
+    //     kind: monaco.languages.CompletionItemKind.Text,
+    //     insertText: "Default",
+    //     range: range,
+    //   });
+    // }
 
-    return { suggestions: suggestions };
+    // return { suggestions: suggestions };
+    console.log({
+      lineContent,
+      wordInfo,
+      range,
+    });
+    return { suggestions: [] };
   },
 };
 
