@@ -11,7 +11,7 @@ export interface _Config {
   vertical?: boolean;
 }
 
-export type Values = [string];
+export type Values = [];
 
 export type Children = {
   default?: React.ReactElement[];
@@ -38,7 +38,7 @@ const Flex: React.FC<Props> = ({
 }) => {
   return (
     <AntdFlex className={className} style={style} vertical={config?.vertical}>
-      {children.default || values?.[0]}
+      {children.default}
     </AntdFlex>
   );
 };
