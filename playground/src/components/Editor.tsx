@@ -87,9 +87,15 @@ const Editor = () => {
 
   useEffect(() => {
     if (editorRef.current) {
+      const initialValue = `Flex @config {
+  vertical: true
+} {
+  Button "btn1"
+  Button "btn1"
+}
+`;
       editorInstance.current = monaco.editor.create(editorRef.current, {
-        value: `Button 'label'
-`,
+        value: initialValue,
         language: "huajia", // 使用自定义DSL语言
         theme: "custom-vs-dark",
       });
