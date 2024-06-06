@@ -19,7 +19,7 @@ export class EventBus<TEvents extends Record<string, any>> {
     eventType: K,
     listener: (payload: TEvents[K]) => void,
     options?: OnOptions
-  ): void {
+  ): () => void {
     if (!this.listeners[eventType]) {
       this.listeners[eventType] = [];
     }
@@ -29,6 +29,8 @@ export class EventBus<TEvents extends Record<string, any>> {
     if (options?.immediate && this.eventHistory[eventType] !== undefined) {
       listener(this.eventHistory[eventType]!);
     }
+
+    return () => this.off(eventType, listener);
   }
 
   // 移除事件监听器

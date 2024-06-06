@@ -73,4 +73,16 @@ describe("EventBus", () => {
     expect(mockListener).toHaveBeenCalledTimes(2);
     expect(mockListener).toHaveBeenCalledWith(2);
   });
+
+  test("on 返回的函数可以正确解除监听", () => {
+    const mockListener = jest.fn();
+    const off = bus.on("increment", mockListener);
+
+    bus.emit("increment", 1);
+    expect(mockListener).toHaveBeenCalledWith(1);
+
+    off();
+    bus.emit("increment", 2);
+    expect(mockListener).toHaveBeenCalledTimes(1); // 确保解除监听后不再调用
+  });
 });

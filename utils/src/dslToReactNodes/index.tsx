@@ -1,13 +1,6 @@
+import { Attrs, Node } from "@huajia/dsl";
 import React from "react";
-import nearley from "nearley";
-import grammar, { Node, Attrs } from "@huajia/dsl";
-
-// 解析 DSL 字符串为结构化数据
-const parseDSL = (dsl: string): Node => {
-  const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
-  parser.feed(dsl);
-  return parser.results[0]; // 假设解析结果是一个 Node 数组
-};
+import { parseDSL } from "./parseDSL";
 
 // 将 Node 转换为 React 元素
 const nodeToReactElement = (
@@ -42,5 +35,6 @@ export const dslToReactNodes = (
   components: { [key: string]: React.FC<any> }
 ) => {
   const node = parseDSL(dsl);
+  if (!node) return [];
   return [node].map((node, index) => nodeToReactElement(node, components));
 };

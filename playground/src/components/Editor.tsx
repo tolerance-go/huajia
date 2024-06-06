@@ -8,6 +8,7 @@ import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker?worker";
 import cssWorker from "monaco-editor/esm/vs/language/css/css.worker?worker";
 import htmlWorker from "monaco-editor/esm/vs/language/html/html.worker?worker";
 import tsWorker from "monaco-editor/esm/vs/language/typescript/ts.worker?worker";
+import { useEventBus } from "../hooks/useEventBus";
 
 self.MonacoEnvironment = {
   getWorker(_, label) {
@@ -78,6 +79,7 @@ monaco.editor.defineTheme("custom-vs-dark", {
 });
 
 const Editor = () => {
+  const eventBus = useEventBus();
   const editorRef = useRef<HTMLDivElement | null>(null);
   const editorInstance = useRef<monaco.editor.IStandaloneCodeEditor | null>(
     null
@@ -86,28 +88,7 @@ const Editor = () => {
   useEffect(() => {
     if (editorRef.current) {
       editorInstance.current = monaco.editor.create(editorRef.current, {
-        value: `Root {
-  Flex @config {
-    gap: 'small'
-    wrap: 'true'
-  } {
-    Button "Primary Button" @config {
-      type: 'primary'
-    }
-    Button "Text Button" @config {
-      type: 'dashed'
-    }
-    Button "Link Button" @config {
-      type: 'link'
-    } @interactive {
-      click: 'GET:/getWorld/:id'
-    } @css {
-      color: 'red'
-      pb: 10
-      mt: 10
-    }
-  }
-}
+        value: `Button 'label'
 `,
         language: "huajia", // 使用自定义DSL语言
         theme: "custom-vs-dark",
@@ -115,7 +96,8 @@ const Editor = () => {
 
       // 添加内容变化监听器
       editorInstance.current.onDidChangeModelContent(() => {
-        // const value = editorInstance.current?.getValue() || "";
+        const value = editorInstance.current?.getValue() || "";
+        eventBus.emit("editTextChange", value);
       });
 
       // 添加快捷键监听器
