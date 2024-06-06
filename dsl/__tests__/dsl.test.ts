@@ -24,14 +24,14 @@ describe("基础测试", () => {
         [
           "@config",
           {
-            "attr": ""attr"",
-            "other": "'other'",
+            "attr": "attr",
+            "other": "other",
           },
         ],
         [
           "@css",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
       ],
@@ -45,7 +45,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -76,7 +76,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -103,23 +103,23 @@ describe("基础测试", () => {
         [
           "@config",
           {
-            "attr": ""attr"",
-            "other": "'other'",
+            "attr": "attr",
+            "other": "other",
           },
         ],
         [
           "@css",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
       ],
-      "values": null,
+      "values": [],
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -152,28 +152,28 @@ describe("基础测试", () => {
               "children": [],
               "name": "Element",
               "settings": [],
-              "values": null,
+              "values": [],
             },
           ],
           "name": "Element",
           "settings": [],
-          "values": null,
+          "values": [],
         },
         {
           "children": [],
           "name": "Element",
           "settings": [],
-          "values": null,
+          "values": [],
         },
       ],
       "name": "Element",
       "settings": [],
-      "values": null,
+      "values": [],
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -192,7 +192,7 @@ describe("基础测试", () => {
   "children": [],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -208,7 +208,7 @@ describe("基础测试", () => {
   "children": [],
   "name": "Button",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -224,7 +224,7 @@ describe("基础测试", () => {
   "children": [],
   "name": "Button",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });

@@ -68,8 +68,8 @@ SettingName -> %atconfig {% (data) => data[0].value %}
 
 Attrs -> %lbrace _ Attr:* %rbrace {% (data) => Object.fromEntries(data[2]) %}
 
-Attr -> %word _ %colon _ %string _ {% 
-  (data) => [data[0].value, data[4].value]
+Attr -> %word _ %colon _ Value _ {% 
+  (data) => [data[0].value, data[4][0]]
 %}
 
 # 这里有个 bug，如果直接在 Value 序列化，Values 中的 Value 只处理了最后一个项

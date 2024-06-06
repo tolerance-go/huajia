@@ -13,7 +13,7 @@ describe("省略 children", () => {
   "children": [],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -40,7 +40,7 @@ describe("省略 children", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -69,7 +69,7 @@ describe("省略 children", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -94,16 +94,16 @@ describe("省略 children", () => {
         [
           "@css",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
       ],
-      "values": null,
+      "values": [],
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -130,22 +130,22 @@ describe("省略 children", () => {
         [
           "@css",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
         [
           "@config",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
       ],
-      "values": null,
+      "values": [],
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -172,13 +172,13 @@ describe("省略 children", () => {
         [
           "@css",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
         [
           "@config",
           {
-            "color": "'red'",
+            "color": "red",
           },
         ],
       ],
@@ -191,7 +191,7 @@ describe("省略 children", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });

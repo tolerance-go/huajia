@@ -34,7 +34,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -65,7 +65,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -98,7 +98,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -133,7 +133,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
@@ -173,7 +173,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": null,
+  "values": [],
 }
 `);
   });
