@@ -35,6 +35,7 @@ monaco.languages.register({ id: "huajia" });
 monaco.languages.setMonarchTokensProvider("huajia", {
   tokenizer: {
     root: [
+      // 使用内部预设
       [/"(?:\\["\\]|[^\n"\\])*"|'(?:\\['\\]|[^\n'\\])*'/, "string"],
       [/[0-9]+(?:\.[0-9]+)?/, "number"],
       [/true|false/, "constant.language.boolean"],
@@ -44,8 +45,9 @@ monaco.languages.setMonarchTokensProvider("huajia", {
       [/\]/, "delimiter.bracket"],
       [/\/\/.*$/, "comment"],
       [/[A-Z][a-zA-Z]*/, "type.identifier"],
-      [/@[a-zA-Z]+/, "setting"],
       [/([a-z][a-zA-Z]*):/, "key"],
+      // 自定义
+      [/@[a-zA-Z]+/, "setting"],
       [/:([a-z][a-zA-Z]*)/, "slot"], // slot 高亮规则
       [/\.([a-z][a-zA-Z]*)/, "scope"], // scope 高亮规则
     ],
