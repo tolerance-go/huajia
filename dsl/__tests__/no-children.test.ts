@@ -12,7 +12,9 @@ describe("省略 children", () => {
 {
   "children": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -32,14 +34,18 @@ describe("省略 children", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         "value1",
       ],
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -59,7 +65,9 @@ describe("省略 children", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         "value1",
         true,
@@ -68,7 +76,9 @@ describe("省略 children", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -90,6 +100,7 @@ describe("省略 children", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [
         [
           "@css",
@@ -98,11 +109,14 @@ describe("省略 children", () => {
           },
         ],
       ],
+      "slots": [],
       "values": [],
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -126,6 +140,7 @@ describe("省略 children", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [
         [
           "@css",
@@ -140,11 +155,14 @@ describe("省略 children", () => {
           },
         ],
       ],
+      "slots": [],
       "values": [],
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -168,6 +186,7 @@ describe("省略 children", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [
         [
           "@css",
@@ -182,6 +201,7 @@ describe("省略 children", () => {
           },
         ],
       ],
+      "slots": [],
       "values": [
         100,
         "value1",
@@ -190,7 +210,9 @@ describe("省略 children", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);

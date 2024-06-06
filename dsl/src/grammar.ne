@@ -12,6 +12,7 @@ const lexer = moo.compile({
   lbrack: '[', // 匹配左方括号
   rbrack: ']', // 匹配右方括号
   colon: ':', // 匹配冒号
+  period: '.', // 匹配点号
   comma: ',', // 匹配逗号
   atconfig: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
   comment: /\/\/.*?$/, // 匹配单行注释
@@ -24,14 +25,36 @@ const lexer = moo.compile({
 @lexer lexer
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> %component Values Settings _ (Children | %whitespace) _ {% 
+Node -> %component Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
     return {
       name: data[0].value,
-      values: data[1],
-      settings: data[2],
-      children: /[ \t\r\n]+/.test(data[4][0].value) ? [] : data[4][0] ,
+      slots: data[1],
+      scopes: data[2],
+      values: data[3],
+      settings: data[4],
+      children: /[ \t\r\n]+/.test(data[6][0].value) ? [] : data[6][0] ,
     };
+  } 
+%}
+
+Slots -> (%colon %word):* {% 
+  (data) => {
+    const slots = [];
+    for (let i = 0; i < data[0].length; i++) {
+      slots.push(data[0][i][1].value);
+    }
+    return slots
+  } 
+%}
+
+Scopes -> (%period %word):* {% 
+  (data) => {
+    const scopes = [];
+    for (let i = 0; i < data[0].length; i++) {
+      scopes.push(data[0][i][1].value);
+    }
+    return scopes
   } 
 %}
 

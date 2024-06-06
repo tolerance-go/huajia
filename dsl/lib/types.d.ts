@@ -3,6 +3,8 @@ export type Node = {
   settings: [`@${string}`, Attrs][];
   values: Value[];
   children: Node[];
+  scopes: string[];
+  slots: string[];
 };
 
 export type Value = ArrayValue | string | number | boolean;

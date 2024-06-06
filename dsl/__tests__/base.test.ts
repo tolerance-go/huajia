@@ -20,6 +20,7 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [
         [
           "@config",
@@ -35,6 +36,7 @@ describe("基础测试", () => {
           },
         ],
       ],
+      "slots": [],
       "values": [
         "value1",
         "value2",
@@ -44,7 +46,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -65,7 +69,9 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         "value1",
         "value2",
@@ -75,7 +81,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -99,6 +107,7 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [
         [
           "@config",
@@ -114,11 +123,14 @@ describe("基础测试", () => {
           },
         ],
       ],
+      "slots": [],
       "values": [],
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -151,28 +163,38 @@ describe("基础测试", () => {
             {
               "children": [],
               "name": "Element",
+              "scopes": [],
               "settings": [],
+              "slots": [],
               "values": [],
             },
           ],
           "name": "Element",
+          "scopes": [],
           "settings": [],
+          "slots": [],
           "values": [],
         },
         {
           "children": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
+          "slots": [],
           "values": [],
         },
       ],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [],
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -191,7 +213,9 @@ describe("基础测试", () => {
 {
   "children": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -207,7 +231,9 @@ describe("基础测试", () => {
 {
   "children": [],
   "name": "Button",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -223,7 +249,9 @@ describe("基础测试", () => {
 {
   "children": [],
   "name": "Button",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);

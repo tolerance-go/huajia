@@ -17,7 +17,9 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         [
           "value1",
@@ -33,7 +35,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -54,7 +58,9 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         [],
         "value2",
@@ -64,7 +70,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -85,7 +93,9 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         [
           100,
@@ -97,7 +107,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -118,7 +130,9 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         [
           100,
@@ -132,7 +146,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
@@ -153,7 +169,9 @@ describe("基础测试", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [],
+      "slots": [],
       "values": [
         [
           100,
@@ -172,7 +190,9 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);

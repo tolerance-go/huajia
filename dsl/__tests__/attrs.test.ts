@@ -22,6 +22,7 @@ describe("attrs", () => {
     {
       "children": [],
       "name": "Element",
+      "scopes": [],
       "settings": [
         [
           "@config",
@@ -42,11 +43,14 @@ describe("attrs", () => {
           },
         ],
       ],
+      "slots": [],
       "values": [],
     },
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
+  "slots": [],
   "values": [],
 }
 `);
