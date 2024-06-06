@@ -12,7 +12,8 @@ describe("省略 children", () => {
 {
   "children": [],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -32,14 +33,14 @@ describe("省略 children", () => {
       "children": [],
       "name": "Element",
       "settings": [],
-      "type": "Element",
       "values": [
         "value1",
       ],
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -59,7 +60,6 @@ describe("省略 children", () => {
       "children": [],
       "name": "Element",
       "settings": [],
-      "type": "Element",
       "values": [
         "value1",
         true,
@@ -68,7 +68,8 @@ describe("省略 children", () => {
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -97,12 +98,12 @@ describe("省略 children", () => {
           },
         ],
       ],
-      "type": "Element",
       "values": [],
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -139,12 +140,12 @@ describe("省略 children", () => {
           },
         ],
       ],
-      "type": "Element",
       "values": [],
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -181,7 +182,6 @@ describe("省略 children", () => {
           },
         ],
       ],
-      "type": "Element",
       "values": [
         100,
         "value1",
@@ -190,7 +190,8 @@ describe("省略 children", () => {
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });

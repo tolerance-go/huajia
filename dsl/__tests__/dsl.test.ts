@@ -35,7 +35,6 @@ describe("基础测试", () => {
           },
         ],
       ],
-      "type": "Element",
       "values": [
         "value1",
         "value2",
@@ -45,7 +44,8 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -66,7 +66,6 @@ describe("基础测试", () => {
       "children": [],
       "name": "Element",
       "settings": [],
-      "type": "Element",
       "values": [
         "value1",
         "value2",
@@ -76,7 +75,8 @@ describe("基础测试", () => {
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -114,12 +114,12 @@ describe("基础测试", () => {
           },
         ],
       ],
-      "type": "Element",
       "values": [],
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -152,31 +152,28 @@ describe("基础测试", () => {
               "children": [],
               "name": "Element",
               "settings": [],
-              "type": "Element",
               "values": [],
             },
           ],
           "name": "Element",
           "settings": [],
-          "type": "Element",
           "values": [],
         },
         {
           "children": [],
           "name": "Element",
           "settings": [],
-          "type": "Element",
           "values": [],
         },
       ],
       "name": "Element",
       "settings": [],
-      "type": "Element",
       "values": [],
     },
   ],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
@@ -194,7 +191,8 @@ describe("基础测试", () => {
 {
   "children": [],
   "name": "Root",
-  "type": "Root",
+  "settings": [],
+  "values": [],
 }
 `);
   });
