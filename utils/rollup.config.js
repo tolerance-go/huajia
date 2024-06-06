@@ -5,10 +5,16 @@ import autoExternal from "rollup-plugin-auto-external";
 
 export default {
   input: "src/index.ts",
-  output: {
-    file: "dist/index.js",
-    format: "es",
-  },
+  output: [
+    {
+      file: "dist/es/index.js",
+      format: "es",
+    },
+    {
+      file: "dist/cjs/index.js",
+      format: "cjs",
+    },
+  ],
   plugins: [
     autoExternal(), // 自动将 peerDependencies 和 dependencies 列为外部依赖
     resolve(), // 帮助 Rollup 查找外部模块

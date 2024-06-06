@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "main": "lib/grammar.js",
+  "module": "lib/grammar.js",
+  "main": "lib/grammar.cjs",
   "files": [
     "lib"
   ],
