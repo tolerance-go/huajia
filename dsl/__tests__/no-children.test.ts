@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/grammar.js";
+import grammar from "../lib/grammar.cjs";
 
 describe("省略 children", () => {
   it("Root 禁止省略 {}", () => {
@@ -13,7 +13,7 @@ describe("省略 children", () => {
   "children": [],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -40,7 +40,7 @@ describe("省略 children", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -69,7 +69,7 @@ describe("省略 children", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -98,12 +98,12 @@ describe("省略 children", () => {
           },
         ],
       ],
-      "values": [],
+      "values": null,
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -140,12 +140,12 @@ describe("省略 children", () => {
           },
         ],
       ],
-      "values": [],
+      "values": null,
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -191,7 +191,7 @@ describe("省略 children", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });

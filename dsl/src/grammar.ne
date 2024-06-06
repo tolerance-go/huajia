@@ -48,7 +48,7 @@ Values -> (_ Value):* {%
       values.push(data[0][i][1][0]);
     }
     return values
-  } 
+  }
 %}
 
 Settings -> (_ SettingName _ Attrs):* {% 

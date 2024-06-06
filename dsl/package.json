@@ -8,7 +8,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "nearleyc src/grammar.ne -o lib/grammar.js && rollup -c",
+    "build": "nearleyc src/grammar.ne -o lib/grammar.cjs && rollup -c",
     "test": "jest"
   },
   "keywords": [],

@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/grammar";
+import grammar from "../lib/grammar.cjs";
 
 describe("基础测试", () => {
   it("同时存在 values 和 settings", () => {
@@ -45,7 +45,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -76,7 +76,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -114,12 +114,12 @@ describe("基础测试", () => {
           },
         ],
       ],
-      "values": [],
+      "values": null,
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -152,28 +152,28 @@ describe("基础测试", () => {
               "children": [],
               "name": "Element",
               "settings": [],
-              "values": [],
+              "values": null,
             },
           ],
           "name": "Element",
           "settings": [],
-          "values": [],
+          "values": null,
         },
         {
           "children": [],
           "name": "Element",
           "settings": [],
-          "values": [],
+          "values": null,
         },
       ],
       "name": "Element",
       "settings": [],
-      "values": [],
+      "values": null,
     },
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -192,8 +192,49 @@ describe("基础测试", () => {
   "children": [],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
+  });
+
+  it("根组件截断测试", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Button `;
+
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [],
+  "name": "Button",
+  "settings": [],
+  "values": null,
+}
+`);
+  });
+
+  it("根组件截断测试-换行", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Button\n`;
+
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": [],
+  "name": "Button",
+  "settings": [],
+  "values": null,
+}
+`);
+  });
+
+  it("根组件截断测试-结尾必须存在空格或者换行", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Button`;
+
+    parser.feed(input);
+    expect(parser.results[0]).toBe(undefined);
   });
 });

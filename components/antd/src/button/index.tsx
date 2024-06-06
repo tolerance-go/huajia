@@ -12,13 +12,13 @@ export interface _Config {}
 export type Values = [string];
 
 export type Children = {
-  default: React.ReactElement[];
+  default?: React.ReactElement[];
 };
 
 export interface Props {
   className?: string;
   style?: _Style;
-  children?: Children;
+  children: Children;
   values?: Values;
   config?: _Config;
   network?: _Network;
@@ -36,7 +36,7 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <AntdButton className={className} style={style}>
-      {children?.default || values?.[0]}
+      {children.default || values?.[0]}
     </AntdButton>
   );
 };

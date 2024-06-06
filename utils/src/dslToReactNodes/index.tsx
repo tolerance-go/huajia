@@ -30,7 +30,9 @@ const nodeToReactElement = (
 
   return (
     <Component key={node.name} {...settings} values={node.values}>
-      {children}
+      {{
+        default: children.length ? children : undefined,
+      }}
     </Component>
   );
 };

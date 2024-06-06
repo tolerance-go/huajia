@@ -1,12 +1,12 @@
-export const Renderer = () => {
-  // 假设有一个解析函数 parseDSL
-  //   const parsedData = parseDSL(dslCode);
+import { components } from "@huajia/components-antd";
+import { dslToReactNodes } from "@huajia/utils";
 
+export const Renderer = () => {
   return (
     <div
       style={{ height: "100vh", width: "50%", borderLeft: "1px solid #ccc" }}
     >
-      {/* 渲染 parsedData */}
+      {dslToReactNodes('Button "label" ', components)}
     </div>
   );
 };

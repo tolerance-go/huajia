@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/grammar";
+import grammar from "../lib/grammar.cjs";
 
 describe("基础测试", () => {
   it("values 支持数组", () => {
@@ -34,7 +34,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -65,7 +65,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -98,7 +98,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -133,7 +133,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });
@@ -173,7 +173,7 @@ describe("基础测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "values": [],
+  "values": null,
 }
 `);
   });

@@ -3,7 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import autoExternal from "rollup-plugin-auto-external";
 
 export default {
-  input: "lib/grammar.js", // Nearley 生成的解析器文件
+  input: "lib/grammar.cjs", // Nearley 生成的解析器文件
   output: {
     file: "lib/grammar.js", // 输出 ES 模块文件
     format: "es", // 指定输出格式为 ES 模块

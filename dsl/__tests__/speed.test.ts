@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/grammar.js";
+import grammar from "../lib/grammar.cjs";
 
 describe("速度测试", () => {
   it("基础", () => {
