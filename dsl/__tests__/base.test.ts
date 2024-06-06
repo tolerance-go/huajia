@@ -2,6 +2,50 @@ import nearley from "nearley";
 import grammar from "../lib/grammar.cjs";
 
 describe("基础测试", () => {
+  it("最前面存在空", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = ` Root {}`;
+
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": {
+    "end": {
+      "col": 8,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 7,
+    },
+    "nodes": [],
+    "start": {
+      "col": 7,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 6,
+    },
+  },
+  "end": {
+    "col": 8,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 7,
+  },
+  "name": "Root",
+  "scopes": [],
+  "settings": [],
+  "slots": [],
+  "start": {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+  },
+  "values": [],
+}
+`);
+  });
+
   it("同时存在 values 和 settings", () => {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 

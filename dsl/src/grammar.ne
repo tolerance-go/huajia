@@ -34,6 +34,12 @@ function withLocation(data) {
 }
 %}
 
+Root -> _ Node {% 
+  (data) => {
+    return data[1];
+  } 
+%}
+
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
 Node -> %nodeName Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
