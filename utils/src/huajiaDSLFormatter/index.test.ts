@@ -4,6 +4,13 @@ describe("DSL Formatter Test Suite", () => {
   test("Format DSL code compactText", async () => {
     const cases = [
       ["空子集", `Root { }`, `Root\n`],
+      ["内部空子集", `Root { 
+        Element {
+
+        }
+      }`, `Root {
+  Element
+}\n`],
       [
         "values 的字符串",
         `Root {
