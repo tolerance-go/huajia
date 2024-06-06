@@ -17,11 +17,11 @@ describe("slots", () => {
     {
       "children": [],
       "name": "Element",
-      "scopes": [
+      "scopes": [],
+      "settings": [],
+      "slots": [
         "slotA",
       ],
-      "settings": [],
-      "slots": [],
       "values": [],
     },
   ],
@@ -49,12 +49,12 @@ describe("slots", () => {
     {
       "children": [],
       "name": "Element",
-      "scopes": [
+      "scopes": [],
+      "settings": [],
+      "slots": [
         "slotA",
         "slotB",
       ],
-      "settings": [],
-      "slots": [],
       "values": [],
     },
   ],

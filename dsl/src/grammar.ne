@@ -29,8 +29,8 @@ Node -> %component Scopes Slots Values Settings _ (Children | %whitespace) _ {%
   (data) => {
     return {
       name: data[0].value,
-      slots: data[1],
-      scopes: data[2],
+      scopes: data[1],
+      slots: data[2],
       values: data[3],
       settings: data[4],
       children: /[ \t\r\n]+/.test(data[6][0].value) ? [] : data[6][0] ,

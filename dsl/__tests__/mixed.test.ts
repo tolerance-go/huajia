@@ -18,13 +18,13 @@ describe("混合测试", () => {
       "children": [],
       "name": "Element",
       "scopes": [
-        "slotA",
-        "slotB",
+        "scopeA",
+        "scopeB",
       ],
       "settings": [],
       "slots": [
-        "scopeA",
-        "scopeB",
+        "slotA",
+        "slotB",
       ],
       "values": [],
     },

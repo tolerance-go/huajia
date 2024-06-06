@@ -35,18 +35,19 @@ monaco.languages.register({ id: "huajia" });
 monaco.languages.setMonarchTokensProvider("huajia", {
   tokenizer: {
     root: [
-      [/@[a-zA-Z]+/, "keyword"],
       [/"(?:\\["\\]|[^\n"\\])*"|'(?:\\['\\]|[^\n'\\])*'/, "string"],
       [/[0-9]+(?:\.[0-9]+)?/, "number"],
-      [/true|false/, "boolean"],
+      [/true|false/, "constant.language.boolean"],
       [/\{/, "delimiter.brace"],
       [/\}/, "delimiter.brace"],
       [/\[/, "delimiter.bracket"],
       [/\]/, "delimiter.bracket"],
-      [/[:,]/, "delimiter"],
       [/\/\/.*$/, "comment"],
-      [/[a-z][a-zA-Z]*/, "variable"],
       [/[A-Z][a-zA-Z]*/, "type.identifier"],
+      [/@[a-zA-Z]+/, "setting"],
+      [/([a-z][a-zA-Z]*):/, "key"],
+      [/:([a-z][a-zA-Z]*)/, "slot"], // slot 高亮规则
+      [/\.([a-z][a-zA-Z]*)/, "scope"], // scope 高亮规则
     ],
   },
 });
@@ -73,7 +74,9 @@ monaco.editor.defineTheme("custom-vs-dark", {
   base: "vs-dark",
   inherit: true,
   rules: [
-    { token: "keyword", foreground: "FFA500" }, // Orange color for @xxx
+    { token: "setting", foreground: "FFA500" },
+    { token: "slot", foreground: "03A9F4" },
+    { token: "scope", foreground: "BA68C8" },
   ],
   colors: {},
 });
@@ -90,8 +93,12 @@ const Editor = () => {
       const initialValue = `Flex @config {
   vertical: true
 } {
-  Button "btn1"
-  Button "btn1"
+  Button.scopeA:slotA 'label'
+  Button.scopeA:slotA 'label' @css {
+    string: 'string'
+    boolean: true
+    number: 100
+  }
 }
 `;
 

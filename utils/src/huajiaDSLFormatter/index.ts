@@ -27,6 +27,12 @@ export class HuajiaDSLFormatter {
     let formattedText = "";
 
     formattedText += `${indent}${node.name}`;
+    if (node.scopes.length > 0) {
+      formattedText += `.${node.scopes.join(".")}`;
+    }
+    if (node.slots.length > 0) {
+      formattedText += `:${node.slots.join(":")}`;
+    }
     if (node.values.length > 0) {
       formattedText +=
         " " +

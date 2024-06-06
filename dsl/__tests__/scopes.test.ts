@@ -17,11 +17,11 @@ describe("scopes", () => {
     {
       "children": [],
       "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [
+      "scopes": [
         "scopeA",
       ],
+      "settings": [],
+      "slots": [],
       "values": [],
     },
   ],
@@ -49,12 +49,12 @@ describe("scopes", () => {
     {
       "children": [],
       "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [
+      "scopes": [
         "scopeA",
         "scopeB",
       ],
+      "settings": [],
+      "slots": [],
       "values": [],
     },
   ],
@@ -82,12 +82,12 @@ describe("scopes", () => {
     {
       "children": [],
       "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [
+      "scopes": [
         "scopeA",
         "scopeB",
       ],
+      "settings": [],
+      "slots": [],
       "values": [
         100,
         true,
@@ -121,7 +121,10 @@ describe("scopes", () => {
     {
       "children": [],
       "name": "Element",
-      "scopes": [],
+      "scopes": [
+        "scopeA",
+        "scopeB",
+      ],
       "settings": [
         [
           "@css",
@@ -130,10 +133,7 @@ describe("scopes", () => {
           },
         ],
       ],
-      "slots": [
-        "scopeA",
-        "scopeB",
-      ],
+      "slots": [],
       "values": [],
     },
   ],

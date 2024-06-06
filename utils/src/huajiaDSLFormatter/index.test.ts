@@ -4,13 +4,17 @@ describe("DSL Formatter Test Suite", () => {
   test("Format DSL code compactText", async () => {
     const cases = [
       ["空子集", `Root { }`, `Root\n`],
-      ["内部空子集", `Root { 
+      [
+        "内部空子集",
+        `Root { 
         Element {
 
         }
-      }`, `Root {
+      }`,
+        `Root {
   Element
-}\n`],
+}\n`,
+      ],
       [
         "values 的字符串",
         `Root {
@@ -43,6 +47,34 @@ describe("DSL Formatter Test Suite", () => {
         ],
         `Root {
   Element @css {}
+}\n`,
+      ],
+
+      [
+        "插槽",
+        `Root {
+  Element:slotA:slotB
+}`,
+        `Root {
+  Element:slotA:slotB
+}\n`,
+      ],
+      [
+        "域",
+        `Root {
+  Element.scopeA.scopeB
+}`,
+        `Root {
+  Element.scopeA.scopeB
+}\n`,
+      ],
+      [
+        "域和插槽",
+        `Root {
+  Element.scopeA.scopeB:slotA:slotB
+}`,
+        `Root {
+  Element.scopeA.scopeB:slotA:slotB
 }\n`,
       ],
     ];
