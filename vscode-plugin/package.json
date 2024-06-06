@@ -1,5 +1,6 @@
 {
   "name": "huajia-dsl",
+  "type": "module",
   "displayName": "huajia-dsl",
   "description": "Syntax highlighting and formatting for custom DSL",
   "version": "0.0.1",

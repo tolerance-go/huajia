@@ -1,4 +1,4 @@
-import { HuajiaDSLFormatter } from "@huajia/utils/dist/huajiaDSLFormatter";
+import { HuajiaDSLFormatter } from "@huajia/utils";
 import * as vscode from "vscode";
 
 export class DSLFormatter implements vscode.DocumentFormattingEditProvider {
