@@ -81,6 +81,45 @@ monaco.editor.defineTheme("custom-vs-dark", {
   colors: {},
 });
 
+// 定义CompletionItem的类型
+const completionProvider: monaco.languages.CompletionItemProvider = {
+  provideCompletionItems: function (
+    model: monaco.editor.ITextModel,
+    position: monaco.Position
+  ): monaco.languages.ProviderResult<monaco.languages.CompletionList> {
+    const lineContent = model.getLineContent(position.lineNumber);
+    const wordInfo = model.getWordUntilPosition(position);
+    const range = new monaco.Range(
+      position.lineNumber,
+      wordInfo.startColumn,
+      position.lineNumber,
+      wordInfo.endColumn
+    );
+
+    const suggestions: monaco.languages.CompletionItem[] = [];
+
+    if (lineContent.startsWith("Page")) {
+      suggestions.push({
+        label: "PageTitle",
+        kind: monaco.languages.CompletionItemKind.Property,
+        insertText: 'PageTitle: "Example Title"',
+        range: range,
+      });
+    } else {
+      suggestions.push({
+        label: "Default",
+        kind: monaco.languages.CompletionItemKind.Text,
+        insertText: "Default",
+        range: range,
+      });
+    }
+
+    return { suggestions: suggestions };
+  },
+};
+
+monaco.languages.registerCompletionItemProvider("huajia", completionProvider);
+
 const Editor = () => {
   const eventBus = useEventBus();
   const editorRef = useRef<HTMLDivElement | null>(null);
