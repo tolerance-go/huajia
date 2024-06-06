@@ -140,7 +140,7 @@ const Editor = () => {
     };
   }, []);
 
-  return <div ref={editorRef} style={{ height: "100vh", width: "40%" }}></div>;
+  return <div ref={editorRef} style={{ height: "100vh", width: "45%" }}></div>;
 };
 
 export default Editor;
