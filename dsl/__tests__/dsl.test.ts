@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar from "../lib/grammar.js";
+import grammar from "../lib/grammar";
 
 describe("基础测试", () => {
   it("同时存在 values 和 settings", () => {
