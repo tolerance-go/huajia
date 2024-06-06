@@ -13,22 +13,64 @@ describe("slots", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [
-        "slotA",
-      ],
-      "values": [],
+  "children": {
+    "end": {
+      "col": 2,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 25,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 17,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 23,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [],
+        "slots": [
+          "slotA",
+        ],
+        "start": {
+          "col": 4,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 10,
+        },
+        "values": [],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 2,
+    "line": 3,
+    "lineBreaks": 0,
+    "offset": 25,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
@@ -45,23 +87,65 @@ describe("slots", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [
-        "slotA",
-        "slotB",
-      ],
-      "values": [],
+  "children": {
+    "end": {
+      "col": 2,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 31,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 23,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 29,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [],
+        "slots": [
+          "slotA",
+          "slotB",
+        ],
+        "start": {
+          "col": 4,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 10,
+        },
+        "values": [],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 2,
+    "line": 3,
+    "lineBreaks": 0,
+    "offset": 31,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);

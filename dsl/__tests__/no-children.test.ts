@@ -10,11 +10,37 @@ describe("省略 children", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [],
+  "children": {
+    "end": {
+      "col": 7,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 6,
+    },
+    "nodes": [],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 7,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 6,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
@@ -30,22 +56,64 @@ describe("省略 children", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [],
-      "values": [
-        "value1",
-      ],
+  "children": {
+    "end": {
+      "col": 5,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 36,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 25,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 31,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [],
+        "slots": [],
+        "start": {
+          "col": 9,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 15,
+        },
+        "values": [
+          "value1",
+        ],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 5,
+    "line": 3,
+    "lineBreaks": 0,
+    "offset": 36,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
@@ -61,24 +129,66 @@ describe("省略 children", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [],
-      "slots": [],
-      "values": [
-        "value1",
-        true,
-        100,
-      ],
+  "children": {
+    "end": {
+      "col": 5,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 45,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 34,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 40,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [],
+        "slots": [],
+        "start": {
+          "col": 9,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 15,
+        },
+        "values": [
+          "value1",
+          true,
+          100,
+        ],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 5,
+    "line": 3,
+    "lineBreaks": 0,
+    "offset": 45,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
@@ -96,27 +206,69 @@ describe("省略 children", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [
-        [
-          "@css",
-          {
-            "color": "red",
-          },
-        ],
-      ],
-      "slots": [],
-      "values": [],
+  "children": {
+    "end": {
+      "col": 5,
+      "line": 5,
+      "lineBreaks": 0,
+      "offset": 69,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 10,
+          "line": 4,
+          "lineBreaks": 1,
+          "offset": 64,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [
+          [
+            "@css",
+            {
+              "color": "red",
+            },
+          ],
+        ],
+        "slots": [],
+        "start": {
+          "col": 9,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 15,
+        },
+        "values": [],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 5,
+    "line": 5,
+    "lineBreaks": 0,
+    "offset": 69,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
@@ -136,33 +288,75 @@ describe("省略 children", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [
-        [
-          "@css",
-          {
-            "color": "red",
-          },
-        ],
-        [
-          "@config",
-          {
-            "color": "red",
-          },
-        ],
-      ],
-      "slots": [],
-      "values": [],
+  "children": {
+    "end": {
+      "col": 5,
+      "line": 7,
+      "lineBreaks": 0,
+      "offset": 114,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 10,
+          "line": 6,
+          "lineBreaks": 1,
+          "offset": 109,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [
+          [
+            "@css",
+            {
+              "color": "red",
+            },
+          ],
+          [
+            "@config",
+            {
+              "color": "red",
+            },
+          ],
+        ],
+        "slots": [],
+        "start": {
+          "col": 9,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 15,
+        },
+        "values": [],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 5,
+    "line": 7,
+    "lineBreaks": 0,
+    "offset": 114,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
@@ -182,37 +376,79 @@ describe("省略 children", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [
-        [
-          "@css",
-          {
-            "color": "red",
-          },
-        ],
-        [
-          "@config",
-          {
-            "color": "red",
-          },
-        ],
-      ],
-      "slots": [],
-      "values": [
-        100,
-        "value1",
-        true,
-      ],
+  "children": {
+    "end": {
+      "col": 5,
+      "line": 7,
+      "lineBreaks": 0,
+      "offset": 132,
     },
-  ],
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 10,
+          "line": 6,
+          "lineBreaks": 1,
+          "offset": 127,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [
+          [
+            "@css",
+            {
+              "color": "red",
+            },
+          ],
+          [
+            "@config",
+            {
+              "color": "red",
+            },
+          ],
+        ],
+        "slots": [],
+        "start": {
+          "col": 9,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 15,
+        },
+        "values": [
+          100,
+          "value1",
+          true,
+        ],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+    },
+  },
+  "end": {
+    "col": 5,
+    "line": 7,
+    "lineBreaks": 0,
+    "offset": 132,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);

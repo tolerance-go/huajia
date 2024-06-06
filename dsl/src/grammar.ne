@@ -23,17 +23,36 @@ const lexer = moo.compile({
 
 # 指定使用上面定义的 lexer
 @lexer lexer
+@{%
+function withLocation(data) {
+  return {
+    col: data.col,
+    line: data.line,
+    lineBreaks: data.lineBreaks,
+    offset: data.offset,  
+  };
+}
+%}
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
 Node -> %nodeName Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
+    const noChildrenBrace = /[ \t\r\n]+/.test(data[6][0].value);
     return {
       name: data[0].value,
       scopes: data[1],
       slots: data[2],
       values: data[3],
       settings: data[4],
-      children: /[ \t\r\n]+/.test(data[6][0].value) ? [] : data[6][0] ,
+      // 没有子节点花括号的时候，children 开始和结束位置都是空
+      children: noChildrenBrace ? {
+        start: null,
+        end: null,
+        nodes: []
+      } : data[6][0],
+      start: withLocation(data[0]),
+      // 如果没有子节点花括号，Node 的结尾就是空白符，否则用 children 的结束数据
+      end: noChildrenBrace ? withLocation(data[6][0]) : data[6][0].end
     };
   } 
 %}
@@ -60,7 +79,11 @@ Scopes -> (%period %word):* {%
 
 Children -> %lbrace _ Node:* %rbrace {% 
   (data) => {
-    return data[2]
+    return {
+      nodes: data[2],
+      start: withLocation(data[0]),
+      end: withLocation(data[3])
+    }
   } 
 %}
 
@@ -116,6 +139,7 @@ ArrayValue -> %lbrack _ (Value (_ %comma _ Value):*):? _ %rbrack {%
   }
 %}
 
+# 注意：这里是 0 次和多次，whitespace 自身的正则是 1 次和多次，所以是有正确的设置
 _ -> %whitespace:* {% 
   () => null 
 %} # 匹配空白字符或换行符

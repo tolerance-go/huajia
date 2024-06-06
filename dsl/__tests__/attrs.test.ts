@@ -18,39 +18,81 @@ describe("attrs", () => {
     parser.feed(input);
     expect(parser.results[0]).toMatchInlineSnapshot(`
 {
-  "children": [
-    {
-      "children": [],
-      "name": "Element",
-      "scopes": [],
-      "settings": [
-        [
-          "@config",
-          {
-            "array": [
-              true,
-              "string",
-              100,
-              [
+  "children": {
+    "end": {
+      "col": 2,
+      "line": 8,
+      "lineBreaks": 0,
+      "offset": 150,
+    },
+    "nodes": [
+      {
+        "children": {
+          "end": null,
+          "nodes": [],
+          "start": null,
+        },
+        "end": {
+          "col": 5,
+          "line": 7,
+          "lineBreaks": 1,
+          "offset": 148,
+        },
+        "name": "Element",
+        "scopes": [],
+        "settings": [
+          [
+            "@config",
+            {
+              "array": [
                 true,
                 "string",
                 100,
+                [
+                  true,
+                  "string",
+                  100,
+                ],
               ],
-            ],
-            "number": 100,
-            "string": "string",
-            "vertical": true,
-          },
+              "number": 100,
+              "string": "string",
+              "vertical": true,
+            },
+          ],
         ],
-      ],
-      "slots": [],
-      "values": [],
+        "slots": [],
+        "start": {
+          "col": 4,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 10,
+        },
+        "values": [],
+      },
+    ],
+    "start": {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
     },
-  ],
+  },
+  "end": {
+    "col": 2,
+    "line": 8,
+    "lineBreaks": 0,
+    "offset": 150,
+  },
   "name": "Root",
   "scopes": [],
   "settings": [],
   "slots": [],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
   "values": [],
 }
 `);
