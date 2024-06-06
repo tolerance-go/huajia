@@ -177,4 +177,28 @@ describe("基础测试", () => {
 }
 `);
   });
+
+  it("如果没有设置 value，则 value 为空", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root {
+   Element
+ }
+`;
+
+    parser.feed(input);
+    expect(parser.results[0].children[0].values).toEqual([]);
+  });
+
+  it("如果有设置 value，则 value 不为空", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root {
+   Element 100
+ }
+`;
+
+    parser.feed(input);
+    expect(parser.results[0].children[0].values.length).toBe(1);
+  });
 });

@@ -21,8 +21,10 @@ const nodeToReactElement = (
     nodeToReactElement(child, components)
   );
 
+  const values = node.values.length > 0 ? node.values : undefined;
+
   return (
-    <Component key={node.name} {...settings} values={node.values}>
+    <Component key={node.name} {...settings} values={values}>
       {{
         default: children.length ? children : undefined,
       }}
