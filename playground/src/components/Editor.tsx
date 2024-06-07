@@ -1,16 +1,15 @@
+import { HuajiaDSLFormatter } from "@huajia/utils"; // 假设你将 HuajiaDSLFormatter 类定义在这个文件中
 import * as monaco from "monaco-editor";
 import { useEffect, useRef } from "react";
-import { HuajiaDSLFormatter } from "@huajia/utils"; // 假设你将 HuajiaDSLFormatter 类定义在这个文件中
 // import grammar from '@huajia/dsl'; // 替换为你 DSL 语法文件的实际路径
-import nearley from "nearley";
 
 import editorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
-import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker?worker";
 import cssWorker from "monaco-editor/esm/vs/language/css/css.worker?worker";
 import htmlWorker from "monaco-editor/esm/vs/language/html/html.worker?worker";
+import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker?worker";
 import tsWorker from "monaco-editor/esm/vs/language/typescript/ts.worker?worker";
 import { useEventBus } from "../hooks/useEventBus";
-import grammar, { Node } from "@huajia/dsl";
+import HuajiaCompletionProvider from "../utils/huajiaCompletionProvider";
 
 self.MonacoEnvironment = {
   getWorker(_, label) {
@@ -93,88 +92,16 @@ monaco.editor.defineTheme("custom-vs-dark", {
   colors: {},
 });
 
-// 定义CompletionItem的类型
-const completionProvider: monaco.languages.CompletionItemProvider = {
+const completionProvider = new HuajiaCompletionProvider();
+
+monaco.languages.registerCompletionItemProvider("huajia", {
   provideCompletionItems: function (
     model: monaco.editor.ITextModel,
     position: monaco.Position
   ): monaco.languages.ProviderResult<monaco.languages.CompletionList> {
-    // 当前行的内容
-    // const lineContent = model.getLineContent(position.lineNumber);
-    // 当前光标位置之前的部分单词信息
-    const wordInfo = model.getWordUntilPosition(position);
-    // 当前光标位置的范围
-    const range = new monaco.Range(
-      position.lineNumber,
-      wordInfo.startColumn,
-      position.lineNumber,
-      wordInfo.endColumn
-    );
-
-    // 使用 Nearley 解析器解析当前内容
-    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
-    parser.feed(model.getValue());
-
-    // 解析结果
-    const parsedResult = parser.results[0];
-
-    // 检查当前光标是否在某个 children 的花括号内部
-    const suggestions: monaco.languages.CompletionItem[] = [];
-    const nodeNames = [
-      "Root",
-      "Page",
-      "Title",
-      "Header",
-      "Nav",
-      "SubNav",
-      "Footer",
-      "Text",
-      "Links",
-    ]; // 假设的 Node 名称
-
-    const isCursorInChildrenBrackets = (node: Node): boolean => {
-      if (!node.children.start || !node.children.end) {
-        return false;
-      }
-
-      const startOffset = node.children.start.offset;
-      const endOffset = node.children.end.offset;
-
-      const cursorOffset = model.getOffsetAt(position);
-      return cursorOffset > startOffset && cursorOffset < endOffset;
-    };
-
-    const traverseNodes = (nodes: Node[]) => {
-      for (const node of nodes) {
-        if (isCursorInChildrenBrackets(node)) {
-          if (
-            !node.children.nodes.some(
-              (child) =>
-                model.getOffsetAt(position) > child.start.offset &&
-                model.getOffsetAt(position) < child.end.offset
-            )
-          ) {
-            nodeNames.forEach((name) => {
-              suggestions.push({
-                label: name,
-                kind: monaco.languages.CompletionItemKind.Keyword,
-                insertText: name,
-                range: range,
-              });
-            });
-          }
-        }
-        traverseNodes(node.children.nodes);
-      }
-    };
-
-    traverseNodes([parsedResult]);
-
-    return { suggestions: suggestions };
+    return completionProvider.provideCompletionItems(model, position);
   },
-};
-
-monaco.languages.registerCompletionItemProvider("huajia", completionProvider);
+});
 
 const Editor = () => {
   const eventBus = useEventBus();
