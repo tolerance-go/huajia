@@ -46,7 +46,8 @@ Node -> Scopes %nodeName Id Modifiers Values Settings _ (Children | %whitespace)
   (data) => {
     const noChildrenBrace = /[ \t\r\n]+/.test(data[7][0].value);
     return {
-      start: data[0].length ? 'xxxx' : withLocation(data[1]),
+      start: data[0].length ? data[0][0].start : withLocation(data[1]),
+      scopes: data[0],
       name: data[1].value,
       id: data[2],
       modifiers: data[3],
@@ -68,13 +69,19 @@ Id -> (%hash %word):? {%
   (data) => data[0] ? data[0][1].value : null 
 %}
 
-Scopes -> (%word %period):* {% 
+Scopes -> Scope:* {% 
   (data) => {
-    const scopes = [];
-    for (let i = 0; i < data[0].length; i++) {
-      scopes.push(data[0][i][1].value);
+    return data[0]
+  } 
+%}
+
+Scope -> %word %period {% 
+  (data) => {
+    return {
+      scope: data[0].value,
+      start: withLocation(data[0]),
+      end: withLocation(data[1])
     }
-    return scopes
   } 
 %}
 

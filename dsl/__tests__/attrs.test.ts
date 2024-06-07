@@ -43,6 +43,7 @@ describe("attrs", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [
             [
               "@config",
@@ -101,6 +102,7 @@ describe("attrs", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,

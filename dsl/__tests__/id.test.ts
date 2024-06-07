@@ -34,6 +34,7 @@ describe("id 测试", () => {
   "id": "id",
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -80,6 +81,7 @@ describe("id 测试", () => {
     "scope",
   ],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,

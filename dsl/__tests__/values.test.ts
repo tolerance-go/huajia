@@ -38,6 +38,7 @@ describe("基础测试", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 4,
@@ -76,6 +77,7 @@ describe("基础测试", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -124,6 +126,7 @@ describe("基础测试", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 4,
@@ -156,6 +159,7 @@ describe("基础测试", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -204,6 +208,7 @@ describe("基础测试", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 4,
@@ -238,6 +243,7 @@ describe("基础测试", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -286,6 +292,7 @@ describe("基础测试", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 4,
@@ -322,6 +329,7 @@ describe("基础测试", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -370,6 +378,7 @@ describe("基础测试", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 4,
@@ -411,6 +420,7 @@ describe("基础测试", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,

@@ -17,8 +17,15 @@ export type Node = {
     nodes: [string, Node][];
   };
   modifiers: string[];
+  scopes: Scope[];
   start: Location;
   end: Location;
+};
+
+export type Scope = {
+  start: Location;
+  end: Location;
+  scope: string;
 };
 
 export type Value = ArrayValue | string | number | boolean;

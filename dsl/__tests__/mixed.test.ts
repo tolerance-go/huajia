@@ -41,6 +41,7 @@ describe("混合测试", () => {
             "scopeB",
           ],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 11,
@@ -68,6 +69,7 @@ describe("混合测试", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,

@@ -38,6 +38,7 @@ describe("slots", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 11,
@@ -65,6 +66,7 @@ describe("slots", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -113,6 +115,7 @@ describe("slots", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 11,
@@ -140,6 +143,7 @@ describe("slots", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,

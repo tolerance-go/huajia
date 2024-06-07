@@ -34,6 +34,7 @@ describe("省略 children", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -81,6 +82,7 @@ describe("省略 children", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 9,
@@ -110,6 +112,7 @@ describe("省略 children", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -157,6 +160,7 @@ describe("省略 children", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [],
           "start": {
             "col": 9,
@@ -188,6 +192,7 @@ describe("省略 children", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -237,6 +242,7 @@ describe("省略 children", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [
             [
               "@css",
@@ -274,6 +280,7 @@ describe("省略 children", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -325,6 +332,7 @@ describe("省略 children", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [
             [
               "@css",
@@ -371,6 +379,7 @@ describe("省略 children", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
@@ -422,6 +431,7 @@ describe("省略 children", () => {
           "id": null,
           "modifiers": [],
           "name": "Element",
+          "scopes": [],
           "settings": [
             [
               "@css",
@@ -472,6 +482,7 @@ describe("省略 children", () => {
   "id": null,
   "modifiers": [],
   "name": "Root",
+  "scopes": [],
   "settings": [],
   "start": {
     "col": 1,
