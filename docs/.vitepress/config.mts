@@ -19,6 +19,14 @@ export default defineConfig({
         ]
       },
       {
+        text: '组件配置',
+        items: [
+          { text: 'Table', link: '/what-is-huajia' },
+          { text: 'Flex', link: '/getting-started' },
+          { text: 'Button', link: '/getting-started' }
+        ]
+      },
+      {
         text: 'Examples',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
