@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "collect": "ts-node scripts/collectCompletion.ts",
+    "collect": "node --loader ts-node/esm scripts/collectCompletion.ts",
     "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"

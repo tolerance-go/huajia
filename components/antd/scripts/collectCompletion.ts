@@ -69,8 +69,16 @@ function collectDefaultExports(
   return allDefaults;
 }
 
+function saveToJsonFile(data: any, outputFilePath: string) {
+  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf8");
+}
+
 // 使用示例
 const dir = "./src"; // 替换为你的文件夹路径
 const extension = "index.tsx"; // 替换为你的文件扩展名
 const defaultExports = collectDefaultExports(dir, extension);
-console.log(defaultExports);
+
+const outputFilePath = "./defaultExports.json"; // 替换为你希望保存的文件路径
+saveToJsonFile(defaultExports, path.resolve(outputFilePath));
+
+console.log(`Default exports have been saved to ${outputFilePath}`);
