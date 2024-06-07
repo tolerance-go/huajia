@@ -21,18 +21,27 @@ export class HuajiaDSLFormatter {
     }
   }
 
-  private formatParsedResult(node: Node, indentLevel: number): string {
+  private formatParsedResult(
+    node: Node,
+    indentLevel: number,
+    slotPrefix: string = ""
+  ): string {
     const tabIndent = "  ";
     const indent = tabIndent.repeat(indentLevel);
     let formattedText = "";
 
-    formattedText += `${indent}${node.name}`;
     if (node.scopes.length > 0) {
-      formattedText += `.${node.scopes.join(".")}`;
+      formattedText = `${node.scopes
+        .map((scope) => scope.scope)
+        .join(".")}.${formattedText}`;
     }
-    if (node.slots.length > 0) {
-      formattedText += `:${node.slots.join(":")}`;
+
+    formattedText += `${indent}${slotPrefix}${node.name}`;
+
+    if (node.modifiers.length > 0) {
+      formattedText += `.${node.modifiers.join(".")}`;
     }
+
     if (node.values.length > 0) {
       formattedText +=
         " " +
@@ -46,7 +55,9 @@ export class HuajiaDSLFormatter {
       if (Object.keys(setting[1]).length > 0) {
         formattedText += ` ${setting[0]} {\n`;
         Object.entries(setting[1]).forEach(([key, value]) => {
-          formattedText += `${indent}${tabIndent}${key}: ${this.formatValueItem(value)}\n`;
+          formattedText += `${indent}${tabIndent}${key}: ${this.formatValueItem(
+            value
+          )}\n`;
         });
         formattedText += `${indent}}`;
       } else {
@@ -55,8 +66,11 @@ export class HuajiaDSLFormatter {
     });
     if (node.children.nodes.length > 0) {
       formattedText += " {\n";
-      node.children.nodes.forEach((child) => {
-        formattedText += this.formatParsedResult(child, indentLevel + 1);
+
+      node.children.nodes.forEach(([scope, child]) => {
+        const key = scope === "default" ? "" : `${scope}: `;
+
+        formattedText += this.formatParsedResult(child, indentLevel + 1, key);
       });
       formattedText += `${indent}}\n`;
     } else {

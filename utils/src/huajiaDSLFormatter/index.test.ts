@@ -53,10 +53,10 @@ describe("DSL Formatter Test Suite", () => {
       [
         "插槽",
         `Root {
-  Element:slotA:slotB
+  slotA: Element
 }`,
         `Root {
-  Element:slotA:slotB
+  slotA: Element
 }\n`,
       ],
       [
@@ -71,10 +71,10 @@ describe("DSL Formatter Test Suite", () => {
       [
         "域和插槽",
         `Root {
-  Element.scopeA.scopeB:slotA:slotB
+  slotA: Element.scopeA.scopeB
 }`,
         `Root {
-  Element.scopeA.scopeB:slotA:slotB
+  slotA: Element.scopeA.scopeB
 }\n`,
       ],
     ];
