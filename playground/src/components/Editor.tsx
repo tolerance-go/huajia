@@ -10,6 +10,7 @@ import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker?worker";
 import tsWorker from "monaco-editor/esm/vs/language/typescript/ts.worker?worker";
 import { useEventBus } from "../hooks/useEventBus";
 import HuajiaCompletionProvider from "../utils/HuajiaCompletionProvider";
+import defaultExports from "@huajia/components-antd/defaultExports.json";
 
 self.MonacoEnvironment = {
   getWorker(_, label) {
@@ -92,17 +93,7 @@ monaco.editor.defineTheme("custom-vs-dark", {
   colors: {},
 });
 
-const nodeNames = [
-  "Root",
-  "Page",
-  "Title",
-  "Header",
-  "Nav",
-  "SubNav",
-  "Footer",
-  "Text",
-  "Links",
-];
+const nodeNames = defaultExports.map((item) => item.name);
 
 const completionProvider = new HuajiaCompletionProvider(nodeNames);
 
