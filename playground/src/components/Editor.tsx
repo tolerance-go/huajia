@@ -47,11 +47,19 @@ monaco.languages.setMonarchTokensProvider("huajia", {
       [/\]/, "delimiter.bracket"],
       [/\/\/.*$/, "comment"],
       [/[A-Z][a-zA-Z]*/, "type.identifier"],
-      [/([a-z][a-zA-Z]*):/, "key"],
+      [/[a-z][a-zA-Z]*:/, "key"],
       // 自定义
       [/@[a-zA-Z]+/, "setting"],
-      [/:([a-z][a-zA-Z]*)/, "slot"], // slot 高亮规则
-      [/\.([a-z][a-zA-Z]*)/, "scope"], // scope 高亮规则
+      [/\./, { token: "delimiter", next: "@scope" }],
+      [/[:]/, { token: "delimiter", next: "@slot" }],
+    ],
+    slot: [
+      // 只匹配小写字母开头的单词，然后返回上一个状态
+      [/[a-z][a-zA-Z]*/, "slot", "@pop"],
+    ],
+    scope: [
+      // 只匹配小写字母开头的单词，然后返回上一个状态
+      [/[a-z][a-zA-Z]*/, "scope", "@pop"],
     ],
   },
 });
