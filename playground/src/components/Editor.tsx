@@ -50,6 +50,9 @@ monaco.languages.setMonarchTokensProvider("huajia", {
       [/[a-z][a-zA-Z]*:/, "key"],
       // 自定义
       [/@[a-zA-Z]+/, "setting"],
+      [/(\.)([a-z][a-zA-Z]*)/, ["delimiter", "modifier"]],
+      [/([a-z][a-zA-Z]*)(\.)/, ["scope", "delimiter"]],
+      [/#[a-zA-Z]+/, "identifier"],
     ],
   },
 });
@@ -76,7 +79,10 @@ monaco.editor.defineTheme("custom-vs-dark", {
   base: "vs-dark",
   inherit: true,
   rules: [
-   
+    { token: "setting", foreground: "FFA500" },
+    { token: "identifier", foreground: "B694F9" }, // 浅紫色
+    { token: "modifier", foreground: "5FCBFE" }, // 浅蓝色
+    { token: "scope", foreground: "3dc9b0" }, // 浅绿色
   ],
   colors: {},
 });
