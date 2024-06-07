@@ -35,7 +35,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 2,
     "line": 1,
@@ -69,60 +68,71 @@ describe("基础测试", () => {
       "offset": 125,
     },
     "nodes": [
-      {
-        "children": {
+      [
+        "default",
+        {
+          "children": {
+            "end": {
+              "col": 29,
+              "line": 5,
+              "lineBreaks": 0,
+              "offset": 121,
+            },
+            "nodes": [],
+            "start": {
+              "col": 28,
+              "line": 5,
+              "lineBreaks": 0,
+              "offset": 120,
+            },
+          },
           "end": {
             "col": 29,
             "line": 5,
             "lineBreaks": 0,
             "offset": 121,
           },
-          "nodes": [],
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [
+            [
+              "@config",
+              [
+                [
+                  "attr",
+                  "attr",
+                ],
+                [
+                  "other",
+                  "other",
+                ],
+              ],
+            ],
+            [
+              "@css",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
+          ],
           "start": {
-            "col": 28,
-            "line": 5,
+            "col": 4,
+            "line": 2,
             "lineBreaks": 0,
-            "offset": 120,
+            "offset": 10,
           },
-        },
-        "end": {
-          "col": 29,
-          "line": 5,
-          "lineBreaks": 0,
-          "offset": 121,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [
-          [
-            "@config",
-            {
-              "attr": "attr",
-              "other": "other",
-            },
+          "values": [
+            "value1",
+            "value2",
+            100,
+            true,
           ],
-          [
-            "@css",
-            {
-              "color": "red",
-            },
-          ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
         },
-        "values": [
-          "value1",
-          "value2",
-          100,
-          true,
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -141,7 +151,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -172,46 +181,48 @@ describe("基础测试", () => {
       "offset": 50,
     },
     "nodes": [
-      {
-        "children": {
+      [
+        "default",
+        {
+          "children": {
+            "end": {
+              "col": 40,
+              "line": 2,
+              "lineBreaks": 0,
+              "offset": 46,
+            },
+            "nodes": [],
+            "start": {
+              "col": 39,
+              "line": 2,
+              "lineBreaks": 0,
+              "offset": 45,
+            },
+          },
           "end": {
             "col": 40,
             "line": 2,
             "lineBreaks": 0,
             "offset": 46,
           },
-          "nodes": [],
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
           "start": {
-            "col": 39,
+            "col": 4,
             "line": 2,
             "lineBreaks": 0,
-            "offset": 45,
+            "offset": 10,
           },
+          "values": [
+            "value1",
+            "value2",
+            100,
+            true,
+          ],
         },
-        "end": {
-          "col": 40,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 46,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          "value1",
-          "value2",
-          100,
-          true,
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -230,7 +241,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -264,55 +274,66 @@ describe("基础测试", () => {
       "offset": 95,
     },
     "nodes": [
-      {
-        "children": {
+      [
+        "default",
+        {
+          "children": {
+            "end": {
+              "col": 28,
+              "line": 5,
+              "lineBreaks": 0,
+              "offset": 91,
+            },
+            "nodes": [],
+            "start": {
+              "col": 27,
+              "line": 5,
+              "lineBreaks": 0,
+              "offset": 90,
+            },
+          },
           "end": {
             "col": 28,
             "line": 5,
             "lineBreaks": 0,
             "offset": 91,
           },
-          "nodes": [],
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [
+            [
+              "@config",
+              [
+                [
+                  "attr",
+                  "attr",
+                ],
+                [
+                  "other",
+                  "other",
+                ],
+              ],
+            ],
+            [
+              "@css",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
+          ],
           "start": {
-            "col": 27,
-            "line": 5,
+            "col": 4,
+            "line": 2,
             "lineBreaks": 0,
-            "offset": 90,
+            "offset": 10,
           },
+          "values": [],
         },
-        "end": {
-          "col": 28,
-          "line": 5,
-          "lineBreaks": 0,
-          "offset": 91,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [
-          [
-            "@config",
-            {
-              "attr": "attr",
-              "other": "other",
-            },
-          ],
-          [
-            "@css",
-            {
-              "color": "red",
-            },
-          ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -331,7 +352,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -370,148 +390,156 @@ describe("基础测试", () => {
       "offset": 106,
     },
     "nodes": [
-      {
-        "children": {
+      [
+        "default",
+        {
+          "children": {
+            "end": {
+              "col": 7,
+              "line": 7,
+              "lineBreaks": 0,
+              "offset": 99,
+            },
+            "nodes": [
+              [
+                "default",
+                {
+                  "children": {
+                    "end": {
+                      "col": 9,
+                      "line": 5,
+                      "lineBreaks": 0,
+                      "offset": 71,
+                    },
+                    "nodes": [
+                      [
+                        "default",
+                        {
+                          "children": {
+                            "end": {
+                              "col": 20,
+                              "line": 4,
+                              "lineBreaks": 0,
+                              "offset": 60,
+                            },
+                            "nodes": [],
+                            "start": {
+                              "col": 19,
+                              "line": 4,
+                              "lineBreaks": 0,
+                              "offset": 59,
+                            },
+                          },
+                          "end": {
+                            "col": 20,
+                            "line": 4,
+                            "lineBreaks": 0,
+                            "offset": 60,
+                          },
+                          "id": null,
+                          "modifiers": [],
+                          "name": "Element",
+                          "settings": [],
+                          "start": {
+                            "col": 11,
+                            "line": 4,
+                            "lineBreaks": 0,
+                            "offset": 51,
+                          },
+                          "values": [],
+                        },
+                      ],
+                    ],
+                    "start": {
+                      "col": 17,
+                      "line": 3,
+                      "lineBreaks": 0,
+                      "offset": 39,
+                    },
+                  },
+                  "end": {
+                    "col": 9,
+                    "line": 5,
+                    "lineBreaks": 0,
+                    "offset": 71,
+                  },
+                  "id": null,
+                  "modifiers": [],
+                  "name": "Element",
+                  "settings": [],
+                  "start": {
+                    "col": 9,
+                    "line": 3,
+                    "lineBreaks": 0,
+                    "offset": 31,
+                  },
+                  "values": [],
+                },
+              ],
+              [
+                "default",
+                {
+                  "children": {
+                    "end": {
+                      "col": 18,
+                      "line": 6,
+                      "lineBreaks": 0,
+                      "offset": 90,
+                    },
+                    "nodes": [],
+                    "start": {
+                      "col": 17,
+                      "line": 6,
+                      "lineBreaks": 0,
+                      "offset": 89,
+                    },
+                  },
+                  "end": {
+                    "col": 18,
+                    "line": 6,
+                    "lineBreaks": 0,
+                    "offset": 90,
+                  },
+                  "id": null,
+                  "modifiers": [],
+                  "name": "Element",
+                  "settings": [],
+                  "start": {
+                    "col": 9,
+                    "line": 6,
+                    "lineBreaks": 0,
+                    "offset": 81,
+                  },
+                  "values": [],
+                },
+              ],
+            ],
+            "start": {
+              "col": 15,
+              "line": 2,
+              "lineBreaks": 0,
+              "offset": 21,
+            },
+          },
           "end": {
             "col": 7,
             "line": 7,
             "lineBreaks": 0,
             "offset": 99,
           },
-          "nodes": [
-            {
-              "children": {
-                "end": {
-                  "col": 9,
-                  "line": 5,
-                  "lineBreaks": 0,
-                  "offset": 71,
-                },
-                "nodes": [
-                  {
-                    "children": {
-                      "end": {
-                        "col": 20,
-                        "line": 4,
-                        "lineBreaks": 0,
-                        "offset": 60,
-                      },
-                      "nodes": [],
-                      "start": {
-                        "col": 19,
-                        "line": 4,
-                        "lineBreaks": 0,
-                        "offset": 59,
-                      },
-                    },
-                    "end": {
-                      "col": 20,
-                      "line": 4,
-                      "lineBreaks": 0,
-                      "offset": 60,
-                    },
-                    "id": null,
-                    "modifiers": [],
-                    "name": "Element",
-                    "settings": [],
-                    "slots": [],
-                    "start": {
-                      "col": 11,
-                      "line": 4,
-                      "lineBreaks": 0,
-                      "offset": 51,
-                    },
-                    "values": [],
-                  },
-                ],
-                "start": {
-                  "col": 17,
-                  "line": 3,
-                  "lineBreaks": 0,
-                  "offset": 39,
-                },
-              },
-              "end": {
-                "col": 9,
-                "line": 5,
-                "lineBreaks": 0,
-                "offset": 71,
-              },
-              "id": null,
-              "modifiers": [],
-              "name": "Element",
-              "settings": [],
-              "slots": [],
-              "start": {
-                "col": 9,
-                "line": 3,
-                "lineBreaks": 0,
-                "offset": 31,
-              },
-              "values": [],
-            },
-            {
-              "children": {
-                "end": {
-                  "col": 18,
-                  "line": 6,
-                  "lineBreaks": 0,
-                  "offset": 90,
-                },
-                "nodes": [],
-                "start": {
-                  "col": 17,
-                  "line": 6,
-                  "lineBreaks": 0,
-                  "offset": 89,
-                },
-              },
-              "end": {
-                "col": 18,
-                "line": 6,
-                "lineBreaks": 0,
-                "offset": 90,
-              },
-              "id": null,
-              "modifiers": [],
-              "name": "Element",
-              "settings": [],
-              "slots": [],
-              "start": {
-                "col": 9,
-                "line": 6,
-                "lineBreaks": 0,
-                "offset": 81,
-              },
-              "values": [],
-            },
-          ],
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
           "start": {
-            "col": 15,
+            "col": 7,
             "line": 2,
             "lineBreaks": 0,
-            "offset": 21,
+            "offset": 13,
           },
+          "values": [],
         },
-        "end": {
-          "col": 7,
-          "line": 7,
-          "lineBreaks": 0,
-          "offset": 99,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 7,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 13,
-        },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -530,7 +558,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -578,7 +605,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -613,7 +639,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Button",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -648,7 +673,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Button",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,

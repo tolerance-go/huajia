@@ -6,6 +6,7 @@ export type Location = {
 };
 
 export type Node = {
+  id: string | null;
   name: string;
   settings: [`@${string}`, Attrs][];
   values: Value[];
@@ -13,10 +14,9 @@ export type Node = {
     // 没有子节点花括号的时候就是 null
     start: Location | null;
     end: Location | null;
-    nodes: Node[];
+    nodes: [string, Node][];
   };
-  scopes: string[];
-  slots: string[];
+  modifiers: string[];
   start: Location;
   end: Location;
 };
@@ -25,6 +25,4 @@ export type Value = ArrayValue | string | number | boolean;
 
 export type ArrayValue = Value[];
 
-export type Attrs = {
-  [key: string]: string;
-};
+export type Attrs = [string, Value][];

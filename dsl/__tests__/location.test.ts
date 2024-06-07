@@ -25,7 +25,6 @@ describe("位置测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -60,7 +59,6 @@ describe("位置测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -95,7 +93,6 @@ describe("位置测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -140,7 +137,6 @@ describe("位置测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,

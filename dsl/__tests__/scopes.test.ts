@@ -21,33 +21,35 @@ describe("scopes", () => {
       "offset": 26,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 18,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 24,
+          },
+          "id": null,
+          "modifiers": [
+            "scopeA",
+          ],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [],
         },
-        "end": {
-          "col": 18,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 24,
-        },
-        "id": null,
-        "modifiers": [
-          "scopeA",
-        ],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -66,7 +68,6 @@ describe("scopes", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -97,34 +98,36 @@ describe("scopes", () => {
       "offset": 33,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 25,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 31,
+          },
+          "id": null,
+          "modifiers": [
+            "scopeA",
+            "scopeB",
+          ],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [],
         },
-        "end": {
-          "col": 25,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 31,
-        },
-        "id": null,
-        "modifiers": [
-          "scopeA",
-          "scopeB",
-        ],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -143,7 +146,6 @@ describe("scopes", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -174,38 +176,40 @@ describe("scopes", () => {
       "offset": 51,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 43,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 49,
+          },
+          "id": null,
+          "modifiers": [
+            "scopeA",
+            "scopeB",
+          ],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [
+            100,
+            true,
+            "string",
+          ],
         },
-        "end": {
-          "col": 43,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 49,
-        },
-        "id": null,
-        "modifiers": [
-          "scopeA",
-          "scopeB",
-        ],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          100,
-          true,
-          "string",
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -224,7 +228,6 @@ describe("scopes", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -257,41 +260,46 @@ describe("scopes", () => {
       "offset": 63,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 5,
-          "line": 4,
-          "lineBreaks": 1,
-          "offset": 61,
-        },
-        "id": null,
-        "modifiers": [
-          "scopeA",
-          "scopeB",
-        ],
-        "name": "Element",
-        "settings": [
-          [
-            "@css",
-            {
-              "color": "red",
-            },
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 5,
+            "line": 4,
+            "lineBreaks": 1,
+            "offset": 61,
+          },
+          "id": null,
+          "modifiers": [
+            "scopeA",
+            "scopeB",
           ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
+          "name": "Element",
+          "settings": [
+            [
+              "@css",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
+          ],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [],
         },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -310,7 +318,6 @@ describe("scopes", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,

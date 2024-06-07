@@ -35,21 +35,21 @@ function withLocation(data) {
 }
 %}
 
-Root -> _ Node {% 
+Root -> _ Node _ {% 
   (data) => {
     return data[1];
   } 
 %}
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> Scopes %nodeName Id Modifiers Slots Values Settings _ (Children | %whitespace) _ {% 
+Node -> Scopes %nodeName Id Modifiers Values Settings _ (Children | %whitespace) {% 
   (data) => {
     const noChildrenBrace = /[ \t\r\n]+/.test(data[7][0].value);
     return {
-      name: data[0].value,
-      id: data[1],
-      modifiers: data[2],
-      slots: data[3],
+      start: data[0].length ? 'xxxx' : withLocation(data[1]),
+      name: data[1].value,
+      id: data[2],
+      modifiers: data[3],
       values: data[4],
       settings: data[5],
       // 没有子节点花括号的时候，children 开始和结束位置都是空
@@ -58,7 +58,6 @@ Node -> Scopes %nodeName Id Modifiers Slots Values Settings _ (Children | %white
         end: null,
         nodes: []
       } : data[7][0],
-      start: withLocation(data[0]),
       // 如果没有子节点花括号，Node 的结尾就是空白符，否则用 children 的结束数据
       end: noChildrenBrace ? withLocation(data[7][0]) : data[7][0].end
     };
@@ -79,16 +78,6 @@ Scopes -> (%word %period):* {%
   } 
 %}
 
-Slots -> (%colon %word):* {% 
-  (data) => {
-    const slots = [];
-    for (let i = 0; i < data[0].length; i++) {
-      slots.push(data[0][i][1].value);
-    }
-    return slots
-  } 
-%}
-
 Modifiers -> (%period %word):* {% 
   (data) => {
     const modifiers = [];
@@ -99,7 +88,7 @@ Modifiers -> (%period %word):* {%
   } 
 %}
 
-Children -> %lbrace _ Node:* %rbrace {% 
+Children -> %lbrace _ NodeAttr:* %rbrace {% 
   (data) => {
     return {
       nodes: data[2],
@@ -107,6 +96,10 @@ Children -> %lbrace _ Node:* %rbrace {%
       end: withLocation(data[3])
     }
   } 
+%}
+
+NodeAttr -> (%word _ %colon _):? Node _ {% 
+  (data) => [data[0] ? data[0][0].value : 'default', data[1]]
 %}
 
 Values -> (_ Value):* {% 
@@ -134,7 +127,7 @@ Settings -> (_ SettingName _ Attrs):* {%
 
 SettingName -> %settingName {% (data) => data[0].value %}
 
-Attrs -> %lbrace _ Attr:* %rbrace {% (data) => Object.fromEntries(data[2]) %}
+Attrs -> %lbrace _ Attr:* %rbrace {% (data) => data[2] %}
 
 Attr -> %word _ %colon _ Value _ {% 
   (data) => [data[0].value, data[4][0]]

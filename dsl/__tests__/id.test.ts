@@ -35,7 +35,6 @@ describe("id 测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -82,7 +81,6 @@ describe("id 测试", () => {
   ],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,

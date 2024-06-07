@@ -21,42 +21,44 @@ describe("基础测试", () => {
       "offset": 76,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 68,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 74,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          [
-            "value1",
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 68,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 74,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [
+            [
+              "value1",
+              "value2",
+              100,
+              true,
+              false,
+            ],
             "value2",
             100,
             true,
-            false,
           ],
-          "value2",
-          100,
-          true,
-        ],
-      },
+        },
+      ],
     ],
     "start": {
       "col": 6,
@@ -75,7 +77,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -106,36 +107,38 @@ describe("基础测试", () => {
       "offset": 40,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 32,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 38,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [
+            [],
+            "value2",
+            100,
+            true,
+          ],
         },
-        "end": {
-          "col": 32,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 38,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          [],
-          "value2",
-          100,
-          true,
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -154,7 +157,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -185,38 +187,40 @@ describe("基础测试", () => {
       "offset": 43,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 35,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 41,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          [
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 35,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 41,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [
+            [
+              100,
+            ],
+            "value2",
             100,
+            true,
           ],
-          "value2",
-          100,
-          true,
-        ],
-      },
+        },
+      ],
     ],
     "start": {
       "col": 6,
@@ -235,7 +239,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -266,40 +269,42 @@ describe("基础测试", () => {
       "offset": 59,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 51,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 57,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          [
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 51,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 57,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [
+            [
+              100,
+              true,
+              "string",
+            ],
+            "value2",
             100,
             true,
-            "string",
           ],
-          "value2",
-          100,
-          true,
-        ],
-      },
+        },
+      ],
     ],
     "start": {
       "col": 6,
@@ -318,7 +323,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -349,45 +353,47 @@ describe("基础测试", () => {
       "offset": 82,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 74,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 80,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
-        },
-        "values": [
-          [
-            100,
-            true,
-            "string",
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 74,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 80,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [
             [
               100,
               true,
               "string",
+              [
+                100,
+                true,
+                "string",
+              ],
             ],
+            "value2",
+            100,
+            true,
           ],
-          "value2",
-          100,
-          true,
-        ],
-      },
+        },
+      ],
     ],
     "start": {
       "col": 6,
@@ -406,7 +412,6 @@ describe("基础测试", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -427,7 +432,7 @@ describe("基础测试", () => {
 `;
 
     parser.feed(input);
-    expect(parser.results[0].children.nodes[0].values).toEqual([]);
+    expect(parser.results[0].children.nodes[0][1].values).toEqual([]);
   });
 
   it("如果有设置 value，则 value 不为空", () => {
@@ -439,6 +444,6 @@ describe("基础测试", () => {
 `;
 
     parser.feed(input);
-    expect(parser.results[0].children.nodes[0].values.length).toBe(1);
+    expect(parser.results[0].children.nodes[0][1].values.length).toBe(1);
   });
 });

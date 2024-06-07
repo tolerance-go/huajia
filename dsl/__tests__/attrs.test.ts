@@ -26,50 +26,64 @@ describe("attrs", () => {
       "offset": 150,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 5,
-          "line": 7,
-          "lineBreaks": 1,
-          "offset": 148,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [
-          [
-            "@config",
-            {
-              "array": [
-                true,
-                "string",
-                100,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 5,
+            "line": 7,
+            "lineBreaks": 1,
+            "offset": 148,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [
+            [
+              "@config",
+              [
                 [
+                  "vertical",
                   true,
+                ],
+                [
                   "string",
+                  "string",
+                ],
+                [
+                  "number",
                   100,
                 ],
+                [
+                  "array",
+                  [
+                    true,
+                    "string",
+                    100,
+                    [
+                      true,
+                      "string",
+                      100,
+                    ],
+                  ],
+                ],
               ],
-              "number": 100,
-              "string": "string",
-              "vertical": true,
-            },
+            ],
           ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 4,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 10,
+          "start": {
+            "col": 4,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 10,
+          },
+          "values": [],
         },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -88,7 +102,6 @@ describe("attrs", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,

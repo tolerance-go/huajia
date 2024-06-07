@@ -35,7 +35,6 @@ describe("省略 children", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -65,33 +64,35 @@ describe("省略 children", () => {
       "offset": 36,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 25,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 31,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 9,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 15,
+          },
+          "values": [
+            "value1",
+          ],
         },
-        "end": {
-          "col": 25,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 31,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 9,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 15,
-        },
-        "values": [
-          "value1",
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -110,7 +111,6 @@ describe("省略 children", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -140,35 +140,37 @@ describe("省略 children", () => {
       "offset": 45,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 34,
+            "line": 2,
+            "lineBreaks": 1,
+            "offset": 40,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [],
+          "start": {
+            "col": 9,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 15,
+          },
+          "values": [
+            "value1",
+            true,
+            100,
+          ],
         },
-        "end": {
-          "col": 34,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 40,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [],
-        "slots": [],
-        "start": {
-          "col": 9,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 15,
-        },
-        "values": [
-          "value1",
-          true,
-          100,
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -187,7 +189,6 @@ describe("省略 children", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -219,38 +220,43 @@ describe("省略 children", () => {
       "offset": 69,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 10,
-          "line": 4,
-          "lineBreaks": 1,
-          "offset": 64,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [
-          [
-            "@css",
-            {
-              "color": "red",
-            },
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 10,
+            "line": 4,
+            "lineBreaks": 1,
+            "offset": 64,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [
+            [
+              "@css",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
           ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 9,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 15,
+          "start": {
+            "col": 9,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 15,
+          },
+          "values": [],
         },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -269,7 +275,6 @@ describe("省略 children", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -303,44 +308,52 @@ describe("省略 children", () => {
       "offset": 114,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 10,
-          "line": 6,
-          "lineBreaks": 1,
-          "offset": 109,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [
-          [
-            "@css",
-            {
-              "color": "red",
-            },
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 10,
+            "line": 6,
+            "lineBreaks": 1,
+            "offset": 109,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [
+            [
+              "@css",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
+            [
+              "@config",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
           ],
-          [
-            "@config",
-            {
-              "color": "red",
-            },
-          ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 9,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 15,
+          "start": {
+            "col": 9,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 15,
+          },
+          "values": [],
         },
-        "values": [],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -359,7 +372,6 @@ describe("省略 children", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
@@ -393,48 +405,56 @@ describe("省略 children", () => {
       "offset": 132,
     },
     "nodes": [
-      {
-        "children": {
-          "end": null,
-          "nodes": [],
-          "start": null,
-        },
-        "end": {
-          "col": 10,
-          "line": 6,
-          "lineBreaks": 1,
-          "offset": 127,
-        },
-        "id": null,
-        "modifiers": [],
-        "name": "Element",
-        "settings": [
-          [
-            "@css",
-            {
-              "color": "red",
-            },
+      [
+        "default",
+        {
+          "children": {
+            "end": null,
+            "nodes": [],
+            "start": null,
+          },
+          "end": {
+            "col": 10,
+            "line": 6,
+            "lineBreaks": 1,
+            "offset": 127,
+          },
+          "id": null,
+          "modifiers": [],
+          "name": "Element",
+          "settings": [
+            [
+              "@css",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
+            [
+              "@config",
+              [
+                [
+                  "color",
+                  "red",
+                ],
+              ],
+            ],
           ],
-          [
-            "@config",
-            {
-              "color": "red",
-            },
+          "start": {
+            "col": 9,
+            "line": 2,
+            "lineBreaks": 0,
+            "offset": 15,
+          },
+          "values": [
+            100,
+            "value1",
+            true,
           ],
-        ],
-        "slots": [],
-        "start": {
-          "col": 9,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 15,
         },
-        "values": [
-          100,
-          "value1",
-          true,
-        ],
-      },
+      ],
     ],
     "start": {
       "col": 6,
@@ -453,7 +473,6 @@ describe("省略 children", () => {
   "modifiers": [],
   "name": "Root",
   "settings": [],
-  "slots": [],
   "start": {
     "col": 1,
     "line": 1,
