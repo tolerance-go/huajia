@@ -15,9 +15,11 @@
     "@huajia/utils": "workspace:^",
     "monaco-editor": "^0.49.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "nearley": "^2.20.1"
   },
   "devDependencies": {
+    "@types/nearley": "^2.11.5",
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/react": "^18.2.66",

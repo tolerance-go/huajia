@@ -17,7 +17,7 @@ const nodeToReactElement = (
     return acc;
   }, {} as Record<string, Attrs>);
 
-  const children = node.children.map((child, index) =>
+  const children = node.children.nodes.map((child, index) =>
     nodeToReactElement(child, components)
   );
 

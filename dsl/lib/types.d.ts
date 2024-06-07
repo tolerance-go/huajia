@@ -17,6 +17,8 @@ export type Node = {
   };
   scopes: string[];
   slots: string[];
+  start: Location;
+  end: Location;
 };
 
 export type Value = ArrayValue | string | number | boolean;

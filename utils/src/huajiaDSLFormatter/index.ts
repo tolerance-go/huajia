@@ -53,9 +53,9 @@ export class HuajiaDSLFormatter {
         formattedText += ` ${setting[0]} {}`;
       }
     });
-    if (node.children.length > 0) {
+    if (node.children.nodes.length > 0) {
       formattedText += " {\n";
-      node.children.forEach((child) => {
+      node.children.nodes.forEach((child) => {
         formattedText += this.formatParsedResult(child, indentLevel + 1);
       });
       formattedText += `${indent}}\n`;
