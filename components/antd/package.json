@@ -5,6 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
+    "collect": "ts-node scripts/collectCompletion.ts",
     "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,11 +22,13 @@
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "rimraf": "^5.0.7",
     "rollup": "^4.18.0",
     "rollup-plugin-auto-external": "^2.0.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
 }

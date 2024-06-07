@@ -3,7 +3,11 @@ import nearley from "nearley";
 import grammar, { Node } from "@huajia/dsl";
 
 class HuajiaCompletionProvider {
-  constructor() {}
+  nodeNames: string[];
+
+  constructor(nodeNames: string[]) {
+    this.nodeNames = nodeNames;
+  }
 
   provideCompletionItems(
     model: monaco.editor.ITextModel,
@@ -23,17 +27,6 @@ class HuajiaCompletionProvider {
     const parsedResult = parser.results[0];
 
     const suggestions: monaco.languages.CompletionItem[] = [];
-    const nodeNames = [
-      "Root",
-      "Page",
-      "Title",
-      "Header",
-      "Nav",
-      "SubNav",
-      "Footer",
-      "Text",
-      "Links",
-    ];
 
     const isCursorInChildrenBrackets = (node: Node): boolean => {
       if (!node.children.start || !node.children.end) {
@@ -57,7 +50,7 @@ class HuajiaCompletionProvider {
                 model.getOffsetAt(position) < child.end.offset
             )
           ) {
-            nodeNames.forEach((name) => {
+            this.nodeNames.forEach((name) => {
               suggestions.push({
                 label: name,
                 kind: monaco.languages.CompletionItemKind.Keyword,

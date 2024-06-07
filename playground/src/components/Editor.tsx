@@ -92,7 +92,19 @@ monaco.editor.defineTheme("custom-vs-dark", {
   colors: {},
 });
 
-const completionProvider = new HuajiaCompletionProvider();
+const nodeNames = [
+  "Root",
+  "Page",
+  "Title",
+  "Header",
+  "Nav",
+  "SubNav",
+  "Footer",
+  "Text",
+  "Links",
+];
+
+const completionProvider = new HuajiaCompletionProvider(nodeNames);
 
 monaco.languages.registerCompletionItemProvider("huajia", {
   provideCompletionItems: function (
