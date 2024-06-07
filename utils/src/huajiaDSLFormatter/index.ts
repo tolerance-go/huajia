@@ -1,5 +1,5 @@
 import nearley from "nearley";
-import grammar, { Node, Value } from "@huajia/dsl";
+import grammar, { Attrs, Node, Value } from "@huajia/dsl";
 
 export class HuajiaDSLFormatter {
   public formatText(text: string): string {
@@ -51,7 +51,7 @@ export class HuajiaDSLFormatter {
         " " +
         node.values
           .map((val) => {
-            return this.formatValueItem(val);
+            return this.formatValueItem(val, indentLevel + 1);
           })
           .join(" ");
     }
@@ -61,7 +61,7 @@ export class HuajiaDSLFormatter {
         setting[1].forEach(([key, attrModifiers, value]) => {
           formattedText += `${indent}${tabIndent}${key}${
             attrModifiers.length ? `.${attrModifiers.join(".")}` : ""
-          }: ${this.formatValueItem(value)}\n`;
+          }: ${this.formatValueItem(value, indentLevel + 2)}\n`;
         });
         formattedText += `${indent}}`;
       } else {
@@ -84,9 +84,29 @@ export class HuajiaDSLFormatter {
     return formattedText;
   }
 
-  private formatValueItem(value: Value): string | number | boolean {
+  private formatValueItem(
+    value: Value | Attrs,
+    indentLevel: number
+  ): string | number | boolean {
+    const tabIndent = "  ";
+    const indent = tabIndent.repeat(indentLevel);
+
     if (Array.isArray(value)) {
-      return `[${value.map((item) => this.formatValueItem(item)).join(", ")}]`;
+      if (value.length > 0 && Array.isArray(value[0])) {
+        // Handle Attrs type
+        return `{\n${(value as grammar.Attrs)
+          .map(
+            ([key, attrModifiers, val]) =>
+              `${indent}${key}${
+                attrModifiers.length ? `.${attrModifiers.join(".")}` : ""
+              }: ${this.formatValueItem(val, indentLevel + 1)}`
+          )
+          .join("\n")}\n${tabIndent.repeat(indentLevel - 1)}}`;
+      }
+      // Handle ArrayValue type
+      return `[${value
+        .map((item) => this.formatValueItem(item, indentLevel))
+        .join(", ")}]`;
     }
 
     if (typeof value === "string") {

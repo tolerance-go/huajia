@@ -108,6 +108,31 @@ describe("DSL Formatter Test Suite", () => {
   }
 }\n`,
       ],
+      [
+        "settings 嵌套",
+        `Root {
+  slotA: Element#id.scopeA.scopeB @css {
+    color: "red"
+    nested: {
+      color: "blue"
+      nested: {
+        color: "blue"
+      }
+    }
+  }
+}`,
+        `Root {
+  slotA: Element#id.scopeA.scopeB @css {
+    color: "red"
+    nested: {
+      color: "blue"
+      nested: {
+        color: "blue"
+      }
+    }
+  }
+}\n`,
+      ],
     ];
 
     const dslFormatter = new HuajiaDSLFormatter();

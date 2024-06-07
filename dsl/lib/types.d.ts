@@ -32,4 +32,4 @@ export type Value = ArrayValue | string | number | boolean;
 
 export type ArrayValue = Value[];
 
-export type Attrs = [string, string[] /** 属性修饰符 */, Value][];
+export type Attrs = [string, string[] /** 属性修饰符 */, Value | Attrs /** 可以嵌套 */][];

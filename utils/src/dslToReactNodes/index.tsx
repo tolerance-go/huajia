@@ -2,6 +2,28 @@ import { Attrs, Node, Value } from "@huajia/dsl";
 import React from "react";
 import { parseDSL } from "./parseDSL";
 
+interface NestedRecord {
+  [key: string]: Value | NestedRecord;
+}
+
+type RecordValue = Record<string, Value | NestedRecord>;
+
+
+// 将 Attrs 转换为平面对象
+const attrsToObject = (attrs: Attrs): Record<string, any> => {
+  return attrs.reduce((acc, [attrKey, attrModifiers, value]) => {
+    const key = attrModifiers.length > 0 ? `${attrKey}.${attrModifiers.join(".")}` : attrKey;
+    if (Array.isArray(value)) {
+      // 如果是嵌套的 Attrs
+      acc[key] = attrsToObject(value as Attrs);
+    } else {
+      // 普通的 Value
+      acc[key] = value;
+    }
+    return acc;
+  }, {} as RecordValue);
+};
+
 // 将 Node 转换为 React 元素
 const nodeToReactElement = (
   node: Node,
@@ -14,14 +36,9 @@ const nodeToReactElement = (
 
   const settings = node.settings.reduce((acc, [key, attrs]) => {
     // 移除 @ 符号
-    acc[key.slice(1)] = attrs.reduce((acc, [attrKey, attrModifiers, value]) => {
-      return {
-        ...acc,
-        [attrKey]: value,
-      };
-    }, {});
+    acc[key.slice(1)] = attrsToObject(attrs);
     return acc;
-  }, {} as Record<string, Record<string, Value>>);
+  }, {} as RecordValue);
 
   const children = node.children.nodes.reduce((acc, [slot, child]) => {
     if (!acc[slot]) {

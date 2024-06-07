@@ -125,7 +125,7 @@ Settings -> (_ SettingName _ Attrs):* {%
     for (let i = 0; i < data[0].length; i++) {
       values.push([
         data[0][i][1],
-        data[0][i][3]
+        data[0][i][3].attrs
       ]);
     }
     return values
@@ -134,10 +134,23 @@ Settings -> (_ SettingName _ Attrs):* {%
 
 SettingName -> %settingName {% (data) => data[0].value %}
 
-Attrs -> %lbrace _ Attr:* %rbrace {% (data) => data[2] %}
+Attrs -> %lbrace _ Attr:* %rbrace {% (data) => {
+  return {
+    type: 'Attrs',
+    attrs: data[2],
+  }
+} %}
 
-Attr -> %word AttrModifiers _ %colon _ Value _ {% 
-  (data) => [data[0].value, data[1], data[5][0]]
+Attr -> %word AttrModifiers _ %colon _ (Value | Attrs) _ {% 
+  (data) => {
+    return [
+      data[0].value, 
+      data[1], 
+      typeof data[5][0] === 'object' && data[5][0].type === 'Attrs' 
+        ? data[5][0].attrs 
+          : data[5][0][0]
+    ]
+  }
 %}
 
 AttrModifiers -> (%period %word):* {% 

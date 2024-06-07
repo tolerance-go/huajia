@@ -115,6 +115,11 @@ const Editor = () => {
     string.modifierA.modifierB: 'string'
     boolean: true
     number: 100
+    nested: {
+      string.modifierA.modifierB: 'string'
+      boolean: true
+      number: 100
+    }
   }
 }
 `;
