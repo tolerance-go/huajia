@@ -110,8 +110,8 @@ const Editor = () => {
       const initialValue = `Flex @config {
   vertical: true
 } {
-  default: antd.Button#btnA.scopeA 'label'
-  default: antd.Button#btnB.scopeA 'label' @css {
+  default: antd.Button#btnA.modifierA.modifierB 'label'
+  default: antd.Button#btnB.modifierA.modifierB 'label' @css {
     string.modifierA.modifierB: 'string'
     boolean: true
     number: 100
