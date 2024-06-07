@@ -34,8 +34,8 @@ describe("基础测试", () => {
           "offset": 74,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -72,8 +72,8 @@ describe("基础测试", () => {
     "offset": 76,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -119,8 +119,8 @@ describe("基础测试", () => {
           "offset": 38,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -151,8 +151,8 @@ describe("基础测试", () => {
     "offset": 40,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -198,8 +198,8 @@ describe("基础测试", () => {
           "offset": 41,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -232,8 +232,8 @@ describe("基础测试", () => {
     "offset": 43,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -279,8 +279,8 @@ describe("基础测试", () => {
           "offset": 57,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -315,8 +315,8 @@ describe("基础测试", () => {
     "offset": 59,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -362,8 +362,8 @@ describe("基础测试", () => {
           "offset": 80,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -403,8 +403,8 @@ describe("基础测试", () => {
     "offset": 82,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

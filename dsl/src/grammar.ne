@@ -42,13 +42,13 @@ Root -> _ Node {%
 %}
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> %nodeName Id Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
+Node -> Scopes %nodeName Id Modifiers Slots Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
     const noChildrenBrace = /[ \t\r\n]+/.test(data[7][0].value);
     return {
       name: data[0].value,
       id: data[1],
-      scopes: data[2],
+      modifiers: data[2],
       slots: data[3],
       values: data[4],
       settings: data[5],
@@ -69,6 +69,16 @@ Id -> (%hash %word):? {%
   (data) => data[0] ? data[0][1].value : null 
 %}
 
+Scopes -> (%word %period):* {% 
+  (data) => {
+    const scopes = [];
+    for (let i = 0; i < data[0].length; i++) {
+      scopes.push(data[0][i][1].value);
+    }
+    return scopes
+  } 
+%}
+
 Slots -> (%colon %word):* {% 
   (data) => {
     const slots = [];
@@ -79,13 +89,13 @@ Slots -> (%colon %word):* {%
   } 
 %}
 
-Scopes -> (%period %word):* {% 
+Modifiers -> (%period %word):* {% 
   (data) => {
-    const scopes = [];
+    const modifiers = [];
     for (let i = 0; i < data[0].length; i++) {
-      scopes.push(data[0][i][1].value);
+      modifiers.push(data[0][i][1].value);
     }
-    return scopes
+    return modifiers
   } 
 %}
 

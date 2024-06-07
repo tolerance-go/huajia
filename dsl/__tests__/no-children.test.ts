@@ -32,8 +32,8 @@ describe("省略 children", () => {
     "offset": 6,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -78,8 +78,8 @@ describe("省略 children", () => {
           "offset": 31,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -107,8 +107,8 @@ describe("省略 children", () => {
     "offset": 36,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -153,8 +153,8 @@ describe("省略 children", () => {
           "offset": 40,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -184,8 +184,8 @@ describe("省略 children", () => {
     "offset": 45,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -232,8 +232,8 @@ describe("省略 children", () => {
           "offset": 64,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [
           [
             "@css",
@@ -266,8 +266,8 @@ describe("省略 children", () => {
     "offset": 69,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -316,8 +316,8 @@ describe("省略 children", () => {
           "offset": 109,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [
           [
             "@css",
@@ -356,8 +356,8 @@ describe("省略 children", () => {
     "offset": 114,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -406,8 +406,8 @@ describe("省略 children", () => {
           "offset": 127,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [
           [
             "@css",
@@ -450,8 +450,8 @@ describe("省略 children", () => {
     "offset": 132,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

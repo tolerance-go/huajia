@@ -22,8 +22,8 @@ describe("位置测试", () => {
     "offset": 4,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -57,8 +57,8 @@ describe("位置测试", () => {
     "offset": 4,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -92,8 +92,8 @@ describe("位置测试", () => {
     "offset": 4,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -137,8 +137,8 @@ describe("位置测试", () => {
     "offset": 6,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

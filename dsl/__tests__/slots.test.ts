@@ -34,8 +34,8 @@ describe("slots", () => {
           "offset": 23,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [
           "slotA",
@@ -63,8 +63,8 @@ describe("slots", () => {
     "offset": 25,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -110,8 +110,8 @@ describe("slots", () => {
           "offset": 29,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [
           "slotA",
@@ -140,8 +140,8 @@ describe("slots", () => {
     "offset": 31,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

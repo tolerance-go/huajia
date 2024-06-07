@@ -32,8 +32,8 @@ describe("id 测试", () => {
     "offset": 9,
   },
   "id": "id",
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -77,10 +77,10 @@ describe("id 测试", () => {
     "offset": 15,
   },
   "id": "id",
-  "name": "Root",
-  "scopes": [
+  "modifiers": [
     "scope",
   ],
+  "name": "Root",
   "settings": [],
   "slots": [],
   "start": {

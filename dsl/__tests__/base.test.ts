@@ -32,8 +32,8 @@ describe("基础测试", () => {
     "offset": 7,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -92,8 +92,8 @@ describe("基础测试", () => {
           "offset": 121,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [
           [
             "@config",
@@ -138,8 +138,8 @@ describe("基础测试", () => {
     "offset": 125,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -195,8 +195,8 @@ describe("基础测试", () => {
           "offset": 46,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -227,8 +227,8 @@ describe("基础测试", () => {
     "offset": 50,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -287,8 +287,8 @@ describe("基础测试", () => {
           "offset": 91,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [
           [
             "@config",
@@ -328,8 +328,8 @@ describe("基础测试", () => {
     "offset": 95,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -411,8 +411,8 @@ describe("基础测试", () => {
                       "offset": 60,
                     },
                     "id": null,
+                    "modifiers": [],
                     "name": "Element",
-                    "scopes": [],
                     "settings": [],
                     "slots": [],
                     "start": {
@@ -438,8 +438,8 @@ describe("基础测试", () => {
                 "offset": 71,
               },
               "id": null,
+              "modifiers": [],
               "name": "Element",
-              "scopes": [],
               "settings": [],
               "slots": [],
               "start": {
@@ -473,8 +473,8 @@ describe("基础测试", () => {
                 "offset": 90,
               },
               "id": null,
+              "modifiers": [],
               "name": "Element",
-              "scopes": [],
               "settings": [],
               "slots": [],
               "start": {
@@ -500,8 +500,8 @@ describe("基础测试", () => {
           "offset": 99,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [],
         "slots": [],
         "start": {
@@ -527,8 +527,8 @@ describe("基础测试", () => {
     "offset": 106,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -575,8 +575,8 @@ describe("基础测试", () => {
     "offset": 8,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -610,8 +610,8 @@ describe("基础测试", () => {
     "offset": 6,
   },
   "id": null,
+  "modifiers": [],
   "name": "Button",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -645,8 +645,8 @@ describe("基础测试", () => {
     "offset": 6,
   },
   "id": null,
+  "modifiers": [],
   "name": "Button",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

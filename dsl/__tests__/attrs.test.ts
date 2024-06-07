@@ -39,8 +39,8 @@ describe("attrs", () => {
           "offset": 148,
         },
         "id": null,
+        "modifiers": [],
         "name": "Element",
-        "scopes": [],
         "settings": [
           [
             "@config",
@@ -85,8 +85,8 @@ describe("attrs", () => {
     "offset": 150,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

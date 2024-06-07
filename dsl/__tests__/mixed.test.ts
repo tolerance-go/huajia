@@ -34,11 +34,11 @@ describe("混合测试", () => {
           "offset": 43,
         },
         "id": null,
-        "name": "Element",
-        "scopes": [
+        "modifiers": [
           "scopeA",
           "scopeB",
         ],
+        "name": "Element",
         "settings": [],
         "slots": [
           "slotA",
@@ -67,8 +67,8 @@ describe("混合测试", () => {
     "offset": 45,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {

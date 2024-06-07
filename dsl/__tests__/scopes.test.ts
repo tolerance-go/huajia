@@ -34,10 +34,10 @@ describe("scopes", () => {
           "offset": 24,
         },
         "id": null,
-        "name": "Element",
-        "scopes": [
+        "modifiers": [
           "scopeA",
         ],
+        "name": "Element",
         "settings": [],
         "slots": [],
         "start": {
@@ -63,8 +63,8 @@ describe("scopes", () => {
     "offset": 26,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -110,11 +110,11 @@ describe("scopes", () => {
           "offset": 31,
         },
         "id": null,
-        "name": "Element",
-        "scopes": [
+        "modifiers": [
           "scopeA",
           "scopeB",
         ],
+        "name": "Element",
         "settings": [],
         "slots": [],
         "start": {
@@ -140,8 +140,8 @@ describe("scopes", () => {
     "offset": 33,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -187,11 +187,11 @@ describe("scopes", () => {
           "offset": 49,
         },
         "id": null,
-        "name": "Element",
-        "scopes": [
+        "modifiers": [
           "scopeA",
           "scopeB",
         ],
+        "name": "Element",
         "settings": [],
         "slots": [],
         "start": {
@@ -221,8 +221,8 @@ describe("scopes", () => {
     "offset": 51,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
@@ -270,11 +270,11 @@ describe("scopes", () => {
           "offset": 61,
         },
         "id": null,
-        "name": "Element",
-        "scopes": [
+        "modifiers": [
           "scopeA",
           "scopeB",
         ],
+        "name": "Element",
         "settings": [
           [
             "@css",
@@ -307,8 +307,8 @@ describe("scopes", () => {
     "offset": 63,
   },
   "id": null,
+  "modifiers": [],
   "name": "Root",
-  "scopes": [],
   "settings": [],
   "slots": [],
   "start": {
