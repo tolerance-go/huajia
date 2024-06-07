@@ -30,13 +30,17 @@ export class HuajiaDSLFormatter {
     const indent = tabIndent.repeat(indentLevel);
     let formattedText = "";
 
+    formattedText += `${indent}${slotPrefix}`;
+
     if (node.scopes.length > 0) {
-      formattedText = `${node.scopes
-        .map((scope) => scope.scope)
-        .join(".")}.${formattedText}`;
+      formattedText += `${node.scopes.map((scope) => scope.scope).join(".")}.`;
     }
 
-    formattedText += `${indent}${slotPrefix}${node.name}`;
+    formattedText += node.name;
+
+    if (node.id) {
+      formattedText += `#${node.id}`;
+    }
 
     if (node.modifiers.length > 0) {
       formattedText += `.${node.modifiers.join(".")}`;
@@ -52,9 +56,9 @@ export class HuajiaDSLFormatter {
           .join(" ");
     }
     node.settings.forEach((setting) => {
-      if (Object.keys(setting[1]).length > 0) {
+      if (setting[1].length > 0) {
         formattedText += ` ${setting[0]} {\n`;
-        Object.entries(setting[1]).forEach(([key, value]) => {
+        setting[1].forEach(([key, value]) => {
           formattedText += `${indent}${tabIndent}${key}: ${this.formatValueItem(
             value
           )}\n`;

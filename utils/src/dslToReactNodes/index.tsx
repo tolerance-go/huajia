@@ -1,4 +1,4 @@
-import { Attrs, Node } from "@huajia/dsl";
+import { Attrs, Node, Value } from "@huajia/dsl";
 import React from "react";
 import { parseDSL } from "./parseDSL";
 
@@ -12,22 +12,30 @@ const nodeToReactElement = (
     throw new Error(`Component for ${node.name} not found in components.`);
   }
 
-  const settings = node.settings.reduce((acc, [key, value]) => {
-    acc[key.slice(1)] = value; // 移除 @ 符号
+  const settings = node.settings.reduce((acc, [key, attrs]) => {
+    // 移除 @ 符号
+    acc[key.slice(1)] = attrs.reduce((acc, [attrKey, value]) => {
+      return {
+        ...acc,
+        [attrKey]: value,
+      };
+    }, {});
     return acc;
-  }, {} as Record<string, Attrs>);
+  }, {} as Record<string, Record<string, Value>>);
 
-  const children = node.children.nodes.map(([scope, child], index) =>
-    nodeToReactElement(child, components)
-  );
+  const children = node.children.nodes.reduce((acc, [slot, child]) => {
+    if (!acc[slot]) {
+      acc[slot] = [];
+    }
+    acc[slot].push(nodeToReactElement(child, components));
+    return acc;
+  }, {} as Record<string, React.ReactNode[]>);
 
   const values = node.values.length > 0 ? node.values : undefined;
 
   return (
     <Component key={node.name} {...settings} values={values}>
-      {{
-        default: children.length ? children : undefined,
-      }}
+      {children}
     </Component>
   );
 };

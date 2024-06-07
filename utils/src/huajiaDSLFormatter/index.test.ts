@@ -60,7 +60,7 @@ describe("DSL Formatter Test Suite", () => {
 }\n`,
       ],
       [
-        "域",
+        "修饰符",
         `Root {
   Element.scopeA.scopeB
 }`,
@@ -69,12 +69,43 @@ describe("DSL Formatter Test Suite", () => {
 }\n`,
       ],
       [
-        "域和插槽",
+        "修饰符和插槽",
         `Root {
   slotA: Element.scopeA.scopeB
 }`,
         `Root {
   slotA: Element.scopeA.scopeB
+}\n`,
+      ],
+      [
+        "id",
+        `Root {
+  slotA: Element#id.scopeA.scopeB
+}`,
+        `Root {
+  slotA: Element#id.scopeA.scopeB
+}\n`,
+      ],
+      [
+        "域",
+        `Root {
+  scopeA.scopeB.Element
+}`,
+        `Root {
+  scopeA.scopeB.Element
+}\n`,
+      ],
+      [
+        "settings",
+        `Root {
+  slotA: Element#id.scopeA.scopeB @css {
+        color: 'red'
+  }
+}`,
+        `Root {
+  slotA: Element#id.scopeA.scopeB @css {
+    color: "red"
+  }
 }\n`,
       ],
     ];

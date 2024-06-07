@@ -50,16 +50,6 @@ monaco.languages.setMonarchTokensProvider("huajia", {
       [/[a-z][a-zA-Z]*:/, "key"],
       // 自定义
       [/@[a-zA-Z]+/, "setting"],
-      [/\./, { token: "delimiter", next: "@scope" }],
-      [/[:]/, { token: "delimiter", next: "@slot" }],
-    ],
-    slot: [
-      // 只匹配小写字母开头的单词，然后返回上一个状态
-      [/[a-z][a-zA-Z]*/, "slot", "@pop"],
-    ],
-    scope: [
-      // 只匹配小写字母开头的单词，然后返回上一个状态
-      [/[a-z][a-zA-Z]*/, "scope", "@pop"],
     ],
   },
 });
@@ -86,9 +76,7 @@ monaco.editor.defineTheme("custom-vs-dark", {
   base: "vs-dark",
   inherit: true,
   rules: [
-    { token: "setting", foreground: "FFA500" },
-    { token: "slot", foreground: "03A9F4" },
-    { token: "scope", foreground: "BA68C8" },
+   
   ],
   colors: {},
 });
@@ -118,8 +106,8 @@ const Editor = () => {
       const initialValue = `Flex @config {
   vertical: true
 } {
-  Button.scopeA:slotA 'label'
-  Button.scopeA:slotA 'label' @css {
+  default: antd.Button#btnA.scopeA 'label'
+  default: antd.Button#btnB.scopeA 'label' @css {
     string: 'string'
     boolean: true
     number: 100
