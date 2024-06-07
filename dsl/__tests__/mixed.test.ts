@@ -33,6 +33,7 @@ describe("混合测试", () => {
           "lineBreaks": 1,
           "offset": 43,
         },
+        "id": null,
         "name": "Element",
         "scopes": [
           "scopeA",
@@ -65,6 +66,7 @@ describe("混合测试", () => {
     "lineBreaks": 0,
     "offset": 45,
   },
+  "id": null,
   "name": "Root",
   "scopes": [],
   "settings": [],

@@ -38,6 +38,7 @@ describe("attrs", () => {
           "lineBreaks": 1,
           "offset": 148,
         },
+        "id": null,
         "name": "Element",
         "scopes": [],
         "settings": [
@@ -83,6 +84,7 @@ describe("attrs", () => {
     "lineBreaks": 0,
     "offset": 150,
   },
+  "id": null,
   "name": "Root",
   "scopes": [],
   "settings": [],

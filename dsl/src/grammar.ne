@@ -14,6 +14,7 @@ const lexer = moo.compile({
   colon: ':', // 匹配冒号
   period: '.', // 匹配点号
   comma: ',', // 匹配逗号
+  hash: '#', // 匹配井号
   settingName: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
   comment: /\/\/.*?$/, // 匹配单行注释
   word: /[a-z][a-zA-Z]*/, // 匹配以小写字母开头的单词
@@ -41,26 +42,31 @@ Root -> _ Node {%
 %}
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> %nodeName Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
+Node -> %nodeName Id Scopes Slots Values Settings _ (Children | %whitespace) _ {% 
   (data) => {
-    const noChildrenBrace = /[ \t\r\n]+/.test(data[6][0].value);
+    const noChildrenBrace = /[ \t\r\n]+/.test(data[7][0].value);
     return {
       name: data[0].value,
-      scopes: data[1],
-      slots: data[2],
-      values: data[3],
-      settings: data[4],
+      id: data[1],
+      scopes: data[2],
+      slots: data[3],
+      values: data[4],
+      settings: data[5],
       // 没有子节点花括号的时候，children 开始和结束位置都是空
       children: noChildrenBrace ? {
         start: null,
         end: null,
         nodes: []
-      } : data[6][0],
+      } : data[7][0],
       start: withLocation(data[0]),
       // 如果没有子节点花括号，Node 的结尾就是空白符，否则用 children 的结束数据
-      end: noChildrenBrace ? withLocation(data[6][0]) : data[6][0].end
+      end: noChildrenBrace ? withLocation(data[7][0]) : data[7][0].end
     };
   } 
+%}
+
+Id -> (%hash %word):? {% 
+  (data) => data[0] ? data[0][1].value : null 
 %}
 
 Slots -> (%colon %word):* {% 

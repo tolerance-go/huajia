@@ -33,6 +33,7 @@ describe("scopes", () => {
           "lineBreaks": 1,
           "offset": 24,
         },
+        "id": null,
         "name": "Element",
         "scopes": [
           "scopeA",
@@ -61,6 +62,7 @@ describe("scopes", () => {
     "lineBreaks": 0,
     "offset": 26,
   },
+  "id": null,
   "name": "Root",
   "scopes": [],
   "settings": [],
@@ -107,6 +109,7 @@ describe("scopes", () => {
           "lineBreaks": 1,
           "offset": 31,
         },
+        "id": null,
         "name": "Element",
         "scopes": [
           "scopeA",
@@ -136,6 +139,7 @@ describe("scopes", () => {
     "lineBreaks": 0,
     "offset": 33,
   },
+  "id": null,
   "name": "Root",
   "scopes": [],
   "settings": [],
@@ -182,6 +186,7 @@ describe("scopes", () => {
           "lineBreaks": 1,
           "offset": 49,
         },
+        "id": null,
         "name": "Element",
         "scopes": [
           "scopeA",
@@ -215,6 +220,7 @@ describe("scopes", () => {
     "lineBreaks": 0,
     "offset": 51,
   },
+  "id": null,
   "name": "Root",
   "scopes": [],
   "settings": [],
@@ -263,6 +269,7 @@ describe("scopes", () => {
           "lineBreaks": 1,
           "offset": 61,
         },
+        "id": null,
         "name": "Element",
         "scopes": [
           "scopeA",
@@ -299,6 +306,7 @@ describe("scopes", () => {
     "lineBreaks": 0,
     "offset": 63,
   },
+  "id": null,
   "name": "Root",
   "scopes": [],
   "settings": [],
