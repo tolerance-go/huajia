@@ -45,7 +45,7 @@ class HuajiaCompletionProvider {
         if (isCursorInChildrenBrackets(node)) {
           if (
             !node.children.nodes.some(
-              (child) =>
+              ([, child]) =>
                 model.getOffsetAt(position) > child.start.offset &&
                 model.getOffsetAt(position) < child.end.offset
             )
@@ -60,7 +60,7 @@ class HuajiaCompletionProvider {
             });
           }
         }
-        traverseNodes(node.children.nodes);
+        traverseNodes(node.children.nodes.map(([, node]) => node));
       }
     };
 
