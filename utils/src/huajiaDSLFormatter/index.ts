@@ -58,10 +58,10 @@ export class HuajiaDSLFormatter {
     node.settings.forEach((setting) => {
       if (setting[1].length > 0) {
         formattedText += ` ${setting[0]} {\n`;
-        setting[1].forEach(([key, value]) => {
-          formattedText += `${indent}${tabIndent}${key}: ${this.formatValueItem(
-            value
-          )}\n`;
+        setting[1].forEach(([key, attrModifiers, value]) => {
+          formattedText += `${indent}${tabIndent}${key}${
+            attrModifiers.length ? `.${attrModifiers.join(".")}` : ""
+          }: ${this.formatValueItem(value)}\n`;
         });
         formattedText += `${indent}}`;
       } else {

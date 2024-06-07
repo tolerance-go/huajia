@@ -249,6 +249,7 @@ describe("省略 children", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],
@@ -339,6 +340,7 @@ describe("省略 children", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],
@@ -348,6 +350,7 @@ describe("省略 children", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],
@@ -438,6 +441,7 @@ describe("省略 children", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],
@@ -447,6 +451,7 @@ describe("省略 children", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],

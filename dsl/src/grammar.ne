@@ -136,8 +136,18 @@ SettingName -> %settingName {% (data) => data[0].value %}
 
 Attrs -> %lbrace _ Attr:* %rbrace {% (data) => data[2] %}
 
-Attr -> %word _ %colon _ Value _ {% 
-  (data) => [data[0].value, data[4][0]]
+Attr -> %word AttrModifiers _ %colon _ Value _ {% 
+  (data) => [data[0].value, data[1], data[5][0]]
+%}
+
+AttrModifiers -> (%period %word):* {% 
+  (data) => {
+    const modifiers = [];
+    for (let i = 0; i < data[0].length; i++) {
+      modifiers.push(data[0][i][1].value);
+    }
+    return modifiers
+  } 
 %}
 
 # 这里有个 bug，如果直接在 Value 序列化，Values 中的 Value 只处理了最后一个项

@@ -47,12 +47,11 @@ monaco.languages.setMonarchTokensProvider("huajia", {
       [/\]/, "delimiter.bracket"],
       [/\/\/.*$/, "comment"],
       [/[A-Z][a-zA-Z]*/, "type.identifier"],
-      [/[a-z][a-zA-Z]*:/, "key"],
+      [/[a-z][a-zA-Z]*/, "key"],
       // 自定义
-      [/@[a-zA-Z]+/, "setting"],
+      [/@[a-zA-Z]*/, "setting"],
+      [/#[a-zA-Z]*/, "identifier"],
       [/(\.)([a-z][a-zA-Z]*)/, ["delimiter", "modifier"]],
-      [/([a-z][a-zA-Z]*)(\.)/, ["scope", "delimiter"]],
-      [/#[a-zA-Z]+/, "identifier"],
     ],
   },
 });
@@ -82,7 +81,6 @@ monaco.editor.defineTheme("custom-vs-dark", {
     { token: "setting", foreground: "FFA500" },
     { token: "identifier", foreground: "B694F9" }, // 浅紫色
     { token: "modifier", foreground: "5FCBFE" }, // 浅蓝色
-    { token: "scope", foreground: "3dc9b0" }, // 浅绿色
   ],
   colors: {},
 });
@@ -114,7 +112,7 @@ const Editor = () => {
 } {
   default: antd.Button#btnA.scopeA 'label'
   default: antd.Button#btnB.scopeA 'label' @css {
-    string: 'string'
+    string.modifierA.modifierB: 'string'
     boolean: true
     number: 100
   }

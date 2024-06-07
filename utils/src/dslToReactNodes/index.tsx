@@ -14,7 +14,7 @@ const nodeToReactElement = (
 
   const settings = node.settings.reduce((acc, [key, attrs]) => {
     // 移除 @ 符号
-    acc[key.slice(1)] = attrs.reduce((acc, [attrKey, value]) => {
+    acc[key.slice(1)] = attrs.reduce((acc, [attrKey, attrModifiers, value]) => {
       return {
         ...acc,
         [attrKey]: value,

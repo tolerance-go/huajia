@@ -391,6 +391,7 @@ describe("scopes", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],

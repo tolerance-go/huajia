@@ -293,6 +293,7 @@ describe("modifiers", () => {
               [
                 [
                   "color",
+                  [],
                   "red",
                 ],
               ],
