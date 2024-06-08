@@ -144,10 +144,10 @@ Attrs -> %lbrace _ Attr:* %rbrace {% (data) => {
 Attr -> %word AttrModifiers _ %colon _ (Value | Attrs) _ {% 
   (data) => {
     return [
-      data[0].value, 
-      data[1], 
+      data[0].value,
+      data[1],
       typeof data[5][0] === 'object' && data[5][0].type === 'Attrs' 
-        ? data[5][0].attrs 
+        ? data[5][0].attrs
           : data[5][0][0]
     ]
   }
