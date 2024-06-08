@@ -46,12 +46,12 @@ monaco.languages.setMonarchTokensProvider("huajia", {
       [/\[/, "delimiter.bracket"],
       [/\]/, "delimiter.bracket"],
       [/\/\/.*$/, "comment"],
-      [/[A-Z][a-zA-Z]*/, "type.identifier"],
-      [/[a-z][a-zA-Z]*/, "key"],
+      [/[A-Z][a-zA-Z0-9_]*/, "type.identifier"],
+      [/[a-z][a-zA-Z0-9_]*/, "key"],
       // 自定义
-      [/@[a-zA-Z]*/, "setting"],
-      [/#[a-zA-Z]*/, "identifier"],
-      [/(\.)([a-z][a-zA-Z]*)/, ["delimiter", "modifier"]],
+      [/@[a-zA-Z0-9_]*/, "setting"],
+      [/#[a-zA-Z0-9_]*/, "identifier"],
+      [/(\.)([a-z][a-zA-Z0-9_]*)/, ["delimiter", "modifier"]],
     ],
   },
 });

@@ -245,7 +245,7 @@ describe("省略 children", () => {
           "scopes": [],
           "settings": [
             [
-              "@css",
+              "css",
               [
                 [
                   "color",
@@ -336,7 +336,7 @@ describe("省略 children", () => {
           "scopes": [],
           "settings": [
             [
-              "@css",
+              "css",
               [
                 [
                   "color",
@@ -346,7 +346,7 @@ describe("省略 children", () => {
               ],
             ],
             [
-              "@config",
+              "config",
               [
                 [
                   "color",
@@ -437,7 +437,7 @@ describe("省略 children", () => {
           "scopes": [],
           "settings": [
             [
-              "@css",
+              "css",
               [
                 [
                   "color",
@@ -447,7 +447,7 @@ describe("省略 children", () => {
               ],
             ],
             [
-              "@config",
+              "config",
               [
                 [
                   "color",

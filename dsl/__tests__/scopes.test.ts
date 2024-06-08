@@ -387,7 +387,7 @@ describe("scopes", () => {
           ],
           "settings": [
             [
-              "@css",
+              "css",
               [
                 [
                   "color",

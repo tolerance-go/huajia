@@ -46,7 +46,7 @@ describe("attrs", () => {
           "scopes": [],
           "settings": [
             [
-              "@config",
+              "config",
               [
                 [
                   "vertical",
@@ -163,7 +163,7 @@ describe("attrs", () => {
           "scopes": [],
           "settings": [
             [
-              "@config",
+              "config",
               [
                 [
                   "vertical",
@@ -304,7 +304,7 @@ describe("attrs", () => {
           "scopes": [],
           "settings": [
             [
-              "@config",
+              "config",
               [
                 [
                   "vertical",

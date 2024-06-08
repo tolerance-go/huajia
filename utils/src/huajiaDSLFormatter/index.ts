@@ -57,7 +57,7 @@ export class HuajiaDSLFormatter {
     }
     node.settings.forEach((setting) => {
       if (setting[1].length > 0) {
-        formattedText += ` ${setting[0]} {\n`;
+        formattedText += ` @${setting[0]} {\n`;
         setting[1].forEach(([key, attrModifiers, value]) => {
           formattedText += `${indent}${tabIndent}${key}${
             attrModifiers.length ? `.${attrModifiers.join(".")}` : ""
@@ -65,7 +65,7 @@ export class HuajiaDSLFormatter {
         });
         formattedText += `${indent}}`;
       } else {
-        formattedText += ` ${setting[0]} {}`;
+        formattedText += ` @${setting[0]} {}`;
       }
     });
     if (node.children.nodes.length > 0) {

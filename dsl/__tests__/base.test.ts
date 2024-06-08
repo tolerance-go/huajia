@@ -99,7 +99,7 @@ describe("基础测试", () => {
           "scopes": [],
           "settings": [
             [
-              "@config",
+              "config",
               [
                 [
                   "attr",
@@ -114,7 +114,7 @@ describe("基础测试", () => {
               ],
             ],
             [
-              "@css",
+              "css",
               [
                 [
                   "color",
@@ -312,7 +312,7 @@ describe("基础测试", () => {
           "scopes": [],
           "settings": [
             [
-              "@config",
+              "config",
               [
                 [
                   "attr",
@@ -327,7 +327,7 @@ describe("基础测试", () => {
               ],
             ],
             [
-              "@css",
+              "css",
               [
                 [
                   "color",

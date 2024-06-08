@@ -15,10 +15,10 @@ const lexer = moo.compile({
   period: '.', // 匹配点号
   comma: ',', // 匹配逗号
   hash: '#', // 匹配井号
-  settingName: /@[a-zA-Z]+/, // 匹配 @ 开头的英文词
+  at: '@',
   comment: /\/\/.*?$/, // 匹配单行注释
-  word: /[a-z][a-zA-Z]*/, // 匹配以小写字母开头的单词
-  nodeName: /[A-Z][a-zA-Z]*/, // 匹配以大写字母开头的单词
+  identifier: /[a-z][a-zA-Z0-9_]*/, // 匹配以小写字母开头的单词
+  typeId: /[A-Z][a-zA-Z0-9_]*/, // 匹配以大写字母开头的单词
 });
 %}
 
@@ -42,7 +42,7 @@ Root -> _ Node _ {%
 %}
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> Scopes %nodeName Id Modifiers Values Settings _ (Children | %whitespace) {% 
+Node -> Scopes %typeId Id Modifiers Values Settings _ (Children | %whitespace) {% 
   (data) => {
     const noChildrenBrace = /[ \t\r\n]+/.test(data[7][0].value);
     return {
@@ -65,7 +65,7 @@ Node -> Scopes %nodeName Id Modifiers Values Settings _ (Children | %whitespace)
   } 
 %}
 
-Id -> (%hash %word):? {% 
+Id -> (%hash %identifier):? {% 
   (data) => data[0] ? data[0][1].value : null 
 %}
 
@@ -75,7 +75,7 @@ Scopes -> Scope:* {%
   } 
 %}
 
-Scope -> %word %period {% 
+Scope -> %identifier %period {% 
   (data) => {
     return {
       scope: data[0].value,
@@ -85,7 +85,7 @@ Scope -> %word %period {%
   } 
 %}
 
-Modifiers -> (%period %word):* {% 
+Modifiers -> (%period %identifier):* {% 
   (data) => {
     const modifiers = [];
     for (let i = 0; i < data[0].length; i++) {
@@ -105,7 +105,7 @@ Children -> %lbrace _ NodeAttr:* %rbrace {%
   } 
 %}
 
-NodeAttr -> (%word _ %colon _):? Node _ {% 
+NodeAttr -> (%identifier _ %colon _):? Node _ {% 
   (data) => [data[0] ? data[0][0].value : 'default', data[1]]
 %}
 
@@ -132,7 +132,7 @@ Settings -> (_ SettingName _ Attrs):* {%
   } 
 %}
 
-SettingName -> %settingName {% (data) => data[0].value %}
+SettingName -> %at %identifier {% (data) => data[1].value %}
 
 Attrs -> %lbrace _ Attr:* %rbrace {% (data) => {
   return {
@@ -141,7 +141,7 @@ Attrs -> %lbrace _ Attr:* %rbrace {% (data) => {
   }
 } %}
 
-Attr -> %word AttrModifiers _ %colon _ (Value | Attrs) _ {% 
+Attr -> %identifier AttrModifiers _ %colon _ (Value | Attrs) _ {% 
   (data) => {
     return [
       data[0].value,
@@ -153,7 +153,7 @@ Attr -> %word AttrModifiers _ %colon _ (Value | Attrs) _ {%
   }
 %}
 
-AttrModifiers -> (%period %word):* {% 
+AttrModifiers -> (%period %identifier):* {% 
   (data) => {
     const modifiers = [];
     for (let i = 0; i < data[0].length; i++) {
@@ -167,10 +167,6 @@ AttrModifiers -> (%period %word):* {%
 # 修改后的 Value 支持递归数组
 Value -> ArrayValue | String | Number | Boolean
 
-String -> %string {% (data) => data[0].value.slice(1, -1) %}  # 去掉引号
-Number -> %number {% (data) => parseFloat(data[0].value) %}   # 转换为数字
-Boolean -> %boolean {% (data) => data[0].value === "true" %}  # 转换为布尔值
-
 ArrayValue -> %lbrack _ (Value (_ %comma _ Value):*):? _ %rbrack {% 
   (data) => {
     const values = [];
@@ -183,6 +179,10 @@ ArrayValue -> %lbrack _ (Value (_ %comma _ Value):*):? _ %rbrack {%
     return values;
   }
 %}
+
+String -> %string {% (data) => data[0].value.slice(1, -1) %}  # 去掉引号
+Number -> %number {% (data) => parseFloat(data[0].value) %}   # 转换为数字
+Boolean -> %boolean {% (data) => data[0].value === "true" %}  # 转换为布尔值
 
 # 注意：这里是 0 次和多次，whitespace 自身的正则是 1 次和多次，所以是有正确的设置
 _ -> %whitespace:* {% 

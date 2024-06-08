@@ -289,7 +289,7 @@ describe("modifiers", () => {
           "scopes": [],
           "settings": [
             [
-              "@css",
+              "css",
               [
                 [
                   "color",

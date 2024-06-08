@@ -35,8 +35,7 @@ const nodeToReactElement = (
   }
 
   const settings = node.settings.reduce((acc, [key, attrs]) => {
-    // 移除 @ 符号
-    acc[key.slice(1)] = attrsToObject(attrs);
+    acc[key] = attrsToObject(attrs);
     return acc;
   }, {} as RecordValue);
 
