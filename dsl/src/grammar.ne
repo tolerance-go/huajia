@@ -177,7 +177,20 @@ AttrModifiers -> (%period %identifier):* {%
 # ==================== 逻辑表达式开始 ====================
 
 # 分支语句 ::= IF 条件 THEN 结果 ELSE 结果
-BranchStatement -> "IF" _ ValueCondition _ "THEN" _ Result _ "ELSE" _ Result
+BranchStatement -> "IF" _ ValueCondition _ "THEN" _ Result _ "ELSE" _ Result {%
+  (data) => {
+    return {
+      "type": "BranchStatement",
+      "condition": data[2],
+      "then": {
+        // 这里是 Result 结构
+      },
+      "else": {
+        // 这里是 Result 结构
+      }
+    }
+  }
+%}
 
 # 结果
 Result -> FunctionExpression
@@ -189,10 +202,28 @@ ValueCondition -> ComparisonExpression
            | LogicalExpression
            | FunctionExpression
            | StateExpression
-           | ValueExpression
+           | ValueExpression {%
+  (data) => {
+    return {
+      "type": "ValueCondition",
+      "value": data[0]
+    }
+  }
+%}
 
 # 比较表达式 ::= 变量 比较操作符 值
-ComparisonExpression -> ValueCondition _ CompareOp _ ValueCondition
+ComparisonExpression -> ValueCondition _ CompareOp _ ValueCondition {%
+  (data) => {
+    return {
+      "type": "ComparisonExpression",
+      // 左侧条件
+      "left": data[0],
+      "operator": data[2][0].value, // 或其他比较操作符
+      // 右侧条件
+      "right": data[4]
+    }
+  }
+%}
 
 # 逻辑表达式 ::= 条件 逻辑操作符 条件 | NOT 条件 | ( 条件 )
 LogicalExpression -> ValueCondition _ LogicalOp _ ValueCondition
@@ -203,12 +234,27 @@ LogicalExpression -> ValueCondition _ LogicalOp _ ValueCondition
 FunctionExpression -> FunctionName "(" _ Parameters:? _ ")"
 
 # 变量 ::= 字符串
-StateExpression -> SelectorPath
+StateExpression -> SelectorPath {%
+  (data) => {
+    return {
+      type: 'StateExpression',
+      value: data[0]
+    }
+  }
+%}
 
 # 值表达式
-ValueExpression -> Value
+ValueExpression -> Value {%
+  (data) => {
+    return {
+      "type": "ValueExpression",
+      "value": data[0][0]
+    }
+  }
+%}
 
 # 比较操作符
+# 发现一个 bug，在这里设置 {% %} 不起作用，要去 ComparisonExpression 里面使用
 CompareOp -> "=="
            | "!="
            | ">"
@@ -229,11 +275,27 @@ Parameters -> Parameter ("," _ Parameter):*
 # 函数参数
 Parameter -> ValueCondition
 
-SelectorPath -> (Id Selectors "."):? %identifier
+SelectorPath -> (Id Selectors "."):? %identifier {%
+  (data) => {
+    return {
+      id: data[0] ? data[0][0] : null,
+      selectors: data[0] ? data[0][1] : [],
+      name: data[1].value
+    }
+  }
+%}
 
-Selectors -> Selector:*
+Selectors -> Selector:* {%
+  (data) => {
+    return data[0]
+  }
+%}
 
-Selector -> "." %identifier
+Selector -> "." %identifier {%
+  (data) => {
+    return data[1]
+  }
+%}
 
 # ==================== 逻辑表达式结束 ====================
 

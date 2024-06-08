@@ -84,4 +84,156 @@ describe("表达式", () => {
     }`;
     expect(() => parser.feed(input)).not.toThrow();
   });
+
+  it("分支语句格式化", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root @interaction {
+      click: IF true THEN a() ELSE b()
+    } {}`;
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": {
+    "end": {
+      "col": 8,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 66,
+    },
+    "nodes": [],
+    "start": {
+      "col": 7,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 65,
+    },
+  },
+  "end": {
+    "col": 8,
+    "line": 3,
+    "lineBreaks": 0,
+    "offset": 66,
+  },
+  "id": null,
+  "modifiers": [],
+  "name": "Root",
+  "scopes": [],
+  "settings": [
+    [
+      "interaction",
+      [
+        [
+          "click",
+          [],
+          {
+            "condition": {
+              "type": "ValueCondition",
+              "value": {
+                "type": "ValueExpression",
+                "value": true,
+              },
+            },
+            "else": {},
+            "then": {},
+            "type": "BranchStatement",
+          },
+        ],
+      ],
+    ],
+  ],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
+  "values": [],
+}
+`);
+  });
+
+  it("比较表达式格式化", () => {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+    const input = `Root @interaction {
+      click: IF num == 100 THEN a() ELSE b()
+    } {}`;
+    parser.feed(input);
+    expect(parser.results[0]).toMatchInlineSnapshot(`
+{
+  "children": {
+    "end": {
+      "col": 8,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 72,
+    },
+    "nodes": [],
+    "start": {
+      "col": 7,
+      "line": 3,
+      "lineBreaks": 0,
+      "offset": 71,
+    },
+  },
+  "end": {
+    "col": 8,
+    "line": 3,
+    "lineBreaks": 0,
+    "offset": 72,
+  },
+  "id": null,
+  "modifiers": [],
+  "name": "Root",
+  "scopes": [],
+  "settings": [
+    [
+      "interaction",
+      [
+        [
+          "click",
+          [],
+          {
+            "condition": [
+              {
+                "left": [
+                  {
+                    "type": "StateExpression",
+                    "value": {
+                      "id": null,
+                      "name": "num",
+                      "selectors": [],
+                    },
+                  },
+                ],
+                "operator": "==",
+                "right": {
+                  "type": "ValueCondition",
+                  "value": {
+                    "type": "ValueExpression",
+                    "value": 100,
+                  },
+                },
+                "type": "ComparisonExpression",
+              },
+            ],
+            "else": {},
+            "then": {},
+            "type": "BranchStatement",
+          },
+        ],
+      ],
+    ],
+  ],
+  "start": {
+    "col": 1,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 0,
+  },
+  "values": [],
+}
+`);
+  });
 });

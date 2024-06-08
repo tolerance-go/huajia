@@ -120,6 +120,8 @@ const Editor = () => {
       boolean: true
       number: 100
     }
+  } @interaction {
+    click: IF age > 18 AND hasID() THEN canEnter() ELSE cannotEnter()
   }
 }
 `;
