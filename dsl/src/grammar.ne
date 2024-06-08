@@ -177,26 +177,27 @@ AttrModifiers -> (%period %identifier):* {%
 # ==================== 逻辑表达式开始 ====================
 
 # 分支语句 ::= IF 条件 THEN 结果 ELSE 结果
-BranchStatement -> "IF" _ Condition _ "THEN" _ Result _ "ELSE" _ Result
+BranchStatement -> "IF" _ ValueCondition _ "THEN" _ Result _ "ELSE" _ Result
 
 # 结果
 Result -> FunctionExpression
         | BranchStatement
 
 # 条件 ::= 比较表达式 | 逻辑表达式 | 函数表达式
-Condition -> ComparisonExpression
+# 表达式用来计算或者表示值
+ValueCondition -> ComparisonExpression
            | LogicalExpression
            | FunctionExpression
            | StateExpression
            | ValueExpression
 
 # 比较表达式 ::= 变量 比较操作符 值
-ComparisonExpression -> Condition _ CompareOp _ Condition
+ComparisonExpression -> ValueCondition _ CompareOp _ ValueCondition
 
 # 逻辑表达式 ::= 条件 逻辑操作符 条件 | NOT 条件 | ( 条件 )
-LogicalExpression -> Condition _ LogicalOp _ Condition
-                   | "NOT" _ Condition
-                   | "(" _ Condition _ ")"
+LogicalExpression -> ValueCondition _ LogicalOp _ ValueCondition
+                   | "NOT" _ ValueCondition
+                   | "(" _ ValueCondition _ ")"
 
 # 函数表达式 ::= 函数名(参数)
 FunctionExpression -> FunctionName "(" _ Parameters:? _ ")"
@@ -226,7 +227,7 @@ FunctionName -> SelectorPath
 Parameters -> Parameter ("," _ Parameter):*
 
 # 函数参数
-Parameter -> Condition
+Parameter -> ValueCondition
 
 SelectorPath -> (Id Selectors "."):? %identifier
 
