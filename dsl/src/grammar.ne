@@ -19,6 +19,21 @@ const lexer = moo.compile({
   comment: /\/\/.*?$/, // 匹配单行注释
   identifier: /[a-z][a-zA-Z0-9_]*/, // 匹配以小写字母开头的单词
   typeId: /[A-Z][a-zA-Z0-9_]*/, // 匹配以大写字母开头的单词
+  // 逻辑表达式
+  if: 'IF',
+  then: 'THEN',
+  else: 'ELSE',
+  not: 'NOT',
+  and: 'AND',
+  or: 'OR',
+  lparen: '(',
+  rparen: ')',
+  equals: '==',
+  notequals: '!=',
+  gt: '>',
+  lt: '<',
+  gte: '>=',
+  lte: '<=',
 });
 %}
 
@@ -42,7 +57,7 @@ Root -> _ Node _ {%
 %}
 
 # 使用 (Children | %whitespace) 代替 :? 设置递归结束条件，减少匹配数量
-Node -> Scopes %typeId Id Modifiers Values Settings _ (Children | %whitespace) {% 
+Node -> Scopes %typeId Id:? Modifiers Values Settings _ (Children | %whitespace) {% 
   (data) => {
     const noChildrenBrace = /[ \t\r\n]+/.test(data[7][0].value);
     return {
@@ -63,10 +78,6 @@ Node -> Scopes %typeId Id Modifiers Values Settings _ (Children | %whitespace) {
       end: noChildrenBrace ? withLocation(data[7][0]) : data[7][0].end
     };
   } 
-%}
-
-Id -> (%hash %identifier):? {% 
-  (data) => data[0] ? data[0][1].value : null 
 %}
 
 Scopes -> Scope:* {% 
@@ -141,7 +152,7 @@ Attrs -> %lbrace _ Attr:* %rbrace {% (data) => {
   }
 } %}
 
-Attr -> %identifier AttrModifiers _ %colon _ (Value | Attrs) _ {% 
+Attr -> %identifier AttrModifiers _ %colon _ (Value | Attrs | Result) _ {% 
   (data) => {
     return [
       data[0].value,
@@ -162,6 +173,70 @@ AttrModifiers -> (%period %identifier):* {%
     return modifiers
   } 
 %}
+
+# ==================== 逻辑表达式开始 ====================
+
+# 分支语句 ::= IF 条件 THEN 结果 ELSE 结果
+BranchStatement -> "IF" _ Condition _ "THEN" _ Result _ "ELSE" _ Result
+
+# 结果
+Result -> FunctionExpression
+        | BranchStatement
+
+# 条件 ::= 比较表达式 | 逻辑表达式 | 函数表达式
+Condition -> ComparisonExpression
+           | LogicalExpression
+           | FunctionExpression
+           | StateExpression
+           | ValueExpression
+
+# 比较表达式 ::= 变量 比较操作符 值
+ComparisonExpression -> Condition _ CompareOp _ Condition
+
+# 逻辑表达式 ::= 条件 逻辑操作符 条件 | NOT 条件 | ( 条件 )
+LogicalExpression -> Condition _ LogicalOp _ Condition
+                   | "NOT" _ Condition
+                   | "(" _ Condition _ ")"
+
+# 函数表达式 ::= 函数名(参数)
+FunctionExpression -> FunctionName "(" _ Parameters:? _ ")"
+
+# 变量 ::= 字符串
+StateExpression -> SelectorPath
+
+# 值表达式
+ValueExpression -> Value
+
+# 比较操作符
+CompareOp -> "=="
+           | "!="
+           | ">"
+           | "<"
+           | ">="
+           | "<="
+
+# 逻辑操作符
+LogicalOp -> "AND"
+           | "OR"
+
+# 函数名称
+FunctionName -> SelectorPath
+
+# 函数参数列表
+Parameters -> Parameter ("," _ Parameter):*
+
+# 函数参数
+Parameter -> Condition
+
+SelectorPath -> (Id Selectors "."):? %identifier
+
+Selectors -> Selector:*
+
+Selector -> "." %identifier
+
+# ==================== 逻辑表达式结束 ====================
+
+# ==================== 公共部分开始 ====================
 
 # 这里有个 bug，如果直接在 Value 序列化，Values 中的 Value 只处理了最后一个项
 # 修改后的 Value 支持递归数组
@@ -184,7 +259,14 @@ String -> %string {% (data) => data[0].value.slice(1, -1) %}  # 去掉引号
 Number -> %number {% (data) => parseFloat(data[0].value) %}   # 转换为数字
 Boolean -> %boolean {% (data) => data[0].value === "true" %}  # 转换为布尔值
 
+Id -> %hash %identifier {% 
+  (data) => data[1].value
+%}
+
 # 注意：这里是 0 次和多次，whitespace 自身的正则是 1 次和多次，所以是有正确的设置
+# 匹配空白字符或换行符
 _ -> %whitespace:* {% 
   () => null 
-%} # 匹配空白字符或换行符
+%}
+
+# ==================== 公共部分结束 ====================
