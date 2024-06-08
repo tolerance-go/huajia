@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: 画家
-  text: 一个后端开发者友好的前端框架
-  tagline: 让可用页面的构建使用变得无比轻松
+  text: 一个面向后端开发者的前端框架
+  tagline: 轻松拿捏实用页面的构建，使用和维护。
   actions:
     - theme: brand
       text: 什么是画家？
